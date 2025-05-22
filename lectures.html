@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,69 +7,39 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body class="лекции">
     <header class="header">
         <div class="rectangle-1 header-container">
-            <div class="проклип-2"> <a href="index.html"> <img src="assets/logo.svg" alt="Logo" class="vector"> </a>
+            <div class="проклип-2">
+                <a href="index.html"><img src="assets/logo.svg" alt="Logo" class="vector"></a>
             </div>
-            <nav class="buttoms"> <a href="clips.html">клипы</a> <a href="concerts.html">концерты</a> <a
-                    href="lectures.html">лекции</a> <a href="about.html">о проекте</a> <a href="about-author.html">об авторе</a>
+            <nav class="buttoms">
+                <a href="clips.html">клипы</a>
+                <a href="concerts.html">концерты</a>
+                <a href="lectures.html">лекции</a>
+                <a href="about.html">о проекте</a>
+                <a href="about-author.html">об авторе</a>
             </nav>
         </div>
     </header>
+
     <main>
         <section class="текст(лекции)">
-            <h1 class="лекции">Лекции</h1>
+            <h1 class="лекции">ЛЕКЦИИ</h1>
             <p class="с-proклип">с PROКЛИП</p>
         </section>
 
-        <!-- Блок с карточками -->
-        <section class="lecture-cards">
-            <div class="lecture-card">
-                <div class="lecture-image" style="background-image: url('assets/lecture1.jpg');"></div>
-                <div class="lecture-info">
-                    <div class="lecture-glass">
-                        <h2 class="lecture-title">Как правильно снимать</h2>
-                        <p class="lecture-description">Узнайте основы профессиональной съемки от ведущих операторов
-                            страны. Практические советы и разбор ошибок.</p>
-                        <p class="lecture-date">15 июня 2025, 19:00</p>
-                    </div>
-                    <button class="register-button">Зарегистрироваться</button>
-                </div>
-            </div>
-
-            <div class="lecture-card">
-                <div class="lecture-image" style="background-image: url('assets/lecture2.jpg');"></div>
-                <div class="lecture-info">
-                    <div class="lecture-glass">
-                        <h2 class="lecture-title">Откуда взять вдохновение</h2>
-                        <p class="lecture-description">Методы поиска творческих идей и преодоления творческого кризиса.
-                            Опыт успешных режиссеров.</p>
-                        <p class="lecture-date">22 июня 2025, 18:30</p>
-                    </div>
-                    <button class="register-button">Зарегистрироваться</button>
-                </div>
-            </div>
-
-            <div class="lecture-card">
-                <div class="lecture-image" style="background-image: url('assets/lecture3.jpg');"></div>
-                <div class="lecture-info">
-                    <div class="lecture-glass">
-                        <h2 class="lecture-title">Как рождаются идеи</h2>
-                        <p class="lecture-description">Процесс создания концепции для клипов. От первых набросков до
-                            готового сценария.</p>
-                        <p class="lecture-date">29 июня 2025, 20:00</p>
-                    </div>
-                    <button class="register-button">Зарегистрироваться</button>
-                </div>
-            </div>
+        <section class="lecture-cards" id="cards-container">
+            <!-- Карточки будут загружаться через JS -->
         </section>
 
-        <div class="show-more-container-lec">
-            <button class="show-more-lec">Показать еще</button>
+        <div class="pagination">
+            <button id="prev-btn" disabled>← Назад</button>
+            <span id="page-info">Страница 1 из 1</span>
+            <button id="next-btn">Далее →</button>
         </div>
     </main>
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-left">
@@ -80,12 +49,10 @@
                 <a href="about.html">о проекте</a>
                 <a href="about-author.html">об авторе</a>
             </div>
-
             <div class="footer-center">
                 <img src="assets/logo(mini).svg" alt="ProКлип logo" class="footer-logo">
                 <p>© PROКЛИП 2025 все права защищены</p>
             </div>
-
             <div class="footer-right">
                 <a href="#"><img src="assets/vk-icon.svg" alt="VK"></a>
                 <a href="#"><img src="assets/whatsapp-icon.svg" alt="WhatsApp"></a>
@@ -93,7 +60,7 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
-</body>
 
+    <script src="js/pagination.js"></script>
+</body>
 </html>
