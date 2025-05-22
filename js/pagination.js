@@ -1,23 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Проверяем, на какой странице находимся
-    const pageType = window.location.pathname.split('/').pop().split('.')[0];
-    
-    // Если это страница клипов - выходим (пагинация не нужна)
-    if (pageType === 'clips') return;
+    const container = document.getElementById('cards-container');
+    if (!container) return;
 
-    // Элементы пагинации
+    const pageType = window.location.pathname.split('/').pop().split('.')[0];
+    const paginationContainer = document.querySelector('.pagination');
+    
+    // Для страницы клипов загружаем все данные без пагинации
+    if (pageType === 'clips') {
+        loadAllClips();
+        if (paginationContainer) paginationContainer.style.display = 'none';
+        return;
+    }
+
+    // Для других страниц (концерты/лекции) оставляем пагинацию
+    if (paginationContainer) {
+        setupPagination();
+    }
+});
+
+// Загрузка всех клипов (без пагинации)
+async function loadAllClips() {
+    try {
+        const response = await fetch('data/clips.json');
+        const clips = await response.json();
+        const container = document.getElementById('cards-container');
+        
+        container.innerHTML = clips.map(clip => `
+            <div class="clip-card">
+                <div class="clip-preview" style="background-image: url('${clip.image}')"></div>
+                <div class="clip-glass">
+                    <h2 class="clip-title">${clip.title}</h2>
+                    <p class="clip-artist">${clip.artist}</p>
+                    <p class="clip-views">${clip.views}</p>
+                </div>
+                <button class="watch-button">Смотреть</button>
+            </div>
+        `).join('');
+    } catch (error) {
+        console.error('Ошибка загрузки клипов:', error);
+    }
+}
+
+// Пагинация для концертов/лекций
+async function setupPagination() {
     const container = document.getElementById('cards-container');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const pageInfo = document.getElementById('page-info');
     
-    // Настройки
     let currentPage = 1;
-    const itemsPerPage = 3; // Количество карточек на странице
+    const itemsPerPage = 3;
     let totalPages = 1;
     let data = [];
+    const pageType = window.location.pathname.split('/').pop().split('.')[0];
 
-    // Загрузка данных
     async function loadData() {
         try {
             const response = await fetch(`data/${pageType}.json`);
@@ -29,56 +65,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Отрисовка текущей страницы
     function renderPage() {
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
         const pageData = data.slice(start, end);
 
-        container.innerHTML = '';
-        
-        // Генерация карточек в зависимости от типа страницы
-        pageData.forEach(item => {
-            let cardHtml = '';
-
+        container.innerHTML = pageData.map(item => {
             if (pageType === 'concerts') {
-                cardHtml = `
+                return `
                     <div class="concert-card">
                         <div class="concert-image" style="background-image: url('${item.image}')"></div>
                         <div class="concert-glass">
-                            <h2 class="concert-title">${item.title}</h2>
-                            <p class="concert-date">${formatDate(item.date)}</p>
-                            <p class="concert-location">${item.location}</p>
+                            <h2>${item.title}</h2>
+                            <p>${formatDate(item.date)}</p>
+                            <p>${item.location}</p>
                         </div>
-                        <button class="register-button">Зарегистрироваться</button>
                     </div>
                 `;
-            } else if (pageType === 'lectures') {
-                cardHtml = `
+            } else {
+                return `
                     <div class="lecture-card">
                         <div class="lecture-image" style="background-image: url('${item.image}')"></div>
                         <div class="lecture-info">
                             <div class="lecture-glass">
-                                <h2 class="lecture-title">${item.title}</h2>
-                                <p class="lecture-description">${item.description}</p>
-                                <p class="lecture-date">${formatDate(item.date)}</p>
+                                <h2>${item.title}</h2>
+                                <p>${item.description}</p>
+                                <p>${formatDate(item.date)}</p>
                             </div>
-                            <button class="register-button">Зарегистрироваться</button>
                         </div>
                     </div>
                 `;
             }
+        }).join('');
 
-            container.insertAdjacentHTML('beforeend', cardHtml);
-        });
-
-        // Обновление информации о странице
         pageInfo.textContent = `Страница ${currentPage} из ${totalPages}`;
         prevBtn.disabled = currentPage === 1;
-        nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+        nextBtn.disabled = currentPage === totalPages;
     }
 
-    // Форматирование даты
     function formatDate(dateString) {
         const date = new Date(dateString);
         return date.toLocaleDateString('ru-RU', {
@@ -90,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Обработчики кнопок
     nextBtn.addEventListener('click', () => {
         if (currentPage < totalPages) {
             currentPage++;
@@ -105,6 +128,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Первая загрузка
     loadData();
-});
+}

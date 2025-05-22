@@ -1658,4 +1658,5 @@ body > main {
 #page-info {
   font-size: 16px;
   color: #e0e0e0;
+  letter-spacing: normal !important;
 }
