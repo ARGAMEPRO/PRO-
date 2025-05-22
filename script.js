@@ -1,0 +1,64 @@
+document.querySelector('.pic').addEventListener('mousemove', (e) => {
+    const wrapper = e.currentTarget.querySelector('.img-wrapper');
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    wrapper.style.setProperty('--highlight-x', `${x}%`);
+    wrapper.style.setProperty('--highlight-y', `${y}%`);
+    wrapper.style.setProperty('--highlight-opacity', '0.6');
+
+    const rotateX = (y - 50) / 10;
+    const rotateY = -(x - 50) / 10;
+    wrapper.style.transform = `scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
+
+document.querySelector('.pic').addEventListener('mouseleave', (e) => {
+    const wrapper = e.currentTarget.querySelector('.img-wrapper');
+    wrapper.style.setProperty('--highlight-opacity', '0');
+    wrapper.style.transform = 'scale(1)';
+});
+
+
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (mobileMenu.style.display === 'flex') {
+        mobileMenu.style.display = 'none';
+    } else {
+        mobileMenu.style.display = 'flex';
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.register-button');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            alert('Регистрация на мероприятие');
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Обработка кнопок регистрации
+    const registerButtons = document.querySelectorAll('.register-button');
+    registerButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            alert('Регистрация на концерт');
+        });
+    });
+    
+    // Обработка кнопки "Показать еще"
+    const showMoreBtn = document.querySelector('.show-more');
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', function() {
+            // Здесь будет загрузка дополнительных концертов
+            alert('Загрузка дополнительных концертов...');
+        });
+    }
+});

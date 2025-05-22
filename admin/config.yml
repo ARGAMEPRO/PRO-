@@ -1,0 +1,16 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets" # Папка для загрузки изображений
+
+collections:
+  - name: "concerts"
+    label: "Концерты"
+    folder: "data/concerts"
+    create: true
+    fields:
+      - { name: "title", label: "Название", widget: "string" }
+      - { name: "date", label: "Дата", widget: "datetime" }
+      - { name: "location", label: "Место", widget: "string" }
+      - { name: "image", label: "Афиша", widget: "image" }
