@@ -1,16 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Проверяем, на какой странице находимся
+    const pageType = window.location.pathname.split('/').pop().split('.')[0];
+    
+    // Если это страница клипов - выходим (пагинация не нужна)
+    if (pageType === 'clips') return;
+
+    // Элементы пагинации
     const container = document.getElementById('cards-container');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const pageInfo = document.getElementById('page-info');
     
+    // Настройки
     let currentPage = 1;
-    const itemsPerPage = 3;
+    const itemsPerPage = 3; // Количество карточек на странице
     let totalPages = 1;
     let data = [];
-
-    // Определяем тип контента
-    const pageType = window.location.pathname.split('/').pop().split('.')[0];
 
     // Загрузка данных
     async function loadData() {
@@ -24,13 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Отрисовка страницы
+    // Отрисовка текущей страницы
     function renderPage() {
         const start = (currentPage - 1) * itemsPerPage;
         const end = start + itemsPerPage;
         const pageData = data.slice(start, end);
 
         container.innerHTML = '';
+        
+        // Генерация карточек в зависимости от типа страницы
         pageData.forEach(item => {
             let cardHtml = '';
 
@@ -60,23 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 `;
-            } else if (pageType === 'clips') {
-                cardHtml = `
-                    <div class="clip-card">
-                        <div class="clip-preview" style="background-image: url('${item.image}')"></div>
-                        <div class="clip-glass">
-                            <h2 class="clip-title">${item.title}</h2>
-                            <p class="clip-artist">${item.artist}</p>
-                            <p class="clip-views">${item.views}</p>
-                        </div>
-                        <button class="watch-button">Смотреть</button>
-                    </div>
-                `;
             }
 
             container.insertAdjacentHTML('beforeend', cardHtml);
         });
 
+        // Обновление информации о странице
         pageInfo.textContent = `Страница ${currentPage} из ${totalPages}`;
         prevBtn.disabled = currentPage === 1;
         nextBtn.disabled = currentPage === totalPages || totalPages === 0;

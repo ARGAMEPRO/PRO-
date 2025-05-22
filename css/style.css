@@ -1647,6 +1647,7 @@ body > main {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
+  letter-spacing: normal !important;
 }
 
 #prev-btn:disabled, #next-btn:disabled {
