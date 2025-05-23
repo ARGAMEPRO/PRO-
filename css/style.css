@@ -538,7 +538,7 @@ body > main {
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background: #0066cc;
+  background: #b70000;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -548,7 +548,7 @@ body > main {
 }
 
 .watch-button:hover {
-    background: #e02510;
+    background: #9a0000;
     transform: translateX(-50%) translateY(-3px);
 }
 
