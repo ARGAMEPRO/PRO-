@@ -10,20 +10,33 @@
   <body>
     <div id="nc-root"></div>
 
-    <script>
-      // ждём полной загрузки DOM
-      window.addEventListener('DOMContentLoaded', () => {
-        if (window.netlifyIdentity) {
-          netlifyIdentity.init();
-          netlifyIdentity.on('login', () => {
-            document.location.href = '/admin/';
-          });
-        }
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.netlifyIdentity) {
+      netlifyIdentity.init();
 
-        if (window.CMS) {
-          CMS.init(); // вызываем CMS.init() только после того как #nc-root точно есть
-        }
+      // 💡 Обработка токена подтверждения
+      if (window.location.hash.includes('confirmation_token')) {
+        netlifyIdentity.confirm()
+          .then(() => {
+            console.log("✅ Почта подтверждена!");
+            window.location.href = '/admin/';
+          })
+          .catch((error) => {
+            console.error("❌ Ошибка подтверждения:", error);
+          });
+      }
+
+      netlifyIdentity.on('login', () => {
+        document.location.href = '/admin/';
       });
-    </script>
+    }
+
+    if (window.CMS) {
+      CMS.init();
+    }
+  });
+</script>
+
   </body>
 </html>
