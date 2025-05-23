@@ -2,7 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "assets" # Папка для загрузки изображений
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
 
 collections:
   - name: "concerts"
@@ -11,6 +12,29 @@ collections:
     create: true
     fields:
       - { name: "title", label: "Название", widget: "string" }
-      - { name: "date", label: "Дата", widget: "datetime" }
-      - { name: "location", label: "Место", widget: "string" }
+      - { name: "date", label: "Дата и время", widget: "datetime" }
+      - { name: "location", label: "Место проведения", widget: "string" }
       - { name: "image", label: "Афиша", widget: "image" }
+      - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
+
+  - name: "lectures"
+    label: "Лекции"
+    folder: "data/lectures"
+    create: true
+    fields:
+      - { name: "title", label: "Название", widget: "string" }
+      - { name: "description", label: "Описание", widget: "text" }
+      - { name: "date", label: "Дата и время", widget: "datetime" }
+      - { name: "image", label: "Обложка", widget: "image" }
+      - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
+
+  - name: "clips"
+    label: "Клипы"
+    folder: "data/clips"
+    create: true
+    fields:
+      - { name: "title", label: "Название", widget: "string" }
+      - { name: "artist", label: "Исполнитель", widget: "string" }
+      - { name: "views", label: "Просмотры", widget: "string" }
+      - { name: "image", label: "Превью", widget: "image" }
+      - { name: "videoLink", label: "Ссылка на видео", widget: "string" }

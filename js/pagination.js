@@ -5,20 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageType = window.location.pathname.split('/').pop().split('.')[0];
     const paginationContainer = document.querySelector('.pagination');
     
-    // Для страницы клипов загружаем все данные без пагинации
     if (pageType === 'clips') {
         loadAllClips();
         if (paginationContainer) paginationContainer.style.display = 'none';
         return;
     }
 
-    // Для других страниц (концерты/лекции) оставляем пагинацию
-    if (paginationContainer) {
-        setupPagination();
-    }
+    setupPagination();
 });
 
-// Загрузка всех клипов (без пагинации)
+// Для клипов
 async function loadAllClips() {
     try {
         const response = await fetch('data/clips.json');
@@ -33,7 +29,9 @@ async function loadAllClips() {
                     <p class="clip-artist">${clip.artist}</p>
                     <p class="clip-views">${clip.views}</p>
                 </div>
-                <button class="watch-button">Смотреть</button>
+                <button class="watch-button" onclick="window.open('${clip.videoLink || '#'}', '_blank')">
+                    Смотреть
+                </button>
             </div>
         `).join('');
     } catch (error) {
@@ -41,7 +39,7 @@ async function loadAllClips() {
     }
 }
 
-// Пагинация для концертов/лекций
+// Для концертов/лекций
 async function setupPagination() {
     const container = document.getElementById('cards-container');
     const prevBtn = document.getElementById('prev-btn');
@@ -71,6 +69,14 @@ async function setupPagination() {
         const pageData = data.slice(start, end);
 
         container.innerHTML = pageData.map(item => {
+            // Общая структура для кнопки регистрации
+            const registerButton = item.registrationLink ? `
+                <button class="register-button" 
+                        onclick="window.open('${item.registrationLink}', '_blank')">
+                    Зарегистрироваться
+                </button>
+            ` : '<button class="register-button disabled">Регистрация закрыта</button>';
+
             if (pageType === 'concerts') {
                 return `
                     <div class="concert-card">
@@ -80,6 +86,7 @@ async function setupPagination() {
                             <p>${formatDate(item.date)}</p>
                             <p>${item.location}</p>
                         </div>
+                        ${registerButton}
                     </div>
                 `;
             } else {
@@ -92,6 +99,7 @@ async function setupPagination() {
                                 <p>${item.description}</p>
                                 <p>${formatDate(item.date)}</p>
                             </div>
+                            ${registerButton}
                         </div>
                     </div>
                 `;

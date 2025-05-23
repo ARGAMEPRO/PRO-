@@ -3,7 +3,8 @@
     "title": "Концерт 1",
     "date": "2025-07-15T20:00:00.000Z",
     "location": "Москва, Крокус Сити Холл",
-    "image": "assets/concert1.jpg"
+    "image": "assets/concert1.jpg",
+    "registrationLink": "https://forms.yandex.ru/концерт1"
   },
   {
     "title": "Концерт 2",
