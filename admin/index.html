@@ -2,32 +2,27 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PROКЛИП Админка</title>
-  <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: sans-serif;
-    }
-    #nc-root {
-      min-height: 100vh;
-    }
-  </style>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
-  <!-- Явный контейнер для CMS -->
   <div id="nc-root"></div>
-  
   <script>
-    // Явная инициализация после загрузки
     document.addEventListener('DOMContentLoaded', function() {
+      // Инициализация Identity
+      if (window.netlifyIdentity) {
+        netlifyIdentity.init();
+        
+        // Редирект после входа
+        netlifyIdentity.on('login', () => {
+          document.location.href = '/admin/';
+        });
+      }
+
+      // Инициализация CMS
       if (window.CMS) {
         CMS.init();
-      } else {
-        console.error('CMS script not loaded');
       }
     });
   </script>
