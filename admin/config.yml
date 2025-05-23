@@ -37,4 +37,4 @@ collections:
       - { name: "artist", label: "Исполнитель", widget: "string" }
       - { name: "views", label: "Просмотры", widget: "string" }
       - { name: "image", label: "Превью", widget: "image" }
-      - { name: "videoLink", label: "Ссылка на видео", widget: "string" } 
+      - { name: "videoLink", label: "Ссылка на видео", widget: "string" }
