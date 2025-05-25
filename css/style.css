@@ -16,6 +16,12 @@ body {
     overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 80px;
+    }
+}
+
 body>*:not(.footer, .header) {
     flex: 1 0 auto;
 }
@@ -29,6 +35,8 @@ body {
     flex-direction: column;
     margin: 0;
 }
+
+
 
 body>main {
     flex: 1 0 auto;
@@ -282,19 +290,16 @@ body>main {
 }
 
 .photoIndex {
-    position: fixed;
-    top: var(--header-height, 80px);
-    /* заменяй 80px на высоту хедера */
-    left: 0;
-    width: 100%;
-    height: calc(100vh - var(--header-height, 80px));
-    /* 100vh минус высота хедера */
-    object-fit: cover;
-    object-position: center;
-    z-index: -1;
-    pointer-events: none;
-    /* чтобы не мешалась */
+  position: relative; /* или absolute внутри родителя */
+  width: 100%;
+  height: calc(100vh - 33px); /* растянуть от хедера до низа */
+  object-fit: cover;
+  object-position: center;
+  max-width: 100%;
+  overflow: hidden;
+  z-index: -3; /* чтобы была под контентом */
 }
+
 
 
 .hero-content {
