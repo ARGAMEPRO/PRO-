@@ -9,8 +9,9 @@ public_folder: "/assets/uploads"
 collections:
   - name: "concerts"
     label: "Концерты"
-    folder: "data/"
+    file: "data/concerts.json"
     create: true
+    format: "json"
     fields:
       - { name: "title", label: "Название", widget: "string" }
       - { name: "date", label: "Дата и время", widget: "datetime" }
@@ -20,8 +21,9 @@ collections:
 
   - name: "lectures"
     label: "Лекции"
-    folder: "data/"
+    file: "data/lectures.json"
     create: true
+    format: "json"
     fields:
       - { name: "title", label: "Название", widget: "string" }
       - { name: "description", label: "Описание", widget: "text" }
@@ -31,8 +33,9 @@ collections:
 
   - name: "clips"
     label: "Клипы"
-    folder: "data/"
+    file: "data/clips.json"
     create: true
+    format: "json"
     fields:
       - { name: "title", label: "Название", widget: "string" }
       - { name: "artist", label: "Исполнитель", widget: "string" }
