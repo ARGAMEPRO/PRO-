@@ -558,17 +558,28 @@ body > main {
         font-size: 28px;
         letter-spacing: normal;
     }
-    
     .с-proклип {
         font-size: 16px;
     }
-    
-    .clip-card {
-        height: 500px;
+    .clip-container {
+        gap: 20px;
     }
-    
+    .clip-card {
+        flex: 0 0 90vw;
+        height: 400px;
+    }
     .clip-title {
-        font-size: 20px;
+        font-size: 18px;
+    }
+    .clip-artist {
+        font-size: 14px;
+    }
+    .clip-views {
+        font-size: 12px;
+    }
+    .watch-button {
+        padding: 6px 12px;
+        font-size: 12px;
     }
 }
 
