@@ -817,11 +817,12 @@ body > main {
 }
 
 .lecture-image {
-    height: 55%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+    z-index: 1;
 }
 
 .lecture-glass {
@@ -836,6 +837,7 @@ body > main {
     height: auto; 
     min-height: 35%; 
     transition: all 0.3s ease;
+    z-index: 2;
 }
 
 /* Кнопка поверх стекла */
@@ -898,8 +900,9 @@ body > main {
         transform: none !important;
         box-shadow: none !important;
         background-color: #fff !important;
-        /* запретить любые эффекты при тапе */
         pointer-events: auto;
+        position: relative;
+        overflow: hidden;
     }
 
     .lecture-card:active {
@@ -908,46 +911,78 @@ body > main {
         background-color: #fff !important;
     }
 
+    .lecture-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+
     .lecture-glass {
+        position: absolute;
         bottom: -5px;
+        left: 0;
+        width: 100%;
         padding: 15px 15px 55px;
         min-height: 160px;
+        background-color: rgba(74, 74, 74, 0.85);
+        color: white;
+        backdrop-filter: blur(4px);
+        z-index: 2;
         transition: none !important;
-    }
-
-    .register-button-lec {
-        position: absolute;
-        bottom: 10px;
-        transition: none !important;
-        transform: none !important;
-    }
-
-    /* Отключаем дерганье кнопки включенной */
-    .register-button-lec:not(.disabled):active {
-        background-color: #c9200d !important;
-        transform: none !important;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
-    }
-
-    /* Кнопка выключенная жёстко на месте */
-    .register-button-lec.disabled,
-    .register-button-lec.disabled:active {
-        background-color: #555 !important;
-        cursor: not-allowed !important;
-        transform: none !important;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
-        transition: none !important;
-        pointer-events: none;
     }
 
     .lecture-title {
         font-size: 16px;
         margin-bottom: 6px;
+        color: #fff;
     }
 
     .lecture-description {
         font-size: 12px;
         margin-bottom: 8px;
+        color: #eee;
+    }
+
+    .register-button-lec {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%) !important;
+        width: 90%;
+        max-width: 280px;
+        background-color: #c9200d;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 3;
+        transition: none !important;
+    }
+
+    .register-button-lec:not(.disabled):active {
+        background-color: #c9200d !important;
+        transform: translateX(-50%) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .register-button-lec.disabled,
+    .register-button-lec.disabled:active {
+        background-color: #555 !important;
+        cursor: not-allowed !important;
+        transform: translateX(-50%) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+        transition: none !important;
+        pointer-events: none;
     }
 
     .текст\(лекции\) {
@@ -964,6 +999,7 @@ body > main {
         letter-spacing: normal;
     }
 }
+
 
 
 
