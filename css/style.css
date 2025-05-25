@@ -627,7 +627,7 @@ body > main {
 }
 
 .concert-image {
-    height: 70%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
