@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROКЛИП - Клипы</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body class="клипы">
     <header class="header">
         <div class="rectangle-1 header-container">
@@ -34,6 +37,45 @@
         </section>
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('cards-container');
+
+            function renderClips(clips) {
+                container.innerHTML = '';
+
+                clips.forEach(clip => {
+                    const card = document.createElement('div');
+                    card.className = 'clip-card';
+
+                    card.innerHTML = `
+                    <div class="clip-preview" style="background-image: url('${clip.previewImage}')"></div>
+                    <div class="clip-glass">
+                        <h3 class="clip-title">${clip.title}</h3>
+                        <p class="clip-artist">${clip.artist}</p>
+                        <p class="clip-views">${clip.views} просмотров</p>
+                        <a href="${clip.videoUrl}" target="_blank">
+                            <button class="watch-button">Смотреть</button>
+                        </a>
+                    </div>
+                `;
+
+                    container.appendChild(card);
+                });
+            }
+
+            fetch('data/clips.json')
+                .then(response => response.json())
+                .then(data => {
+                    renderClips(data.clips);
+                })
+                .catch(error => {
+                    console.error('Ошибка загрузки клипов:', error);
+                    container.innerHTML = '<p>Не удалось загрузить клипы.</p>';
+                });
+        });
+    </script>
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-left">
@@ -45,7 +87,8 @@
             </div>
             <div class="footer-center">
                 <img src="assets/logo(mini).svg" alt="ProКлип logo" class="footer-logo">
-                <p>© PROКЛИП 2025 все права защищены. При поддержке Курского Кластера Креативных Индустрий и Технологий "ПОТОК"</p>
+                <p>© PROКЛИП 2025 все права защищены. При поддержке Курского Кластера Креативных Индустрий и Технологий
+                    "ПОТОК"</p>
             </div>
             <div class="footer-right">
                 <a href="#"><img src="assets/vk-icon.svg" alt="VK"></a>
@@ -57,4 +100,5 @@
 
     <script src="js/pagination.js"></script>
 </body>
+
 </html>

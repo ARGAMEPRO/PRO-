@@ -1,15 +1,18 @@
-[
-  {
-    "title": "Клип: Свет и тени",
-    "artist": "Исполнитель A",
-    "views": "235K просмотров",
-    "image": "assets/clip1.jpg",
-    "videoLink": "https://youtube.com/клип1"
-  },
-  {
-    "title": "Клип: В ритме",
-    "artist": "Группа B",
-    "views": "580K просмотров",
-    "image": "assets/clip2.jpg"
-  }
-]
+{
+  "clips": [
+    {
+      "title": "Название клипа 1",
+      "artist": "Исполнитель 1",
+      "views": "12345",
+      "image": "assets/clip1.jpg",
+      "videoLink": "https://youtube.com/clip1"
+    },
+    {
+      "title": "Название клипа 2",
+      "artist": "Исполнитель 2",
+      "views": "67890",
+      "image": "assets/clip2.jpg",
+      "videoLink": "https://youtube.com/clip2"
+    }
+  ]
+}
