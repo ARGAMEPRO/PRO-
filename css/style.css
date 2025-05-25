@@ -1661,7 +1661,7 @@ body>main {
         -webkit-backdrop-filter: blur(10px);
         /* Safari support */
         width: 100%;
-        padding: 15px 20px;
+        padding: 15px 3px;
         z-index: 100;
     }
 
