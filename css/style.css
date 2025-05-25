@@ -693,28 +693,35 @@ body > main {
   cursor: not-allowed;
 }
 
-/* Адаптация для мобильных */
 @media (max-width: 768px) {
     .текст-концерты {
         padding: 30px 15px;
     }
-    
-    .концерты {
+
+    .концерты-text {
         font-size: 28px;
         letter-spacing: normal;
     }
-    
+
     .с-proклип {
         font-size: 16px;
     }
-    
+
     .concert-card {
         max-width: 350px;
         height: 550px;
-        /* Отключаем трансформации и цвет при нажатии */
         transition: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background-color: #fff !important;
     }
-    
+
+    .concert-card:active {
+        transform: none !important;
+        box-shadow: none !important;
+        background-color: #fff !important;
+    }
+
     .concert-glass {
         padding: 20px;
         transition: none !important;
@@ -726,30 +733,28 @@ body > main {
         left: 50%;
         width: calc(100% - 36px);
         transition: none !important;
+        transform: translateX(-50%) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-    /* Убираем смену цвета фона при тапе */
-    .concert-card:active {
-        background-color: initial !important;
-        transform: none !important;
-        box-shadow: none !important;
-    }
-
-    /* Кнопка выключена не съезжает при тапе */
+    /* Выключенная кнопка фиксирована */
+    .register-button-con.disabled,
     .register-button-con.disabled:active {
-        transform: none !important;
         background-color: #555 !important;
         cursor: not-allowed !important;
+        transform: translateX(-50%) !important;
         transition: none !important;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+        pointer-events: none;
     }
 
-    /* Активная кнопка при нажатии не двигается и не меняет цвет */
+    /* Активная кнопка при тапе */
     .register-button-con:not(.disabled):active {
         background-color: #c9200d !important;
-        transform: none !important;
+        transform: translateX(-50%) !important;
     }
 }
+
 
 
 
@@ -889,18 +894,51 @@ body > main {
 @media (max-width: 768px) {
     .lecture-card {
         height: 480px;
+        transition: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background-color: #fff !important;
+        /* запретить любые эффекты при тапе */
+        pointer-events: auto;
+    }
+
+    .lecture-card:active {
+        transform: none !important;
+        box-shadow: none !important;
+        background-color: #fff !important;
     }
 
     .lecture-glass {
         bottom: -5px;
         padding: 15px 15px 55px;
         min-height: 160px;
+        transition: none !important;
     }
 
     .register-button-lec {
+        position: absolute;
         bottom: 10px;
         width: calc(100% - 30px);
-        transition: none !important; /* отключаем анимации на мобилах */
+        transition: none !important;
+        transform: none !important;
+    }
+
+    /* Отключаем дерганье кнопки включенной */
+    .register-button-lec:not(.disabled):active {
+        background-color: #c9200d !important;
+        transform: none !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Кнопка выключенная жёстко на месте */
+    .register-button-lec.disabled,
+    .register-button-lec.disabled:active {
+        background-color: #555 !important;
+        cursor: not-allowed !important;
+        transform: none !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+        transition: none !important;
+        pointer-events: none;
     }
 
     .lecture-title {
@@ -926,28 +964,8 @@ body > main {
         font-size: 16px;
         letter-spacing: normal;
     }
-
-    /* Убираем дерганье фона и кнопки при нажатии */
-    .lecture-card:active {
-        background-color: initial !important;
-        transform: none !important;
-        box-shadow: none !important;
-    }
-
-    .register-button-lec:active,
-    .register-button-lec.disabled {
-        transform: none !important;
-        background-color: #555 !important;
-        cursor: not-allowed !important;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
-        transition: none !important;
-    }
-
-    .register-button-lec:not(.disabled):active {
-        background-color: #c9200d !important;
-        transform: none !important;
-    }
 }
+
 
 
 
