@@ -504,7 +504,7 @@ body > main {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 30%;
+    height: 40%;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -517,17 +517,23 @@ body > main {
 }
 
 .clip-title {
+    position: relative;
     font-size: 24px;
     margin: 0 0 10px;
+    top: -20px;
 }
 
 .clip-artist {
+    position: relative;
+    top: -20px;
     font-size: 18px;
     margin: 0 0 8px;
     color: #e0e0e0;
 }
 
 .clip-views {
+    position: relative;
+    top: -20px;
     font-size: 16px;
     margin: 0;
     color: #ccc;
@@ -535,14 +541,14 @@ body > main {
 
 .watch-button {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   background: #b70000;
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   z-index: 2;
 }
@@ -555,8 +561,8 @@ body > main {
 /* Адаптив */
 @media (max-width: 768px) {
     .клипы {
-        font-size: 28px;
-        letter-spacing: normal;
+        font-size: 28px !important;
+        letter-spacing: normal !important;
     }
     .с-proклип {
         font-size: 16px;
@@ -569,13 +575,16 @@ body > main {
         height: 400px;
     }
     .clip-title {
-        font-size: 18px;
+        font-size: 16px;
+        font-weight: bold !important;
     }
     .clip-artist {
         font-size: 14px;
+        font-weight: lighter;
     }
     .clip-views {
         font-size: 12px;
+        font-weight: lighter;
     }
     .watch-button {
         padding: 6px 12px;
