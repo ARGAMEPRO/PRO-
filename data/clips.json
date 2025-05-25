@@ -13,6 +13,13 @@
       "views": "67890",
       "image": "assets/clip2.jpg",
       "videoLink": "https://youtube.com/clip2"
+    },
+    {
+      "title": "Клип 3",
+      "artist": "тест админки",
+      "views": "12млн",
+      "image": "https://www.ermolino-produkty.ru/recipes/picts/recipes/tnw682-670%D1%85430_sendvich_s_grudinkoy_i_kolbasoy.jpg",
+      "videoLink": "https://youtube.com/clip3"
     }
   ]
 }
