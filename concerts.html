@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROКЛИП - Концерты</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body class="концерты">
+    <div id="concerts"></div>
     <header class="header">
         <div class="rectangle-1 header-container">
             <div class="проклип-2">
@@ -32,7 +36,25 @@
         <section class="concert-cards" id="cards-container">
             <!-- Карточки будут загружаться через JS -->
         </section>
-
+        <script>
+            fetch('data/concerts.json')
+                .then(res => res.json())
+                .then(data => {
+                    const concerts = data.concerts;
+                    const container = document.getElementById('concerts');
+                    concerts.forEach(concert => {
+                        const item = document.createElement('div');
+                        item.innerHTML = `
+          <h2>${concert.title}</h2>
+          <p>${new Date(concert.date).toLocaleString()}</p>
+          <p>${concert.location}</p>
+          <img src="${concert.image}" alt="${concert.title}" width="200">
+          ${concert.registrationLink ? `<a href="${concert.registrationLink}">Регистрация</a>` : ''}
+        `;
+                        container.appendChild(item);
+                    });
+                });
+        </script>
         <div class="pagination">
             <button id="prev-btn" disabled>← Назад</button>
             <span id="page-info">Страница 1 из 1</span>
@@ -63,4 +85,5 @@
 
     <script src="js/pagination.js"></script>
 </body>
+
 </html>

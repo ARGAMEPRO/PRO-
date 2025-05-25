@@ -3,42 +3,54 @@ backend:
   branch: main
   auth_endpoint: https://proklip.netlify.app/.netlify/identity
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+media_folder: "assets/"
+public_folder: "/assets/"
 
 collections:
   - name: "concerts"
     label: "Концерты"
     file: "data/concerts.json"
-    create: true
     format: "json"
+    create: false
     fields:
-      - { name: "title", label: "Название", widget: "string" }
-      - { name: "date", label: "Дата и время", widget: "datetime" }
-      - { name: "location", label: "Место проведения", widget: "string" }
-      - { name: "image", label: "Афиша", widget: "image" }
-      - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
+      - label: "Список концертов"
+        name: "concerts"
+        widget: "list"
+        fields:
+          - { name: "title", label: "Название", widget: "string" }
+          - { name: "date", label: "Дата и время", widget: "datetime" }
+          - { name: "location", label: "Место проведения", widget: "string" }
+          - { name: "image", label: "Афиша", widget: "image" }
+          - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
 
   - name: "lectures"
     label: "Лекции"
     file: "data/lectures.json"
-    create: true
     format: "json"
+    create: false
     fields:
-      - { name: "title", label: "Название", widget: "string" }
-      - { name: "description", label: "Описание", widget: "text" }
-      - { name: "date", label: "Дата и время", widget: "datetime" }
-      - { name: "image", label: "Обложка", widget: "image" }
-      - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
+    - label: "Список лекций"
+      name: "lectures"
+      widget: "list"
+      fields:
+        - { name: "title", label: "Название", widget: "string" }
+        - { name: "description", label: "Описание", widget: "text" }
+        - { name: "date", label: "Дата и время", widget: "datetime" }
+        - { name: "image", label: "Обложка", widget: "image" }
+        - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
 
   - name: "clips"
     label: "Клипы"
     file: "data/clips.json"
-    create: true
     format: "json"
+    create: false
     fields:
-      - { name: "title", label: "Название", widget: "string" }
-      - { name: "artist", label: "Исполнитель", widget: "string" }
-      - { name: "views", label: "Просмотры", widget: "string" }
-      - { name: "image", label: "Превью", widget: "image" }
-      - { name: "videoLink", label: "Ссылка на видео", widget: "string" }
+      - label: "Список клипов"
+        name: "lectures"
+        widget: "list"
+        fields:
+        - { name: "title", label: "Название", widget: "string" }
+        - { name: "artist", label: "Исполнитель", widget: "string" }
+        - { name: "views", label: "Просмотры", widget: "string" }
+        - { name: "image", label: "Превью", widget: "image" }
+        - { name: "videoLink", label: "Ссылка на видео", widget: "string" }
