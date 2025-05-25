@@ -33,26 +33,44 @@
             <p class="с-proклип">с PROКЛИП</p>
         </section>
 
-        <section class="concert-cards" id="cards-container">
+        <section class="concert-cards" id="concert-list">
             <!-- Карточки будут загружаться через JS -->
         </section>
         <script>
             fetch('data/concerts.json')
-                .then(res => res.json())
+                .then(response => response.json())
                 .then(data => {
                     const concerts = data.concerts;
-                    const container = document.getElementById('concerts');
+                    const container = document.getElementById('concert-list');
+
                     concerts.forEach(concert => {
-                        const item = document.createElement('div');
-                        item.innerHTML = `
-          <h2>${concert.title}</h2>
-          <p>${new Date(concert.date).toLocaleString()}</p>
-          <p>${concert.location}</p>
-          <img src="${concert.image}" alt="${concert.title}" width="200">
-          ${concert.registrationLink ? `<a href="${concert.registrationLink}">Регистрация</a>` : ''}
-        `;
-                        container.appendChild(item);
+                        const card = document.createElement('div');
+                        card.className = 'concert-card';
+
+                        card.innerHTML = `
+            <div class="concert-image" style="background-image: url('${concert.image}')"></div>
+            <div class="concert-glass">
+              <h3 class="concert-title">${concert.title}</h3>
+              <p class="concert-date">${new Date(concert.date).toLocaleDateString('ru-RU', {
+                            day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
+                        })}</p>
+              <p class="concert-location">${concert.location}</p>
+              ${concert.registrationLink ? `
+                <a href="${concert.registrationLink}" target="_blank">
+                  <button class="register-button">Зарегистрироваться</button>
+                </a>
+              ` : `
+                <button class="register-button disabled" disabled>Регистрация недоступна</button>
+              `}
+            </div>
+          `;
+
+                        container.appendChild(card);
                     });
+                })
+                .catch(error => {
+                    console.error('Ошибка загрузки концертов:', error);
+                    document.getElementById('concert-list').innerHTML = '<p>Не удалось загрузить концерты.</p>';
                 });
         </script>
         <div class="pagination">
