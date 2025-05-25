@@ -664,19 +664,6 @@ body > main {
     margin: 0;
 }
 
-.register-button {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #b70000;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
 
 .register-button:hover {
   background: #9a0000;
