@@ -694,12 +694,14 @@ body > main {
 }
 
 /* Адаптация для мобильных */
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px), 
+       only screen and (max-device-width: 768px) {
+    
     .текст-концерты {
         padding: 30px 15px;
     }
     
-    .концерты-text {
+    .концерты {
         font-size: 28px;
         letter-spacing: normal;
     }
@@ -711,13 +713,16 @@ body > main {
     .concert-card {
         max-width: 350px;
         height: 550px;
-        transform: none !important; /* Отключаем подъем */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important; /* Базовая тень */
-        transition: none !important; /* Без анимации */
+        transform: none !important;
+        -webkit-transform: none !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+        transition: none !important;
+        -webkit-transition: none !important;
     }
     
     .concert-card:hover {
-        transform: none !important; /* Нет эффекта при наведении */
+        transform: none !important;
+        -webkit-transform: none !important;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
     }
     
@@ -728,26 +733,41 @@ body > main {
     .concert-title {
         font-size: 20px !important;
     }
-
+    
     .register-button-con {
         transition: none !important;
-        transform: translateX(-50%) translateY(0) !important; /* Кнопка не поднимается */
-        background-color: #c9200d !important; /* Цвет кнопки без изменений */
+        -webkit-transition: none !important;
+        transform: translateX(-50%) translateY(0) !important;
+        -webkit-transform: translateX(-50%) translateY(0) !important;
+        background-color: #c9200d !important;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
         cursor: pointer;
     }
-
+    
     .register-button-con:hover {
-        background-color: #c9200d !important; /* Нет смены цвета */
-        transform: translateX(-50%) translateY(0) !important; /* Нет подъема */
+        background-color: #c9200d !important;
+        transform: translateX(-50%) translateY(0) !important;
+        -webkit-transform: translateX(-50%) translateY(0) !important;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
     }
-
+    
     .register-button-con.disabled {
         background: #555 !important;
         cursor: not-allowed;
     }
+
+    /* Отключаем эффекты hover на сенсорных устройствах */
+    @media (hover: none) {
+        .concert-card:hover,
+        .register-button-con:hover {
+            transform: none !important;
+            -webkit-transform: none !important;
+            background-color: inherit !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+        }
+    }
 }
+
 
 
 /* Стили для карточек лекций */
@@ -882,62 +902,91 @@ body > main {
 }
 
 /* Адаптивность */
-@media (max-width: 768px) {
+/* Для всех мобилок, включая iPhone 13 */
+@media only screen and (max-width: 768px), 
+       only screen and (max-device-width: 768px) {
+
+    .текст\(лекции\) {
+        padding: 30px 15px;
+    }
+
+    .лекции {
+        font-size: 28px;
+        letter-spacing: normal; /* убираем огромные расстояния */
+    }
+
+    .с-proклип {
+        font-size: 16px;
+        letter-spacing: normal;
+    }
+
     .lecture-card {
-        height: 480px; 
-        transform: none !important; 
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important; 
-        transition: none !important; 
+        height: 480px;
+        transform: none !important;
+        -webkit-transform: none !important;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+        transition: none !important;
+        -webkit-transition: none !important;
     }
 
     .lecture-card:hover {
-        transform: none !important; 
+        transform: none !important;
+        -webkit-transform: none !important;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
     }
 
-    .lecture-card:hover .register-button-lec:not(.disabled) {
-        transform: translateX(-50%) translateY(0) !important; 
-        background-color: #c9200d !important; 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    .lecture-glass {
+        bottom: -5px;
+        padding: 15px 15px 55px;
+        min-height: 160px;
+    }
+
+    .register-button-lec {
+        bottom: 10px;
+        width: calc(100% - 30px);
         transition: none !important;
+        -webkit-transition: none !important;
+        transform: translateX(-50%) translateY(0) !important;
+        -webkit-transform: translateX(-50%) translateY(0) !important;
+        background-color: #c9200d !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
         cursor: pointer;
     }
 
-    .lecture-glass {
-        bottom: -5px; 
-        padding: 15px 15px 55px; 
-        min-height: 160px; 
+    .lecture-card:hover .register-button-lec:not(.disabled) {
+        background-color: #c9200d !important;
+        transform: translateX(-50%) translateY(0) !important;
+        -webkit-transform: translateX(-50%) translateY(0) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
     }
-    
-    .register-button-lec {
-        bottom: 10px;
-        width: calc(100% - 30px); 
+
+    .register-button-lec.disabled {
+        background: #555 !important;
+        cursor: not-allowed;
     }
-    
+
     .lecture-title {
         font-size: 16px;
         margin-bottom: 6px;
     }
-    
+
     .lecture-description {
         font-size: 12px;
         margin-bottom: 8px;
     }
 
-        .текст\(лекции\) {
-        padding: 30px 15px;
-    }
-    
-    .лекции {
-        font-size: 28px;
-        letter-spacing: normal; /* Обычное расстояние на мобильных */
-    }
-    
-    .с-proклип {
-        font-size: 16px;
-        letter-spacing: normal;
+    /* Отключаем эффекты hover на сенсорных устройствах */
+    @media (hover: none) {
+        .lecture-card:hover,
+        .lecture-card:hover .register-button-lec:not(.disabled) {
+            transform: none !important;
+            -webkit-transform: none !important;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+            background-color: #c9200d !important;
+        }
     }
 }
+
 
 /* ===== Страница о нас ===== */
 .about .proклип {
