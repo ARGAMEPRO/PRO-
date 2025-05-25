@@ -77,25 +77,28 @@
             </section>
             <section class="contact-form">
                 <h2 class="form-title">Давайте работать <span class="highlight-red">вместе.</span></h2>
-                <form>
+                <form action="https://formsubmit.co/arsenijpsurcev9924@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+
                     <div class="form-group floating-label">
-                        <input type="text" id="name" placeholder=" " required>
+                        <input type="text" name="name" id="name" placeholder=" " required>
                         <label for="name">имя *</label>
                     </div>
                     <div class="form-group floating-label">
-                        <input type="email" id="email" placeholder=" " required>
+                        <input type="email" name="email" id="email" placeholder=" " required>
                         <label for="email">email *</label>
                     </div>
                     <div class="form-group floating-label">
-                        <input type="text" id="subject" placeholder=" " required>
+                        <input type="text" name="subject" id="subject" placeholder=" " required>
                         <label for="subject">тема *</label>
                     </div>
                     <div class="form-group floating-label">
-                        <textarea id="message" placeholder=" " required></textarea>
+                        <textarea name="message" id="message" placeholder=" " required></textarea>
                         <label for="message">текст *</label>
                     </div>
                     <button type="submit" class="submit-btn">отправить сообщение</button>
                 </form>
+
             </section>
         </div>
     </main>
