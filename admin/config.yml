@@ -9,7 +9,7 @@ public_folder: "/assets/uploads"
 collections:
   - name: "concerts"
     label: "Концерты"
-    folder: "data/concerts"
+    folder: "data/"
     create: true
     fields:
       - { name: "title", label: "Название", widget: "string" }
@@ -20,7 +20,7 @@ collections:
 
   - name: "lectures"
     label: "Лекции"
-    folder: "data/lectures"
+    folder: "data/"
     create: true
     fields:
       - { name: "title", label: "Название", widget: "string" }
@@ -31,7 +31,7 @@ collections:
 
   - name: "clips"
     label: "Клипы"
-    folder: "data/clips"
+    folder: "data/"
     create: true
     fields:
       - { name: "title", label: "Название", widget: "string" }
