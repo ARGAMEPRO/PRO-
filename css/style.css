@@ -800,7 +800,7 @@ body > main {
     position: absolute;
     bottom: 15px; /* Выступает за пределы стекла */
     left: 50%;
-    transform: translateX(-25%);
+    transform: translateX(-50%);
     width: calc(100% - 36px);
     background-color: #c9200d;
     color: white;
