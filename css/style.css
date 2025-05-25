@@ -711,6 +711,14 @@ body > main {
     .concert-card {
         max-width: 350px;
         height: 550px;
+        transform: none !important; /* Отключаем подъем */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important; /* Базовая тень */
+        transition: none !important; /* Без анимации */
+    }
+    
+    .concert-card:hover {
+        transform: none !important; /* Нет эффекта при наведении */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
     }
     
     .concert-glass {
@@ -718,9 +726,29 @@ body > main {
     }
     
     .concert-title {
-        font-size: 20px;
+        font-size: 20px !important;
+    }
+
+    .register-button-con {
+        transition: none !important;
+        transform: translateX(-50%) translateY(0) !important; /* Кнопка не поднимается */
+        background-color: #c9200d !important; /* Цвет кнопки без изменений */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+        cursor: pointer;
+    }
+
+    .register-button-con:hover {
+        background-color: #c9200d !important; /* Нет смены цвета */
+        transform: translateX(-50%) translateY(0) !important; /* Нет подъема */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .register-button-con.disabled {
+        background: #555 !important;
+        cursor: not-allowed;
     }
 }
+
 
 /* Стили для карточек лекций */
 .текст\(лекции\) {
