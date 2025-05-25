@@ -820,10 +820,7 @@ body > main {
     transition: all 0.3s ease;
 }
 
-.register-button-lec:hover {
-  background: #9a0000;
-  transform: translateX(-50%) translateY(-20px);
-}
+
 
 .register-button-lec.disabled {
   background: #555;
