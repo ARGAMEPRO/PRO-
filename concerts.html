@@ -37,36 +37,68 @@
             <!-- Карточки будут загружаться через JS -->
         </section>
         <script>
+            const concertsPerPage = 3;
+            let currentPage = 1;
+            let concerts = [];
+
+            function renderConcerts(page) {
+                const container = document.getElementById('concert-list');
+                container.innerHTML = '';
+
+                const start = (page - 1) * concertsPerPage;
+                const end = start + concertsPerPage;
+                const pagedConcerts = concerts.slice(start, end);
+
+                pagedConcerts.forEach(concert => {
+                    const card = document.createElement('div');
+                    card.className = 'concert-card';
+
+                    card.innerHTML = `
+          <div class="concert-image" style="background-image: url('${concert.image}')"></div>
+          <div class="concert-glass">
+            <h3 class="concert-title">${concert.title}</h3>
+            <p class="concert-date">${new Date(concert.date).toLocaleDateString('ru-RU', {
+                        day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
+                    })}</p>
+            <p class="concert-location">${concert.location}</p>
+            ${concert.registrationLink ? `
+              <a href="${concert.registrationLink}" target="_blank">
+                <button class="register-button">Зарегистрироваться</button>
+              </a>
+            ` : `
+              <button class="register-button disabled" disabled>Регистрация недоступна</button>
+            `}
+          </div>
+        `;
+                    container.appendChild(card);
+                });
+
+                // Обновляем состояние кнопок
+                document.getElementById('prev-btn').disabled = page === 1;
+                document.getElementById('next-btn').disabled = end >= concerts.length;
+            }
+
+            // Обработчики кнопок
+            document.getElementById('prev-btn').addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderConcerts(currentPage);
+                }
+            });
+
+            document.getElementById('next-btn').addEventListener('click', () => {
+                if ((currentPage * concertsPerPage) < concerts.length) {
+                    currentPage++;
+                    renderConcerts(currentPage);
+                }
+            });
+
+            // Загрузка данных и рендер первой страницы
             fetch('data/concerts.json')
                 .then(response => response.json())
                 .then(data => {
-                    const concerts = data.concerts;
-                    const container = document.getElementById('concert-list');
-
-                    concerts.forEach(concert => {
-                        const card = document.createElement('div');
-                        card.className = 'concert-card';
-
-                        card.innerHTML = `
-            <div class="concert-image" style="background-image: url('${concert.image}')"></div>
-            <div class="concert-glass">
-              <h3 class="concert-title">${concert.title}</h3>
-              <p class="concert-date">${new Date(concert.date).toLocaleDateString('ru-RU', {
-                            day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
-                        })}</p>
-              <p class="concert-location">${concert.location}</p>
-              ${concert.registrationLink ? `
-                <a href="${concert.registrationLink}" target="_blank">
-                  <button class="register-button">Зарегистрироваться</button>
-                </a>
-              ` : `
-                <button class="register-button disabled" disabled>Регистрация недоступна</button>
-              `}
-            </div>
-          `;
-
-                        container.appendChild(card);
-                    });
+                    concerts = data.concerts;
+                    renderConcerts(currentPage);
                 })
                 .catch(error => {
                     console.error('Ошибка загрузки концертов:', error);
