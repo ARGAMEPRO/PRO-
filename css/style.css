@@ -857,15 +857,31 @@ body > main {
 @media (max-width: 768px) {
     .lecture-card {
         height: 480px; 
+        transform: none !important; 
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important; 
+        transition: none !important; 
     }
-    
+
+    .lecture-card:hover {
+        transform: none !important; 
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .lecture-card:hover .register-button-lec:not(.disabled) {
+        transform: translateX(-50%) translateY(0) !important; 
+        background-color: #c9200d !important; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+        transition: none !important;
+        cursor: pointer;
+    }
+
     .lecture-glass {
         bottom: -5px; 
         padding: 15px 15px 55px; 
         min-height: 160px; 
     }
     
-    .register-button {
+    .register-button-lec {
         bottom: 10px;
         width: calc(100% - 30px); 
     }
