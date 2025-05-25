@@ -771,11 +771,12 @@ body > main {
     position: relative;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .lecture-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px); /* Поднимаем карточку плавно */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .lecture-image {
@@ -803,7 +804,7 @@ body > main {
 /* Кнопка поверх стекла */
 .register-button-lec {
     position: absolute;
-    bottom: 25px; /* Выступает за пределы стекла */
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 36px);
@@ -817,19 +818,18 @@ body > main {
     font-size: 14px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 3;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
+.lecture-card:hover .register-button-lec {
+    transform: translateX(-50%) translateY(-10px); /* Поднимаем кнопку вместе с карточкой */
+    background-color: #a5150a; /* Немного темнее */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
 
 .register-button-lec.disabled {
-  background: #555;
-  cursor: not-allowed;
-}
-
-.lecture-card:hover {
-    bottom: 10px; /* Поднимаем кнопку при наведении */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    background: #555;
+    cursor: not-allowed;
 }
 
 /* Текст */
