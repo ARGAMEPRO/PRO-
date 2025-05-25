@@ -14,13 +14,23 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 @media (max-width: 768px) {
+    html, body {
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 0;
+        margin: 0;
+    }
+
     body {
-        padding-bottom: 80px;
+        padding-bottom: 65px; /* для футера */
     }
 }
+
 
 body>*:not(.footer, .header) {
     flex: 1 0 auto;
@@ -339,6 +349,12 @@ body>main {
 /* Основные стили для страницы "Об авторе" */
 .main-content-au {
     margin-top: 45px;
+}
+
+@media (max-width: 768px) {
+    .main-content-au {
+        margin-top: 0;
+    }
 }
 
 .about-author .content-box {
@@ -1554,14 +1570,62 @@ body>main {
 @media (max-width: 768px) {
     .contact-container {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: 30px;
+        margin: 30px 20px;
     }
 
-    .contact-info,
-    .contact-form {
+    .contact-info {
+        order: 1;
+        left: 0;
+        padding-top: 40px;
+        transform: none;
         width: 100%;
     }
+
+    .contact-form {
+        order: 2;
+        left: 0;
+        padding: 25px 20px;
+        width: 100%;
+        border-radius: 18px;
+    }
+
+    .form-title {
+        font-size: 32px;
+        top: 0;
+        text-align: center;
+    }
+
+    .contact-card {
+        justify-content: flex-start;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+        gap: 15px;
+    }
+
+    .icon-box,
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+    }
+
+    .icon-box img,
+    .social-icons a img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .submit-btn {
+        font-size: 14px;
+        height: 42px;
+    }
 }
+
 
 
 /* ===== Футер ===== */
