@@ -13,6 +13,13 @@
       "date": "2025-06-05T19:30:00",
       "image": "assets/lecture2.jpg",
       "registrationLink": ""
+    },
+    {
+      "date": "2025-05-26T08:00:00.000Z",
+      "image": "/assets/uploads/1002449828.jpg",
+      "title": "ДВИЖЕНИЕ ПЕРВЫХ | КМК",
+      "description": "Встреча совета первых Курского Музыкального Колледжа",
+      "registrationLink": "https://t.me/pervie_kmk"
     }
   ]
 }
