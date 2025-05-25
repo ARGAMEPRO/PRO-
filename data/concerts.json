@@ -8,13 +8,6 @@
       "registrationLink": "https://forms.yandex.ru/концерт1"
     },
     {
-      "date": "2025-05-25T13:27:14.159Z",
-      "title": "концерт 5 ",
-      "location": "кремль",
-      "image": "https://proklip.netlify.app/admin/assets/concert3.jpg",
-      "registrationLink": ""
-    },
-    {
       "title": "Концерт 2",
       "date": "2025-07-22T19:30:00.000Z",
       "location": "Санкт-Петербург, Ледовый Дворец",
@@ -31,6 +24,13 @@
       "date": "2025-09-05T19:00:00.000Z",
       "location": "Новосибирск, ЛДС Сибирь",
       "image": "assets/concert4.jpg"
+    },
+    {
+      "date": "2025-05-25T13:27:14.159Z",
+      "title": "концерт 5 ",
+      "location": "кремль",
+      "image": "https://proklip.netlify.app/admin/assets/concert3.jpg",
+      "registrationLink": ""
     }
   ]
 }
