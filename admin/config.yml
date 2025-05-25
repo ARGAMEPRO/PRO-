@@ -3,60 +3,63 @@ backend:
   branch: main
   auth_endpoint: https://proklip.netlify.app/.netlify/identity
 
-media_folder: "assets/"
-public_folder: "/assets/"
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
 
 collections:
-  - name: "concerts"
-    label: "Концерты"
+  - label: "Концерты"
+    name: "concerts"
     files:
-      - name: "concerts"
-        label: "Список концертов"
+      - label: "Список концертов"
+        name: "concerts"
         file: "data/concerts.json"
         format: "json"
         fields:
           - label: "Концерты"
             name: "concerts"
             widget: "list"
+            summary: "{{title}} — {{date}}"
             fields:
-              - { name: "title", label: "Название", widget: "string" }
-              - { name: "date", label: "Дата и время", widget: "datetime" }
-              - { name: "location", label: "Место проведения", widget: "string" }
-              - { name: "image", label: "Афиша", widget: "image" }
-              - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
+              - { label: "Название", name: "title", widget: "string" }
+              - { label: "Дата и время", name: "date", widget: "datetime" }
+              - { label: "Место проведения", name: "location", widget: "string" }
+              - { label: "Афиша", name: "image", widget: "image" }
+              - { label: "Ссылка на регистрацию", name: "registrationLink", widget: "string", required: false }
 
-  - name: "lectures"
-    label: "Лекции"
+  - label: "Лекции"
+    name: "lectures"
     files:
-      - name: "lectures"
-        label: "Список лекций"
+      - label: "Список лекций"
+        name: "lectures"
         file: "data/lectures.json"
         format: "json"
         fields:
           - label: "Лекции"
             name: "lectures"
             widget: "list"
+            summary: "{{title}} — {{date}}"
             fields:
-              - { name: "title", label: "Название", widget: "string" }
-              - { name: "description", label: "Описание", widget: "text" }
-              - { name: "date", label: "Дата и время", widget: "datetime" }
-              - { name: "image", label: "Обложка", widget: "image" }
-              - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
+              - { label: "Название", name: "title", widget: "string" }
+              - { label: "Описание", name: "description", widget: "text" }
+              - { label: "Дата и время", name: "date", widget: "datetime" }
+              - { label: "Обложка", name: "image", widget: "image" }
+              - { label: "Ссылка на регистрацию", name: "registrationLink", widget: "string", required: false }
 
-  - name: "clips"
-    label: "Клипы"
+  - label: "Клипы"
+    name: "clips"
     files:
-      - name: "clips"
-        label: "Список клипов"
+      - label: "Список клипов"
+        name: "clips"
         file: "data/clips.json"
         format: "json"
         fields:
           - label: "Клипы"
             name: "clips"
             widget: "list"
+            summary: "{{title}} — {{artist}}"
             fields:
-              - { name: "title", label: "Название", widget: "string" }
-              - { name: "artist", label: "Исполнитель", widget: "string" }
-              - { name: "views", label: "Просмотры", widget: "string" }
-              - { name: "image", label: "Превью", widget: "image" }
-              - { name: "videoLink", label: "Ссылка на видео", widget: "string" }
+              - { label: "Название", name: "title", widget: "string" }
+              - { label: "Исполнитель", name: "artist", widget: "string" }
+              - { label: "Просмотры", name: "views", widget: "string" }
+              - { label: "Превью", name: "image", widget: "image" }
+              - { label: "Ссылка на видео", name: "videoLink", widget: "string" }
