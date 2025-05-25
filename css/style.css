@@ -783,7 +783,7 @@ body > main {
 }
 
 /* Кнопка поверх стекла */
-.register-button {
+.register-button-lec {
     position: absolute;
     bottom: 10px; /* Выступает за пределы стекла */
     left: 50%;
