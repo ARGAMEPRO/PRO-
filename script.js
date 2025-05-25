@@ -62,3 +62,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Добавьте в основной JS сайта
+if (window.location.pathname.includes('/confirm')) {
+  const token = new URLSearchParams(window.location.search).get('token');
+  if (token) {
+    window.netlifyIdentity.confirm(token);
+  }
+}
