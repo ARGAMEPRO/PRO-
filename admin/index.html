@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <title>PROКЛИП Админка</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js" defer></script>
 
-  </head>
-  <body>
-    <div id="nc-root"></div>
+<head>
+  <meta charset="UTF-8" />
+  <title>PROКЛИП Админка</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js" defer></script>
 
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.netlifyIdentity) {
-      netlifyIdentity.init();
+</head>
 
-      console.log('Hash:', window.location.hash);
+<body>
+  <div id="nc-root"></div>
 
-      const hash = window.location.hash;
-      const params = new URLSearchParams(hash.replace('#', ''));
-      const token = params.get('confirmation_token');
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.netlifyIdentity) {
+        netlifyIdentity.init();
 
-      if (token) {
-        netlifyIdentity.confirm(token)
-          .then(() => {
-            console.log("✅ Почта подтверждена!");
-            window.location.href = '/admin/';
-          })
-          .catch((error) => {
-            console.error("❌ Ошибка подтверждения:", error);
-          });
-      }
+        console.log('Hash:', window.location.hash);
+    const hash = window.location.hash;
+    const params = new URLSearchParams(hash.replace('#', ''));
+    const token = params.get('confirmation_token');
 
-      netlifyIdentity.on('login', () => {
-        document.location.href = '/admin/';
-      });
+    if (token) {
+      netlifyIdentity.confirm(token)
+        .then(() => {
+          console.log("✅ Почта подтверждена!");
+          window.location.href = '/admin/';
+        })
+        .catch((error) => {
+          console.error("❌ Ошибка подтверждения:", error);
+        });
+    }
+
+    netlifyIdentity.on('login', () => {
+      document.location.href = '/admin/';
+    });
     }
 
     if (window.CMS) {
       CMS.init();
     }
   });
-</script>
+  </script>
 
-  </body>
+</body>
+
 </html>
