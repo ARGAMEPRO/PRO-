@@ -1,15 +1,18 @@
-[
-  {
-    "title": "Как правильно снимать",
-    "description": "Основы профессиональной съемки",
-    "date": "2025-06-15T19:00:00.000Z",
-    "image": "assets/lecture1.jpg",
-    "registrationLink": "https://forms.yandex.ru/лекция1"
-  },
-  {
-    "title": "Откуда взять вдохновение",
-    "description": "Методы поиска творческих идей",
-    "date": "2025-06-22T18:30:00.000Z",
-    "image": "assets/lecture2.jpg"
-  }
-]
+{
+  "lectures": [
+    {
+      "title": "Название лекции 1",
+      "description": "Краткое описание лекции 1",
+      "date": "2025-06-01T18:00:00",
+      "image": "assets/lecture1.jpg",
+      "registrationLink": "https://example.com/register1"
+    },
+    {
+      "title": "Название лекции 2",
+      "description": "Краткое описание лекции 2",
+      "date": "2025-06-05T19:30:00",
+      "image": "assets/lecture2.jpg",
+      "registrationLink": ""
+    }
+  ]
+}
