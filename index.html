@@ -12,15 +12,33 @@
 
 <body class="home-page">
     <header class="header">
-        <div class="rectangle-1 header-container">
-            <div class="проклип-2"> <a href="index.html"> <img src="assets/logo.svg" alt="Logo" class="vector"> </a>
+        <div class="header-container">
+            <div class="проклип-2">
+                <a href="index.html"><img src="assets/logo.svg" alt="Logo" class="vector" /></a>
             </div>
-            <nav class="buttoms"> <a href="clips.html">клипы</a> <a href="concerts.html">концерты</a> <a
-                    href="lectures.html">лекции</a> <a href="about.html">о проекте</a> <a href="about-author.html">об
-                    авторе</a>
+
+            <nav class="buttoms" id="menu">
+                <a href="clips.html">клипы</a>
+                <a href="concerts.html">концерты</a>
+                <a href="lectures.html">лекции</a>
+                <a href="about.html">о проекте</a>
+                <a href="about-author.html">об авторе</a>
             </nav>
+
+            <input type="checkbox" id="burger-checkbox" class="burger-checkbox" />
+            <label for="burger-checkbox" class="burger"></label>
+
+            <ul class="menu-list">
+                <li><a href="clips.html" class="menu-item">клипы</a></li>
+                <li><a href="concerts.html" class="menu-item">концерты</a></li>
+                <li><a href="lectures.html" class="menu-item">лекции</a></li>
+                <li><a href="about.html" class="menu-item">о проекте</a></li>
+                <li><a href="about-author.html" class="menu-item">об авторе</a></li>
+            </ul>
         </div>
     </header>
+
+
     <main>
         <section class="hero">
             <div class="hero-content">
@@ -42,7 +60,8 @@
             </div>
             <div class="footer-center">
                 <img src="assets/logo(mini).svg" alt="ProКлип logo" class="footer-logo">
-                <p>© PROКЛИП 2025 все права защищены. При поддержке Курского Кластера Креативных Индустрий и Технологий "ПОТОК"</p>
+                <p>© PROКЛИП 2025 все права защищены. При поддержке Курского Кластера Креативных Индустрий и Технологий
+                    "ПОТОК"</p>
             </div>
             <div class="footer-right"> <a href="#"><img src="assets/vk-icon.svg" alt="VK"></a> <a href="#"><img
                         src="assets/whatsapp-icon.svg" alt="WhatsApp"></a> <a href="#"><img
@@ -50,7 +69,7 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
+
     <script>
         if (window.netlifyIdentity) {
             netlifyIdentity.on('init', user => {
@@ -80,6 +99,7 @@
             netlifyIdentity.init();
         }
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

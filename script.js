@@ -21,21 +21,25 @@ document.querySelector('.pic').addEventListener('mouseleave', (e) => {
 });
 
 
-document.querySelector('.menu-toggle').addEventListener('click', function() {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    if (mobileMenu.style.display === 'flex') {
-        mobileMenu.style.display = 'none';
-    } else {
-        mobileMenu.style.display = 'flex';
-    }
+// Бургер-меню для мобилки
+document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    
+    burger.addEventListener('click', function() {
+        menu.classList.toggle('active');
+        // Дополнительно можно добавить анимацию или изменение иконки бургера
+    });
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+
+
+document.addEventListener('DOMContentLoaded', function () {
     const buttons = document.querySelectorAll('.register-button');
-    
+
     buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             alert('Регистрация на мероприятие');
@@ -43,20 +47,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Обработка кнопок регистрации
     const registerButtons = document.querySelectorAll('.register-button');
     registerButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.stopPropagation();
             alert('Регистрация на концерт');
         });
     });
-    
+
     // Обработка кнопки "Показать еще"
     const showMoreBtn = document.querySelector('.show-more');
     if (showMoreBtn) {
-        showMoreBtn.addEventListener('click', function() {
+        showMoreBtn.addEventListener('click', function () {
             // Здесь будет загрузка дополнительных концертов
             alert('Загрузка дополнительных концертов...');
         });
@@ -65,8 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Добавьте в основной JS сайта
 if (window.location.pathname.includes('/confirm')) {
-  const token = new URLSearchParams(window.location.search).get('token');
-  if (token) {
-    window.netlifyIdentity.confirm(token);
-  }
+    const token = new URLSearchParams(window.location.search).get('token');
+    if (token) {
+        window.netlifyIdentity.confirm(token);
+    }
 }

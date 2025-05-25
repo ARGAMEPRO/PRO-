@@ -12,17 +12,29 @@
 
 <body class="клипы">
     <header class="header">
-        <div class="rectangle-1 header-container">
+        <div class="header-container">
             <div class="проклип-2">
-                <a href="index.html"><img src="assets/logo.svg" alt="Logo" class="vector"></a>
+                <a href="index.html"><img src="assets/logo.svg" alt="Logo" class="vector" /></a>
             </div>
-            <nav class="buttoms">
+
+            <nav class="buttoms" id="menu">
                 <a href="clips.html">клипы</a>
                 <a href="concerts.html">концерты</a>
                 <a href="lectures.html">лекции</a>
                 <a href="about.html">о проекте</a>
                 <a href="about-author.html">об авторе</a>
             </nav>
+
+            <input type="checkbox" id="burger-checkbox" class="burger-checkbox" />
+            <label for="burger-checkbox" class="burger"></label>
+
+            <ul class="menu-list">
+                <li><a href="clips.html" class="menu-item">клипы</a></li>
+                <li><a href="concerts.html" class="menu-item">концерты</a></li>
+                <li><a href="lectures.html" class="menu-item">лекции</a></li>
+                <li><a href="about.html" class="menu-item">о проекте</a></li>
+                <li><a href="about-author.html" class="menu-item">об авторе</a></li>
+            </ul>
         </div>
     </header>
 
