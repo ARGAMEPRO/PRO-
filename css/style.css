@@ -827,7 +827,7 @@ body > main {
   cursor: not-allowed;
 }
 
-.lecture-card:hover .register-button-lec {
+.lecture-card:hover {
     bottom: 10px; /* Поднимаем кнопку при наведении */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
