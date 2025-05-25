@@ -581,6 +581,7 @@ body > main {
 }
 
 .концерты-text {
+    font-size: 64px;
     color: white;
     margin-bottom: 0;
     letter-spacing: 30px;
@@ -797,9 +798,9 @@ body > main {
 /* Кнопка поверх стекла */
 .register-button {
     position: absolute;
-    bottom: 10px; /* Выступает за пределы стекла */
+    bottom: 15px; /* Выступает за пределы стекла */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-25%);
     width: calc(100% - 36px);
     background-color: #c9200d;
     color: white;
