@@ -9,48 +9,54 @@ public_folder: "/assets/"
 collections:
   - name: "concerts"
     label: "Концерты"
-    file: "data/concerts.json"
-    format: "json"
-    create: false
-    fields:
-      - label: "Список концертов"
-        name: "concerts"
-        widget: "list"
+    files:
+      - name: "concerts"
+        label: "Список концертов"
+        file: "data/concerts.json"
+        format: "json"
         fields:
-          - { name: "title", label: "Название", widget: "string" }
-          - { name: "date", label: "Дата и время", widget: "datetime" }
-          - { name: "location", label: "Место проведения", widget: "string" }
-          - { name: "image", label: "Афиша", widget: "image" }
-          - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
+          - label: "Концерты"
+            name: "concerts"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Название", widget: "string" }
+              - { name: "date", label: "Дата и время", widget: "datetime" }
+              - { name: "location", label: "Место проведения", widget: "string" }
+              - { name: "image", label: "Афиша", widget: "image" }
+              - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
 
   - name: "lectures"
     label: "Лекции"
-    file: "data/lectures.json"
-    format: "json"
-    create: false
-    fields:
-    - label: "Список лекций"
-      name: "lectures"
-      widget: "list"
-      fields:
-        - { name: "title", label: "Название", widget: "string" }
-        - { name: "description", label: "Описание", widget: "text" }
-        - { name: "date", label: "Дата и время", widget: "datetime" }
-        - { name: "image", label: "Обложка", widget: "image" }
-        - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
+    files:
+      - name: "lectures"
+        label: "Список лекций"
+        file: "data/lectures.json"
+        format: "json"
+        fields:
+          - label: "Лекции"
+            name: "lectures"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Название", widget: "string" }
+              - { name: "description", label: "Описание", widget: "text" }
+              - { name: "date", label: "Дата и время", widget: "datetime" }
+              - { name: "image", label: "Обложка", widget: "image" }
+              - { name: "registrationLink", label: "Ссылка на регистрацию", widget: "string", required: false }
 
   - name: "clips"
     label: "Клипы"
-    file: "data/clips.json"
-    format: "json"
-    create: false
-    fields:
-      - label: "Список клипов"
-        name: "lectures"
-        widget: "list"
+    files:
+      - name: "clips"
+        label: "Список клипов"
+        file: "data/clips.json"
+        format: "json"
         fields:
-        - { name: "title", label: "Название", widget: "string" }
-        - { name: "artist", label: "Исполнитель", widget: "string" }
-        - { name: "views", label: "Просмотры", widget: "string" }
-        - { name: "image", label: "Превью", widget: "image" }
-        - { name: "videoLink", label: "Ссылка на видео", widget: "string" }
+          - label: "Клипы"
+            name: "clips"
+            widget: "list"
+            fields:
+              - { name: "title", label: "Название", widget: "string" }
+              - { name: "artist", label: "Исполнитель", widget: "string" }
+              - { name: "views", label: "Просмотры", widget: "string" }
+              - { name: "image", label: "Превью", widget: "image" }
+              - { name: "videoLink", label: "Ссылка на видео", widget: "string" }
