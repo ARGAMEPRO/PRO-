@@ -918,7 +918,6 @@ body > main {
     .register-button-lec {
         position: absolute;
         bottom: 10px;
-        width: calc(100% - 30px);
         transition: none !important;
         transform: none !important;
     }
