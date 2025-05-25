@@ -796,14 +796,14 @@ body > main {
     padding: 18px 18px 60px; 
     backdrop-filter: blur(3px);
     height: auto; 
-    min-height: 45%; 
+    min-height: 30%; 
     transition: all 0.3s ease;
 }
 
 /* Кнопка поверх стекла */
 .register-button-lec {
     position: absolute;
-    bottom: 15px; /* Выступает за пределы стекла */
+    bottom: 25px; /* Выступает за пределы стекла */
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 36px);
