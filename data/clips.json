@@ -5,21 +5,24 @@
       "artist": "Исполнитель 1",
       "views": "12345",
       "previewImage": "assets/clip1-preview.jpg",
-      "videoLink": "https://youtube.com/clip1"
+      "videoLink": "https://youtube.com/clip1",
+      "image": "/assets/uploads/d1ir8kiujdo.jpg"
     },
     {
       "title": "Название клипа 2",
       "artist": "Исполнитель 2",
       "views": "67890",
       "previewImage": "assets/clip2-preview.jpg",
-      "videoLink": "https://youtube.com/clip2"
+      "videoLink": "https://youtube.com/clip2",
+      "image": "/assets/uploads/d1ir8kiujdo.jpg"
     },
     {
       "title": "Клип 3",
       "artist": "тест админки",
-      "views": "12млн",
+      "views": "956млрд",
       "previewImage": "/assets/uploads/d1ir8kiujdo.jpg",
-      "videoLink": "https://youtube.com/clip3"
+      "videoLink": "https://youtube.com/clip3",
+      "image": "/assets/uploads/d1ir8kiujdo.jpg"
     }
   ]
 }
