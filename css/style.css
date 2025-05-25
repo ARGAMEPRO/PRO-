@@ -798,7 +798,7 @@ body > main {
 /* Кнопка поверх стекла */
 .register-button {
     position: absolute;
-    bottom: 15px; /* Выступает за пределы стекла */
+    bottom: 10px; /* Выступает за пределы стекла */
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 36px);
