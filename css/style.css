@@ -821,7 +821,7 @@ body > main {
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.lecture-card:hover .register-button-lec {
+.lecture-card:hover .register-button-lec:not(.disabled) {
     transform: translateX(-50%) translateY(-10px); /* Поднимаем кнопку вместе с карточкой */
     background-color: #a5150a; /* Немного темнее */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
