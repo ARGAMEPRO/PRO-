@@ -664,13 +664,31 @@ body > main {
     margin: 0;
 }
 
+.register-button-con {
+    position: absolute;
+    bottom: 10px; /* Выступает за пределы стекла */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 36px);
+    background-color: #c9200d;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    transition: all 0.3s ease;
+}
 
-.register-button:hover {
+.register-button-con:hover {
   background: #9a0000;
   transform: translateX(-50%) translateY(-2px);
 }
 
-.register-button.disabled {
+.register-button-con.disabled {
   background: #555;
   cursor: not-allowed;
 }
@@ -785,7 +803,7 @@ body > main {
 /* Кнопка поверх стекла */
 .register-button-lec {
     position: absolute;
-    bottom: 10px; /* Выступает за пределы стекла */
+    bottom: 15px; /* Выступает за пределы стекла */
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 36px);
@@ -802,7 +820,17 @@ body > main {
     transition: all 0.3s ease;
 }
 
-.lecture-card:hover .register-button {
+.register-button-lec:hover {
+  background: #9a0000;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.register-button-lec.disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.lecture-card:hover .register-button-lec {
     bottom: 10px; /* Поднимаем кнопку при наведении */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
