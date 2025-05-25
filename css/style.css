@@ -570,6 +570,9 @@ body > main {
     .clip-container {
         gap: 20px;
     }
+    .clip-glass {
+        height: 35%;
+    }
     .clip-card {
         flex: 0 0 90vw;
         height: 400px;
