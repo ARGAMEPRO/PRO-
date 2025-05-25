@@ -1,45 +1,85 @@
-<!DOCTYPE html> 
-<html lang="ru"> 
-    <head> 
-        <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>PROКЛИП - Домашняя страница</title>         
-        <link rel="stylesheet" href="css/style.css"> 
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet"> 
-    </head>     
-    <body class="home-page"> 
-        <header class="header"> 
-            <div class="rectangle-1 header-container"> 
-                <div class="проклип-2"> <a href="index.html">  <img src="assets/logo.svg" alt="Logo" class="vector">  </a> 
-                </div>                 
-                <nav class="buttoms"> <a href="clips.html">клипы</a> <a href="concerts.html">концерты</a> <a href="lectures.html">лекции</a> <a href="about.html">о проекте</a>  <a href="about-author.html">об авторе</a>
-                </nav>                 
-            </div>             
-        </header>
-        <main> 
-            <section class="hero"> 
-                <div class="hero-content"> 
-                    <h1 class="hero-title">PROКЛИП</h1> 
-                    <p class="hero-subtitle"> 
-                    Хочешь сниматься в <span class="highlight">кино</span> или <span class="highlight">создавать</span><br> 
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROКЛИП - Домашняя страница</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="home-page">
+    <header class="header">
+        <div class="rectangle-1 header-container">
+            <div class="проклип-2"> <a href="index.html"> <img src="assets/logo.svg" alt="Logo" class="vector"> </a>
+            </div>
+            <nav class="buttoms"> <a href="clips.html">клипы</a> <a href="concerts.html">концерты</a> <a
+                    href="lectures.html">лекции</a> <a href="about.html">о проекте</a> <a href="about-author.html">об
+                    авторе</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">PROКЛИП</h1>
+                <p class="hero-subtitle">
+                    Хочешь сниматься в <span class="highlight">кино</span> или <span
+                        class="highlight">создавать</span><br>
                     собственные <span class="highlight">клипы</span>?
- </p> 
-                </div>                 
-                <img src="assets/photo(indexBG).jpg" alt="MainPhoto" class="photoIndex"> 
-            </section>             
-        </main>                  
-        <footer class="footer"> 
-            <div class="footer-container"> 
-                <div class="footer-left"> <a href="clips.html">клипы</a> <a href="concerts.html">концерты</a> <a href="lectures.html">лекции</a> <a href="about.html">о проекте</a> <a href="about-author.html">об авторе</a> 
-                </div>                 
-                <div class="footer-center"> 
-                    <img src="assets/logo(mini).svg" alt="ProКлип logo" class="footer-logo"> 
-                    <p>© PROКЛИП 2025 все права защищены</p> 
-                </div>                 
-                <div class="footer-right"> <a href="#"><img src="assets/vk-icon.svg" alt="VK"></a> <a href="#"><img src="assets/whatsapp-icon.svg" alt="WhatsApp"></a> <a href="#"><img src="assets/telegram-icon.svg" alt="Telegram"></a> 
-                </div>                 
-            </div>             
-        </footer>         
-        <script src="script.js"></script>         
-    </body>     
+                </p>
+            </div>
+            <img src="assets/photo(indexBG).jpg" alt="MainPhoto" class="photoIndex">
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left"> <a href="clips.html">клипы</a> <a href="concerts.html">концерты</a> <a
+                    href="lectures.html">лекции</a> <a href="about.html">о проекте</a> <a href="about-author.html">об
+                    авторе</a>
+            </div>
+            <div class="footer-center">
+                <img src="assets/logo(mini).svg" alt="ProКлип logo" class="footer-logo">
+                <p>© PROКЛИП 2025 все права защищены</p>
+            </div>
+            <div class="footer-right"> <a href="#"><img src="assets/vk-icon.svg" alt="VK"></a> <a href="#"><img
+                        src="assets/whatsapp-icon.svg" alt="WhatsApp"></a> <a href="#"><img
+                        src="assets/telegram-icon.svg" alt="Telegram"></a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        if (window.netlifyIdentity) {
+            netlifyIdentity.on('init', user => {
+                if (!user) {
+                    // Обработка подтверждения email
+                    const searchParams = new URLSearchParams(window.location.search);
+                    const token = searchParams.get('confirmation_token');
+                    const invite = searchParams.get('invite_token');
+
+                    if (token) {
+                        netlifyIdentity.on('confirm', user => {
+                            console.log('Email подтверждён!', user);
+                            window.location.href = '/admin/';
+                        });
+                        netlifyIdentity.confirm(token);
+                    }
+
+                    if (invite) {
+                        netlifyIdentity.on('invite', user => {
+                            console.log('Приглашение принято!', user);
+                            window.location.href = '/admin/';
+                        });
+                        netlifyIdentity.acceptInvite(invite);
+                    }
+                }
+            });
+            netlifyIdentity.init();
+        }
+    </script>
+</body>
+
 </html>
