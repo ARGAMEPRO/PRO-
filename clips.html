@@ -54,36 +54,47 @@
             const container = document.getElementById('cards-container');
 
             function renderClips(clips) {
-                container.innerHTML = '';
+                if (!Array.isArray(clips)) {
+                    console.error('Ожидался массив клипов');
+                    container.innerHTML = '<p class="error">Ошибка загрузки клипов</p>';
+                    return;
+                }
 
-                clips.forEach(clip => {
-                    const card = document.createElement('div');
-                    card.className = 'clip-card';
-
-                    card.innerHTML = `
-                    <div class="clip-preview" style="background-image: url('${clip.previewImage}')"></div>
-                    <div class="clip-glass">
-                        <h3 class="clip-title">${clip.title}</h3>
-                        <p class="clip-artist">${clip.artist}</p>
-                        <p class="clip-views">${clip.views} просмотров</p>
-                        <a href="${clip.videoUrl}" target="_blank">
-                            <button class="watch-button">Смотреть</button>
-                        </a>
+                container.innerHTML = clips.map(clip => `
+                    <div class="clip-card">
+                        <div class="clip-preview" style="background-image: url('${clip.previewImage}')"></div>
+                        <div class="clip-glass">
+                            <h3 class="clip-title">${clip.title}</h3>
+                            <p class="clip-artist">${clip.artist}</p>
+                            <p class="clip-views">${clip.views} просмотров</p>
+                            <a href="${clip.videoUrl}" target="_blank">
+                                <button class="watch-button">Смотреть</button>
+                            </a>
+                        </div>
                     </div>
-                `;
-
-                    container.appendChild(card);
-                });
+                `).join('');
             }
 
             fetch('data/clips.json')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Не удалось загрузить данные');
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    renderClips(data.clips);
+                    if (data && data.clips) {
+                        renderClips(data.clips);
+                    } else {
+                        throw new Error('Неверный формат данных');
+                    }
                 })
                 .catch(error => {
-                    console.error('Ошибка загрузки клипов:', error);
-                    container.innerHTML = '<p>Не удалось загрузить клипы.</p>';
+                    console.error('Ошибка:', error);
+                    container.innerHTML = `
+                        <p class="error">Не удалось загрузить клипы. Пожалуйста, попробуйте позже.</p>
+                        <p class="error-details">${error.message}</p>
+                    `;
                 });
         });
     </script>
