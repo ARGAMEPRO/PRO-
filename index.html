@@ -61,7 +61,6 @@
         </section>
 
         <script>
-            // Загрузка главных мероприятий
             document.addEventListener('DOMContentLoaded', () => {
                 const featuredSection = document.querySelector('.featured-events .featured-container');
 
@@ -89,53 +88,50 @@
             `;
 
                     events.forEach(event => {
-                        let eventTypeLabel = "";
-                        let eventDateHTML = "";
-                        let buttonText = "";
-
-                        switch (event.type) {
-                            case 'clip':
-                                eventTypeLabel = "Клипы";
-                                buttonText = "Смотреть";
-                                break;
-                            case 'lecture':
-                                eventTypeLabel = "Лекции";
-                                buttonText = "Зарегистрироваться";
-                                if (event.date) {
-                                    eventDateHTML = `<p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
-                                        day: 'numeric',
-                                        month: 'long',
-                                        year: 'numeric',
-                                        hour: '2-digit',
-                                        minute: '2-digit'
-                                    })}</p>`;
-                                }
-                                break;
-                            case 'concert':
-                                eventTypeLabel = "Концерты";
-                                buttonText = "Зарегистрироваться";
-                                if (event.date) {
-                                    eventDateHTML = `<p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
-                                        day: 'numeric',
-                                        month: 'long',
-                                        year: 'numeric',
-                                        hour: '2-digit',
-                                        minute: '2-digit'
-                                    })}</p>`;
-                                }
-                                break;
-                        }
-
-                        html += `
-                    <div class="featured-item featured-${event.type}">
-                        <h3>${eventTypeLabel}</h3>
+                        if (event.type === 'clip') {
+                            html += `
+                    <div class="featured-item featured-clip">
+                        <h3>Клипы</h3>
                         <div class="event-preview" style="background-image: url('${event.image}')"></div>
                         <h4>${event.title}</h4>
-                        ${event.artist ? `<p class="event-artist">${event.artist}</p>` : ""}
-                        ${eventDateHTML}
-                        <a href="${event.link}" class="featured-link">${buttonText}</a>
+                        <p class="event-artist">${event.artist || ''}</p>
+                        <p class="event-date empty"></p> <!-- Пустая дата для выравнивания -->
+                        <a href="${event.link}" class="featured-link">Смотреть</a>
                     </div>
-                `;
+                    `;
+                        } else if (event.type === 'lecture') {
+                            html += `
+                    <div class="featured-item featured-lecture">
+                        <h3>Лекции</h3>
+                        <div class="event-preview" style="background-image: url('${event.image}')"></div>
+                        <h4>${event.title}</h4>
+                        <p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })}</p>
+                        <a href="${event.link}" class="featured-link">Зарегистрироваться</a>
+                    </div>
+                    `;
+                        } else if (event.type === 'concert') {
+                            html += `
+                    <div class="featured-item featured-concert">
+                        <h3>Концерты</h3>
+                        <div class="event-preview" style="background-image: url('${event.image}')"></div>
+                        <h4>${event.title}</h4>
+                        <p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            })}</p>
+                        <a href="${event.link}" class="featured-link">Зарегистрироваться</a>
+                    </div>
+                    `;
+                        }
                     });
 
                     html += `</div>`;
@@ -152,6 +148,7 @@
                 }
             });
         </script>
+
 
     </main>
 
