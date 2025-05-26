@@ -346,6 +346,75 @@ body>main {
     font-weight: 500;
 }
 
+
+/* Стили для главных мероприятий */
+.featured-events {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.featured-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.featured-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.featured-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.featured-item h3 {
+    color: #b70000;
+    margin-top: 0;
+}
+
+.clip-preview,
+.lecture-preview,
+.concert-preview {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.featured-link {
+    display: inline-block;
+    background: #b70000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.hero-description {
+    font-size: 18px;
+    color: #fff;
+    max-width: 600px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .featured-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 /* Основные стили для страницы "Об авторе" */
 .main-content-au {
     margin-top: 45px;

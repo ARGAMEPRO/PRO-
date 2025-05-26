@@ -22,9 +22,18 @@ collections:
             fields:
               - { label: "Название", name: "title", widget: "string" }
               - { label: "Дата и время", name: "date", widget: "datetime" }
-              - { label: "Место проведения", name: "location", widget: "string" }
+              - {
+                  label: "Место проведения",
+                  name: "location",
+                  widget: "string",
+                }
               - { label: "Афиша", name: "image", widget: "image" }
-              - { label: "Ссылка на регистрацию", name: "registrationLink", widget: "string", required: false }
+              - {
+                  label: "Ссылка на регистрацию",
+                  name: "registrationLink",
+                  widget: "string",
+                  required: false,
+                }
 
   - label: "Лекции"
     name: "lectures"
@@ -43,7 +52,12 @@ collections:
               - { label: "Описание", name: "description", widget: "text" }
               - { label: "Дата и время", name: "date", widget: "datetime" }
               - { label: "Обложка", name: "image", widget: "image" }
-              - { label: "Ссылка на регистрацию", name: "registrationLink", widget: "string", required: false }
+              - {
+                  label: "Ссылка на регистрацию",
+                  name: "registrationLink",
+                  widget: "string",
+                  required: false,
+                }
 
   - label: "Клипы"
     name: "clips"
@@ -62,4 +76,44 @@ collections:
               - { label: "Исполнитель", name: "artist", widget: "string" }
               - { label: "Просмотры", name: "views", widget: "string" }
               - { label: "Превью", name: "image", widget: "image" }
-              - { label: "Ссылка на видео", name: "videoLink", widget: "string" }
+              - {
+                  label: "Ссылка на видео",
+                  name: "videoLink",
+                  widget: "string",
+                }
+
+  - label: "Главные мероприятия"
+    name: "featured"
+    files:
+      - label: "Выбор главных мероприятий"
+        name: "featured"
+        file: "data/featured.json"
+        format: "json"
+        fields:
+          - label: "Главные мероприятия"
+            name: "featured"
+            widget: "list"
+            summary: "{{type}} - {{title}}"
+            fields:
+              - {
+                  label: "Тип",
+                  name: "type",
+                  widget: "select",
+                  options: ["clip", "lecture", "concert"],
+                }
+              - { label: "ID мероприятия", name: "id", widget: "string" }
+              - { label: "Название", name: "title", widget: "string" }
+              - {
+                  label: "Исполнитель/Лектор",
+                  name: "artist",
+                  widget: "string",
+                  required: false,
+                }
+              - {
+                  label: "Дата",
+                  name: "date",
+                  widget: "datetime",
+                  required: false,
+                }
+              - { label: "Изображение", name: "image", widget: "image" }
+              - { label: "Ссылка", name: "link", widget: "string" }
