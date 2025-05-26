@@ -604,7 +604,8 @@ body>main {
 }
 
 .about-author .proклип {
-    font-size: 70px;
+    text-transform: uppercase;
+    font-size: 60px;
     font-weight: 550;
     color: #ffffff;
     text-shadow: 3px 3px 0 #b70000;
@@ -657,6 +658,7 @@ body>main {
     }
 
     .about-author .proклип {
+        text-shadow: 1px px 0 #b70000;
         position: relative;
         top: 0;
         left: 0;
@@ -680,6 +682,7 @@ body>main {
 /* Адаптация для мобильных */
 @media (max-width: 768px) {
     .about-author .content-box {
+        text-shadow: 1px 1px 0 #b70000;
         width: 95%;
         padding: 30px 20px;
         margin-top: 100px;
