@@ -39,7 +39,7 @@
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero-section">
             <div class="hero-content">
                 <h1 class="hero-title">PROКЛИП</h1>
                 <p class="hero-subtitle">
@@ -51,18 +51,19 @@
                     профессиональном кино или даже снять свой собственный клип.
                 </p>
             </div>
-            <img src="assets/photo(indexBG).jpg" alt="MainPhoto" class="photoIndex">
-            <section class="featured-events">
-                <div class="featured-container" id="featured-events">
-                    <!-- Блок с главными мероприятиями будет загружаться через JS -->
-                </div>
-            </section>
+            <img src="assets/photo(indexBG).jpg" alt="MainPhoto" class="hero-image">
+        </section>
+
+        <section class="featured-events">
+            <div class="featured-container" id="featured-events">
+                <!-- Блок с главными мероприятиями будет загружаться через JS -->
+            </div>
         </section>
 
         <script>
             // Загрузка главных мероприятий
             document.addEventListener('DOMContentLoaded', () => {
-                const featuredSection = document.querySelector('.featured-events');
+                const featuredSection = document.querySelector('.featured-events .featured-container');
 
                 fetch('data/featured.json')
                     .then(response => {
@@ -83,53 +84,53 @@
 
                 function renderFeaturedEvents(events) {
                     let html = `
-                <h2 class="featured-title">Главные мероприятия</h2>
-                <div class="featured-grid">
-            `;
+                        <h2 class="featured-title">Главные мероприятия</h2>
+                        <div class="featured-grid">
+                    `;
 
                     events.forEach(event => {
                         if (event.type === 'clip') {
                             html += `
-                        <div class="featured-item featured-clip">
-                            <h3>Клипы</h3>
-                            <div class="event-preview" style="background-image: url('${event.image}')"></div>
-                            <h4>${event.title}</h4>
-                            <p class="event-artist">${event.artist}</p>
-                            <a href="${event.link}" class="featured-link">Смотреть</a>
-                        </div>
-                    `;
+                            <div class="featured-item featured-clip">
+                                <h3>Клипы</h3>
+                                <div class="event-preview" style="background-image: url('${event.image}')"></div>
+                                <h4>${event.title}</h4>
+                                <p class="event-artist">${event.artist}</p>
+                                <a href="${event.link}" class="featured-link">Смотреть</a>
+                            </div>
+                            `;
                         } else if (event.type === 'lecture') {
                             html += `
-                        <div class="featured-item featured-lecture">
-                            <h3>Лекции</h3>
-                            <div class="event-preview" style="background-image: url('${event.image}')"></div>
-                            <h4>${event.title}</h4>
-                            <p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
+                            <div class="featured-item featured-lecture">
+                                <h3>Лекции</h3>
+                                <div class="event-preview" style="background-image: url('${event.image}')"></div>
+                                <h4>${event.title}</h4>
+                                <p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
                                 day: 'numeric',
                                 month: 'long',
                                 year: 'numeric',
                                 hour: '2-digit',
                                 minute: '2-digit'
                             })}</p>
-                            <a href="${event.link}" class="featured-link">Подробнее</a>
-                        </div>
-                    `;
+                                <a href="${event.link}" class="featured-link">Подробнее</a>
+                            </div>
+                            `;
                         } else if (event.type === 'concert') {
                             html += `
-                        <div class="featured-item featured-concert">
-                            <h3>Концерты</h3>
-                            <div class="event-preview" style="background-image: url('${event.image}')"></div>
-                            <h4>${event.title}</h4>
-                            <p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
+                            <div class="featured-item featured-concert">
+                                <h3>Концерты</h3>
+                                <div class="event-preview" style="background-image: url('${event.image}')"></div>
+                                <h4>${event.title}</h4>
+                                <p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
                                 day: 'numeric',
                                 month: 'long',
                                 year: 'numeric',
                                 hour: '2-digit',
                                 minute: '2-digit'
                             })}</p>
-                            <a href="${event.link}" class="featured-link">Купить билет</a>
-                        </div>
-                    `;
+                                <a href="${event.link}" class="featured-link">Купить билет</a>
+                            </div>
+                            `;
                         }
                     });
 
@@ -139,15 +140,14 @@
 
                 function showNoEventsMessage() {
                     featuredSection.innerHTML = `
-                <div class="no-events-message">
-                    <h2 class="featured-title">Главные мероприятия</h2>
-                    <p>Скоро будут новые мероприятия! Следите за обновлениями.</p>
-                </div>
-            `;
+                        <div class="no-events-message">
+                            <h2 class="featured-title">Главные мероприятия</h2>
+                            <p>Скоро будут новые мероприятия! Следите за обновлениями.</p>
+                        </div>
+                    `;
                 }
             });
         </script>
-
     </main>
 
     <footer class="footer">

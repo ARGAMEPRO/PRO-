@@ -300,28 +300,30 @@ body>main {
     overflow: auto;
 }
 
-.photoIndex {
-  position: relative; /* или absolute внутри родителя */
-  width: 100%;
-  height: calc(100vh - 33px); /* растянуть от хедера до низа */
-  object-fit: cover;
-  object-position: center;
-  max-width: 100%;
-  overflow: hidden;
-  z-index: 1; /* чтобы была под контентом */
+.hero-image {
+    flex: 1;
+    max-width: 55%;
+    height: calc(100vh - 80px);
+    object-fit: cover;
+    object-position: center;
 }
 
+.hero-section {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(90deg, #000000 10%, #000000 65%, rgba(7, 7, 7, 0) 99%);
+    position: relative;
+}
 
 .hero-content {
-    position: relative;
-    z-index: 2;
+    flex: 1;
     max-width: 45%;
     padding: 0 35px;
-    width: 100%;
-    align-self: center;
-    box-sizing: border-box;
-    transform: none;
-    top: -80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
 }
 
 .hero-title {
@@ -341,6 +343,13 @@ body>main {
     letter-spacing: clamp(1px, 1vw, 3px);
 }
 
+.hero-description {
+    font-size: clamp(16px, 2vw, 24px);
+    color: #fff;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
 .highlight {
     color: #e20100;
     font-weight: 500;
@@ -349,9 +358,14 @@ body>main {
 
 /* Стили для секции мероприятий */
 .featured-events {
+    width: 100%;
     padding: 60px 20px;
-    background: rgba(0, 0, 0, 0.2);
-    margin: 40px 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.featured-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .featured-title {
@@ -367,8 +381,6 @@ body>main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .featured-item {
@@ -443,6 +455,22 @@ body>main {
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        padding: 40px 20px;
+    }
+    
+    .hero-image {
+        max-width: 100%;
+        height: auto;
+        max-height: 50vh;
+    }
+    
     .featured-events {
         padding: 40px 15px;
     }
