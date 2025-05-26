@@ -455,6 +455,12 @@ body>main {
     line-height: 1.6;
 }
 
+.event-date.empty {
+  visibility: hidden;
+  height: 1.5em; /* Подгоняй по дизайну */
+}
+
+
 @media (max-width: 768px) {
     .hero-section {
         flex-direction: column;
