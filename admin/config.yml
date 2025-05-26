@@ -101,7 +101,6 @@ collections:
                   widget: "select",
                   options: ["clip", "lecture", "concert"],
                 }
-              - { label: "ID мероприятия", name: "id", widget: "string" }
               - { label: "Название", name: "title", widget: "string" }
               - {
                   label: "Исполнитель/Лектор",
