@@ -61,18 +61,18 @@
                 }
 
                 container.innerHTML = clips.map(clip => `
-                    <div class="clip-card">
-                        <div class="clip-preview" style="background-image: url('${clip.previewImage}')"></div>
-                        <div class="clip-glass">
-                            <h3 class="clip-title">${clip.title}</h3>
-                            <p class="clip-artist">${clip.artist}</p>
-                            <p class="clip-views">${clip.views} просмотров</p>
-                            <a href="${clip.videoUrl}" target="_blank">
-                                <button class="watch-button">Смотреть</button>
-                            </a>
-                        </div>
+                <div class="clip-card">
+                    <div class="clip-preview" style="background-image: url('${clip.image}')"></div>
+                    <div class="clip-glass">
+                        <h3 class="clip-title">${clip.title}</h3>
+                        <p class="clip-artist">${clip.artist}</p>
+                        <p class="clip-views">${clip.views} просмотров</p>
+                        <a href="${clip.videoLink}" target="_blank">
+                            <button class="watch-button">Смотреть</button>
+                        </a>
                     </div>
-                `).join('');
+                </div>
+            `).join('');
             }
 
             fetch('data/clips.json')
@@ -92,9 +92,9 @@
                 .catch(error => {
                     console.error('Ошибка:', error);
                     container.innerHTML = `
-                        <p class="error">Не удалось загрузить клипы. Пожалуйста, попробуйте позже.</p>
-                        <p class="error-details">${error.message}</p>
-                    `;
+                    <p class="error">Не удалось загрузить клипы. Пожалуйста, попробуйте позже.</p>
+                    <p class="error-details">${error.message}</p>
+                `;
                 });
         });
     </script>
