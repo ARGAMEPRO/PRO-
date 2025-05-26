@@ -304,6 +304,7 @@ body>main {
     height: 100vh;
     object-fit: cover;
     object-position: center;
+    margin-bottom: 10px;
 }
 
 .hero-section {
@@ -365,11 +366,11 @@ body>main {
     font-weight: 200;
     line-height: 1.5;
     letter-spacing: clamp(1px, 1vw, 3px);
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .hero-description {
-    font-size: 30px;
+    font-size: 25px;
     color: #fff;
     margin-top: 20px;
     line-height: 1.6;
@@ -497,6 +498,8 @@ body>main {
     .hero-content {
         align-items: center;      /* общий центр */
         text-align: center;
+        max-width: 100%;
+        padding: 20px 20px;
     }
 
     .hero-title {
@@ -525,6 +528,7 @@ body>main {
     }
 
     .hero-subtitle {
+        font-size: 20px !important;
         margin-bottom: 1px;
         font-weight: 200;
     }
@@ -1991,86 +1995,6 @@ body>main {
 
     .picbg {
         flex-direction: column;
-    }
-}
-
-@media (max-width: 768px) {
-
-
-    .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero-content {
-        max-width: 100%;
-        padding: 60px 20px;
-    }
-
-    .hero-bg {
-        display: none;
-    }
-
-    .hero-title {
-        font-size: 42px;
-    }
-
-    .hero-subtitle {
-        font-size: 24px;
-    }
-
-    .карточки.лекции,
-    .карточки.концерты {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .rectangle-11,
-    .rectangle-12,
-    .rectangle-13.лекции,
-    .rectangle-13,
-    .rectangle-19,
-    .rectangle-13.концерты,
-    .rectangle-19.концерты {
-        max-width: 100%;
-        height: auto;
-        min-height: 300px;
-    }
-
-    .кнопки,
-    .кнопки.лекции {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .rectangle-20,
-    .rectangle-21,
-    .rectangle-20.лекции,
-    .rectangle-21.лекции,
-    .rectangle-22.лекции {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .proклип,
-    .клипы.клипы,
-    .концерты.концерты,
-    .лекции.лекции {
-        font-size: 36px;
-    }
-
-    .nav a {
-        font-size: 16px;
-    }
-
-    .rectangle-7 {
-        height: 40px;
-    }
-
-    .контакты {
-        font-size: 24px;
     }
 }
 
