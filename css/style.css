@@ -332,7 +332,6 @@ body>main {
     font-weight: 550;
     color: #ffffff;
     text-shadow: 4px 4px 0 #b70000;
-    margin-bottom: clamp(20px, 10vh, 100px);
     letter-spacing: clamp(1rem, 3vw, 3rem);
     position: relative;
 }
