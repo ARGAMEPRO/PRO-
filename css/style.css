@@ -297,6 +297,7 @@ body>main {
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
+    overflow: auto;
 }
 
 .photoIndex {
@@ -307,9 +308,8 @@ body>main {
   object-position: center;
   max-width: 100%;
   overflow: hidden;
-  z-index: -3; /* чтобы была под контентом */
+  z-index: 1; /* чтобы была под контентом */
 }
-
 
 
 .hero-content {
