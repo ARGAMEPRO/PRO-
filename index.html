@@ -89,15 +89,23 @@
 
                     events.forEach(event => {
                         const artistHTML = event.artist ? `<p class="event-artist">${event.artist}</p>` : '';
-                        const dateHTML = event.date
-                            ? `<p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
-                                day: 'numeric',
-                                month: 'long',
-                                year: 'numeric',
-                                hour: '2-digit',
-                                minute: '2-digit'
-                            })}</p>`
-                            : `<p class="event-date empty"></p>`;
+
+                        // Отображаем дату только для lecture/concert
+                        let dateHTML = '';
+                        if (event.type === 'lecture' || event.type === 'concert') {
+                            dateHTML = event.date
+                                ? `<p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
+                                    day: 'numeric',
+                                    month: 'long',
+                                    year: 'numeric',
+                                    hour: '2-digit',
+                                    minute: '2-digit'
+                                })}</p>`
+                                : `<p class="event-date empty"></p>`;
+                        } else {
+                            // "пустая" дата у клипов для выравнивания
+                            dateHTML = `<p class="event-date placeholder" style="visibility: hidden;">дата</p>`;
+                        }
 
                         let buttonText = '';
                         if (event.type === 'clip') buttonText = 'Смотреть';
@@ -130,8 +138,6 @@
                 }
             });
         </script>
-
-
 
     </main>
 
