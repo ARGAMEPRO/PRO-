@@ -38,7 +38,7 @@ body>*:not(.footer, .header) {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #070707;
+    background-color: #1e1e1e;
     color: #ffffff;
     min-height: 100vh;
     display: flex;
@@ -89,6 +89,7 @@ body>main {
     max-width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
+    background-color: #0e0e0e;
 }
 
 .vector {
@@ -195,7 +196,7 @@ body>main {
     list-style: none;
     margin: 0;
     padding: 40px 0;
-    background-color: #000;
+    background-color: #111111;
     position: absolute;
     top: 75px;
     left: 0;
@@ -292,18 +293,15 @@ body>main {
     height: 100%;
     max-height: -webkit-fill-available;
     min-height: 0;
-    background: linear-gradient(90deg, #000000 10%, #000000 65%, rgba(7, 7, 7, 0) 99%);
     display: flex;
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-    overflow: auto;
 }
 
 .hero-image {
-    flex: 1;
-    max-width: 55%;
-    height: calc(100vh - 80px);
+    width: 100%;
+    height: 100vh;
     object-fit: cover;
     object-position: center;
 }
@@ -313,19 +311,21 @@ body>main {
     display: flex;
     width: 100%;
     min-height: calc(100vh - 80px);
-    background: linear-gradient(90deg, #000000 10%, #000000 65%, rgba(7, 7, 7, 0) 99%);
     position: relative;
 }
 
 .hero-content {
-    flex: 1;
-    max-width: 100%;
+    width: 100%;                     /* вся ширина */
+    max-width: 100%;                 /* снимаем ограничение */
     padding: 0 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;            /* <-- центрирует по горизонтали */
+    text-align: center;             /* <-- выравнивает текст */
     z-index: 2;
 }
+
 
 .hero-title {
     font-size: clamp(42px, 8vw, 150px);
@@ -335,6 +335,13 @@ body>main {
     letter-spacing: clamp(1rem, 3vw, 3rem);
     position: relative;
 }
+
+.hero-tagline {
+    font-size: 28px;
+    color: #ffffff; /* светло-серый, чтобы не выделялось слишком сильно */
+    font-weight: 100;
+}
+
 
 .hero-subtitle {
     font-size: clamp(24px, 4vw, 60px);
@@ -360,7 +367,7 @@ body>main {
 .featured-events {
     width: 100%;
     padding: 60px 20px;
-    background: rgba(0, 0, 0, 0.8);
+    background: #1e1e1e;
 }
 
 .featured-container {
@@ -466,12 +473,36 @@ body>main {
         flex-direction: column;
         min-height: auto;
     }
-    
+
     .hero-content {
-        max-width: 100%;
-        padding: 40px 20px;
+        align-items: center;      /* общий центр */
+        text-align: center;
     }
-    
+
+    .hero-title {
+        text-align: center;
+        align-self: center;
+    }
+
+    .hero-tagline {
+        font-size: 14px;
+        margin-bottom: 65px;
+    }
+
+    .hero-subtitle,
+    .hero-description {
+        text-align: left;
+        align-self: flex-start;   /* на телефоне прижимаем к левому краю */
+    }
+
+    .hero-description {
+        font-weight: 100;
+    }
+
+    .hero-subtitle {
+        font-weight: 200;
+    }
+
     .hero-image {
         max-width: 100%;
         height: auto;
