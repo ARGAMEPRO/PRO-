@@ -756,6 +756,7 @@ body>main {
     color: white;
     padding: 25px;
     backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(8px);
     height: 30%;
 }
 
