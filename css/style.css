@@ -502,6 +502,135 @@ body>main {
   height: 1.5em; /* Подгоняй по дизайну */
 }
 
+.proklip-opening {
+    padding: 50px 20px;
+    background-color: #0f0f0f;
+}
+
+.opening-title {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.opening-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.opening-gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.opening-video-card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.opening-video-glass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 25px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.glass-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: white;
+    gap: 20px;
+}
+
+.video-info {
+    flex: 1; /* Занимает всё доступное пространство */
+    min-width: 0; /* Позволяет тексту обрезаться вместо растягивания контейнера */
+}
+
+.video-info h3 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.video-info p {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.video-button {
+    background-color: #d80000;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0; /* Предотвращает сжатие кнопки */
+}
+
+.video-button:hover {
+    background-color: #b00000;
+}
+
+@media (max-width: 768px) {
+    .opening-video-card {
+        height: 250px;
+        border-radius: 10px;
+    }
+    
+    .opening-video-glass {
+        padding: 15px;
+    }
+    
+    .glass-content {
+        gap: 10px;
+    }
+    
+    .video-info h3 {
+        font-size: 16px;
+    }
+    
+    .video-info p {
+        font-size: 12px;
+    }
+    
+    .video-button {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+}
+
 
 @media (max-width: 768px) {
     .hero-section {
