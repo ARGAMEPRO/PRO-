@@ -546,7 +546,7 @@ body>main {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 25%;
+    height: 35%;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -2012,7 +2012,7 @@ body>main {
     width: 100%;
     background-color: #070707;
     color: #ffffff;
-    padding: 0 20px;
+    padding: 10px 20px;
     letter-spacing: normal !important;
     text-transform: none !important;
     font-weight: normal;
@@ -2104,7 +2104,7 @@ body>main {
         -webkit-backdrop-filter: blur(10px);
         /* Safari support */
         width: 100%;
-        padding: 15px 1px;
+        padding: 13px 1px;
         z-index: 100;
     }
 
