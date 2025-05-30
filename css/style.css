@@ -98,6 +98,12 @@ body>main {
     z-index: 1001;
 }
 
+@media (max-width: 768px) {
+    .vector {
+        transform: scale(1.3);
+    }
+}
+
 /* Основное меню (десктоп) */
 .buttoms {
     display: flex;
@@ -237,6 +243,12 @@ body>main {
     text-transform: lowercase !important;
 }
 
+@media (max-width: 768px) {
+    .menu-list li a {
+        font-size: 17px;
+    }
+}
+
 .menu-list li a:hover {
     background-color: rgba(154, 0, 0, 0.5);
 }
@@ -270,6 +282,8 @@ body>main {
 @media (max-width: 768px) {
     .burger {
         display: block;
+        position: relative;
+        top: -1px;
     }
 
     .buttoms {
@@ -503,7 +517,9 @@ body>main {
     }
 
     .hero-title {
-        text-shadow: 2px 2px 0 #b70000;
+        position: relative;
+        left: 7px;
+        text-shadow: 3px 3px 0 #b70000;
         letter-spacing: 20px;
         text-align: center;
         align-self: center;
@@ -525,6 +541,7 @@ body>main {
         font-size: 15px;
         font-weight: 100;
         margin-bottom: 0;
+        margin: 20px;
     }
 
     .hero-subtitle {
