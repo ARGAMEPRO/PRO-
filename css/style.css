@@ -100,6 +100,8 @@ body>main {
 
 @media (max-width: 768px) {
     .vector {
+        position: relative;
+        left: -20px;
         transform: scale(1.3);
     }
 }
