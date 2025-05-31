@@ -673,12 +673,14 @@ body>main {
         font-weight: 100;
         margin-bottom: 0;
         margin: 20px;
+        font-weight: 200;
     }
 
     .hero-subtitle {
-        font-size: 20px !important;
+        font-size: 30px !important;
         margin-bottom: 1px;
         font-weight: 200;
+        margin-left: 25px;
     }
 
     .hero-image {
@@ -2150,10 +2152,6 @@ body>main {
     .концерты.концерты,
     .лекции.лекции {
         font-size: 42px;
-    }
-
-    .hero-subtitle {
-        font-size: 36px;
     }
 }
 
