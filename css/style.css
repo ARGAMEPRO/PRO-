@@ -644,7 +644,7 @@ body>main {
         align-items: center;      /* общий центр */
         text-align: center;
         max-width: 100%;
-        padding: 20px 20px;
+        padding: 20px 0 0 ;
     }
 
     .hero-title {
@@ -687,6 +687,7 @@ body>main {
         max-width: 100%;
         height: auto;
         max-height: 50vh;
+        margin-top: -35px;
     }
     
     .featured-events {
