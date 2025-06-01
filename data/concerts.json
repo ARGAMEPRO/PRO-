@@ -1,29 +1,11 @@
 {
   "concerts": [
     {
-      "title": "Концерт 1",
-      "date": "2025-07-15T20:00:00.000Z",
-      "location": "Москва, Крокус Сити Холл",
-      "image": "/assets/uploads/d1ir8kiujdo.jpg",
-      "registrationLink": "https://forms.yandex.ru/концерт1"
-    },
-    {
-      "title": "Концерт 2",
-      "date": "2025-07-22T19:30:00.000Z",
-      "location": "Санкт-Петербург, Ледовый Дворец",
-      "image": "assets/concert2.jpg"
-    },
-    {
-      "title": "Концерт 3",
-      "date": "2025-08-10T21:00:00.000Z",
-      "location": "Казань, Татнефть Арена",
-      "image": "assets/concert3.jpg"
-    },
-    {
-      "title": "Концерт 4",
-      "date": "2025-09-05T19:00:00.000Z",
-      "location": "Новосибирск, ЛДС Сибирь",
-      "image": "assets/concert4.jpg"
+      "title": "ДЕНЬГИ - ЭТО БУМАГА",
+      "date": "2025-06-27T13:00:00.000Z",
+      "location": "МБУ Городской молодёжный центр \"Гелиос\"",
+      "image": "/assets/uploads/1002450886.jpg",
+      "registrationLink": "https://forms.yandex.ru/u/68348cc5d046880c6c629e4c"
     }
   ]
 }
