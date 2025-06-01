@@ -342,6 +342,9 @@ body>main {
 }
 
 .hero-title {
+    text-shadow: 6px 6px 0 #b70000;
+    font-size: 90px !important; 
+    letter-spacing: 45px;
     font-size: 3rem;
     font-weight: 700;
     margin: 0;
@@ -349,8 +352,10 @@ body>main {
 
 .hero-tagline {
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 300;
+    letter-spacing: 5px;
     margin-top: 10px;
+    color: #a1a1a1;
 }
 
 .hero-description {
@@ -358,9 +363,8 @@ body>main {
     z-index: 3;
     font-size: 25px;
     color: #fff;
-    margin-top: 20px;
     line-height: 1.6;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     font-weight: 100;
     padding: 0 60px;
 }
@@ -394,11 +398,13 @@ body>main {
     }
 
     .hero-description {
+        position: relative;
+        left: -25px;
         display: block;
         padding: 10px 20px;
         font-size: 1rem;
         line-height: 1.5;
-        color: #333;
+        color: #ffffff;
     }
 }
 
@@ -720,6 +726,7 @@ body>main {
     }
 
     .hero-title {
+        font-size: 47px !important;
         font-weight: 600;
         color: #ffffff;
         position: relative;
@@ -731,7 +738,7 @@ body>main {
     }
 
     .hero-tagline {
-        color: #4d4d4d;
+        color: #a8a8a8;
         letter-spacing: 3px;
         font-size: 14px;
         margin-bottom: 65px;
