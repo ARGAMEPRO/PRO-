@@ -726,7 +726,7 @@ body>main {
     }
 
     .hero-title {
-        font-size: 47px !important;
+        font-size: 55px !important;
         font-weight: 600;
         color: #ffffff;
         position: relative;
@@ -774,8 +774,8 @@ body>main {
     }
 
     .featured-events {
-        padding: 15px 20px;
-        transform: none !important;
+        padding: 15px 1px;
+        transform: scale(0.9);
         margin-bottom: 0;
     }
 
