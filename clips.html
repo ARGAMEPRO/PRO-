@@ -62,17 +62,19 @@
                 }
 
                 container.innerHTML = clips.map(clip => `
-                <div class="clip-card">
-                    <div class="clip-preview" style="background-image: url('${clip.image}')"></div>
-                    <div class="clip-glass">
-                        <h3 class="clip-title">${clip.title}</h3>
-                        <p class="clip-artist">${clip.artist}</p>
-                        <p class="clip-views">${clip.views} просмотров</p>
-                        <a href="${clip.videoLink}" target="_blank">
-                            <button class="watch-button">Смотреть</button>
-                        </a>
-                    </div>
-                </div>
+<div class="clip-card">
+    <div class="clip-preview" style="background-image: url('${clip.image}')"></div>
+    <div class="clip-glass">
+        <div class="clip-info">
+            <h3 class="clip-title">${clip.title}</h3>
+            <p class="clip-artist">${clip.artist}</p>
+            <p class="clip-views">${clip.views} просмотров</p>
+        </div>
+<a href="${clip.videoLink}" target="_blank" class="watch-button">Смотреть</a>
+
+    </div>
+</div>
+
             `).join('');
             }
 
