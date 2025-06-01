@@ -1558,6 +1558,7 @@ body>main {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         z-index: 3;
         transition: none !important;
+        text-align: center;
     }
 
     .register-button-lec:not(.disabled):active {
