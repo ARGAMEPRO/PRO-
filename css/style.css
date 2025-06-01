@@ -298,93 +298,109 @@ body>main {
 
 
 
-/* ===== Главная страница ===== */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-.hero {
-    flex: 1;
+/* ======== ОБЩЕЕ ======== */
+.hero-section {
     position: relative;
     width: 100%;
-    height: 100%;
-    max-height: -webkit-fill-available;
-    min-height: 0;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
+    height: 95%;
     object-fit: cover;
-    object-position: center;
-    margin-bottom: 10px;
+    z-index: 1;
 }
 
-.hero-section {
-    flex-direction: column;
-    display: flex;
+/* Градиент поверх картинки */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    min-height: calc(100vh - 80px);
-    position: relative;
-}
-
-.hero-content {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    /* по умолчанию выравниваем влево */
-    text-align: left;
-    /* текст тоже влево */
+    height: 100%;
+    background: 
+  linear-gradient(to right, #0f0f0f 0%, #0f0f0f 40%, transparent 90%),
+  linear-gradient(to top, #0f0f0f 0%, #0f0f0f 10%, transparent 80%);
     z-index: 2;
 }
 
-/* Заголовок и теглайн — центрируем */
-.hero-title,
-.hero-tagline {
-    align-self: center;
-    /* центрируем в контейнере */
-    text-align: center;
-    /* и текст по центру */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 0 5%;
+    max-width: 50%;
+    color: white;
 }
-
-/* Остальные — оставляем слева */
-.hero-subtitle,
-.hero-description {
-    align-self: flex-start;
-    /* прижимаем к левому краю */
-    text-align: left;
-}
-
-
 
 .hero-title {
-    font-size: clamp(42px, 8vw, 150px);
-    font-weight: 550;
-    color: #ffffff;
-    text-shadow: 4px 4px 0 #b70000;
-    letter-spacing: 80px;
-    position: relative;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
 }
 
 .hero-tagline {
-    font-size: 28px;
-    color: #ffffff;
-    /* светло-серый, чтобы не выделялось слишком сильно */
-    font-weight: 100;
-    margin-bottom: 100px;
-    letter-spacing: 10px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 10px;
 }
 
+.hero-description {
+    width: 100%;
+    z-index: 3;
+    font-size: 25px;
+    color: #fff;
+    margin-top: 20px;
+    line-height: 1.6;
+    margin-bottom: 100px;
+    font-weight: 100;
+    padding: 0 60px;
+}
+
+/* ======== МОБИЛЬНАЯ ВЕРСИЯ ======== */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: auto;
+    }
+
+    .hero-image {
+        position: static;
+        height: auto;
+        z-index: 1;
+        margin-bottom: 10px;
+    }
+
+    .hero-section::before {
+        display: none;
+    }
+
+    .hero-content {
+        position: static;
+        max-width: 100%;
+        padding: 0 20px;
+        color: black;
+        z-index: 2;
+    }
+
+    .hero-description {
+        display: block;
+        padding: 10px 20px;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #333;
+    }
+}
 
 .hero-subtitle {
     font-size: 75px;
@@ -426,14 +442,6 @@ body>main {
     }
 }
 
-.hero-description {
-    font-size: 25px;
-    color: #fff;
-    margin-top: 20px;
-    line-height: 1.6;
-    margin-bottom: 100px;
-    font-weight: 100;
-}
 
 .highlight {
     color: #e20100;
@@ -712,15 +720,18 @@ body>main {
     }
 
     .hero-title {
+        font-weight: 600;
+        color: #ffffff;
         position: relative;
         left: 7px;
-        text-shadow: 3px 3px 0 #b70000;
+        text-shadow: 2px 2px 0 #b70000;
         letter-spacing: 20px;
         text-align: center;
         align-self: center;
     }
 
     .hero-tagline {
+        color: #4d4d4d;
         letter-spacing: 3px;
         font-size: 14px;
         margin-bottom: 65px;
