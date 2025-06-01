@@ -18,7 +18,9 @@ body {
 }
 
 @media (max-width: 768px) {
-    html, body {
+
+    html,
+    body {
         height: auto;
         overflow-x: hidden;
         overflow-y: auto;
@@ -27,7 +29,8 @@ body {
     }
 
     body {
-        padding-bottom: 65px; /* для футера */
+        padding-bottom: 65px;
+        /* для футера */
     }
 }
 
@@ -338,22 +341,27 @@ body>main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;   /* по умолчанию выравниваем влево */
-    text-align: left;          /* текст тоже влево */
+    align-items: flex-start;
+    /* по умолчанию выравниваем влево */
+    text-align: left;
+    /* текст тоже влево */
     z-index: 2;
 }
 
 /* Заголовок и теглайн — центрируем */
 .hero-title,
 .hero-tagline {
-    align-self: center;        /* центрируем в контейнере */
-    text-align: center;        /* и текст по центру */
+    align-self: center;
+    /* центрируем в контейнере */
+    text-align: center;
+    /* и текст по центру */
 }
 
 /* Остальные — оставляем слева */
 .hero-subtitle,
 .hero-description {
-    align-self: flex-start;    /* прижимаем к левому краю */
+    align-self: flex-start;
+    /* прижимаем к левому краю */
     text-align: left;
 }
 
@@ -370,7 +378,8 @@ body>main {
 
 .hero-tagline {
     font-size: 28px;
-    color: #ffffff; /* светло-серый, чтобы не выделялось слишком сильно */
+    color: #ffffff;
+    /* светло-серый, чтобы не выделялось слишком сильно */
     font-weight: 100;
     margin-bottom: 100px;
     letter-spacing: 10px;
@@ -431,7 +440,7 @@ body>main {
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -460,7 +469,8 @@ body>main {
     margin: 15px 0;
 }
 
-.event-artist, .event-date {
+.event-artist,
+.event-date {
     padding: 0 20px;
     color: #666;
     font-size: 16px;
@@ -486,7 +496,7 @@ body>main {
 .no-events-message {
     text-align: center;
     padding: 40px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     max-width: 800px;
     margin: 0 auto;
@@ -500,8 +510,9 @@ body>main {
 }
 
 .event-date.empty {
-  visibility: hidden;
-  height: 1.5em; /* Подгоняй по дизайну */
+    visibility: hidden;
+    height: 1.5em;
+    /* Подгоняй по дизайну */
 }
 
 .proklip-opening {
@@ -568,8 +579,10 @@ body>main {
 }
 
 .video-info {
-    flex: 1; /* Занимает всё доступное пространство */
-    min-width: 0; /* Позволяет тексту обрезаться вместо растягивания контейнера */
+    flex: 1;
+    /* Занимает всё доступное пространство */
+    min-width: 0;
+    /* Позволяет тексту обрезаться вместо растягивания контейнера */
 }
 
 .video-info h3 {
@@ -598,7 +611,8 @@ body>main {
     font-weight: 500;
     transition: background 0.3s ease;
     white-space: nowrap;
-    flex-shrink: 0; /* Предотвращает сжатие кнопки */
+    flex-shrink: 0;
+    /* Предотвращает сжатие кнопки */
 }
 
 .video-button:hover {
@@ -610,23 +624,23 @@ body>main {
         height: 250px;
         border-radius: 10px;
     }
-    
+
     .opening-video-glass {
         padding: 15px;
     }
-    
+
     .glass-content {
         gap: 10px;
     }
-    
+
     .video-info h3 {
         font-size: 16px;
     }
-    
+
     .video-info p {
         font-size: 12px;
     }
-    
+
     .video-button {
         padding: 8px 14px;
         font-size: 14px;
@@ -641,10 +655,11 @@ body>main {
     }
 
     .hero-content {
-        align-items: center;      /* общий центр */
+        align-items: center;
+        /* общий центр */
         text-align: center;
         max-width: 100%;
-        padding: 20px 0 0 ;
+        padding: 20px 0 0;
     }
 
     .hero-title {
@@ -665,7 +680,8 @@ body>main {
     .hero-subtitle,
     .hero-description {
         text-align: left;
-        align-self: flex-start;   /* на телефоне прижимаем к левому краю */
+        align-self: flex-start;
+        /* на телефоне прижимаем к левому краю */
     }
 
     .hero-description {
@@ -689,16 +705,16 @@ body>main {
         max-height: 50vh;
         margin-top: -35px;
     }
-    
+
     .featured-events {
         padding: 40px 15px;
     }
-    
+
     .featured-title {
         font-size: 26px;
         margin-bottom: 30px;
     }
-    
+
     .featured-grid {
         grid-template-columns: 1fr;
     }
@@ -1496,28 +1512,40 @@ body>main {
     letter-spacing: 20px;
 }
 
+.project-header {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.pic {
+    flex: 0 0 400px;
+}
+
 .main-content-ab {
-    margin-top: 45px;
+    min-height: calc(100vh - 120px);
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
 }
 
 .content-box {
     width: 90%;
     max-width: 1400px;
-    margin: 0 auto;
-    margin-top: 50vh;
-    transform: translateY(-65%) scale(1.2);
+    margin: 40px auto;
     background-color: rgba(0, 0, 0, 0.7);
     border: 2px solid #b70000;
     border-radius: 40px;
     padding: 40px;
-    position: relative;
     box-shadow: 0 0 20px rgba(183, 0, 0, 0.5);
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 40px;
-    overflow: visible;
+    flex-direction: column;
+    /* ← вот ключ! */
+    align-items: stretch;
+    box-sizing: border-box;
 }
+
 
 .pic {
     flex: 0 0 434px;
@@ -1536,13 +1564,34 @@ body>main {
 }
 
 .projectPhoto {
-        width: 100%;
+    width: 100%;
     height: auto;
-    border-radius: 38px;
+    border-radius: 20px;
     transition: transform 0.4s ease-out;
     transform-style: preserve-3d;
     position: relative;
     z-index: 1;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.proклип {
+    font-size: 70px;
+    font-weight: 550;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #b70000;
+    margin: 0 0 20px 0;
+    letter-spacing: 15px;
+}
+
+.project-description {
+    font-size: 30px;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.6;
+    margin: 0;
 }
 
 .img-wrapper::before {
@@ -1586,37 +1635,98 @@ body>main {
     line-height: 50px;
 }
 
-.group-4 {
-    margin-top: 20px;
-    position: relative;
-    z-index: 1;
-}
-
-.rectangle-7 {
-    width: 200px;
-    height: 44px;
-    border-radius: 15px;
-    background-color: #b70000;
-    display: grid;
-    place-items: center;
-    align-items: center;
+.contacts-button-container {
+    display: flex;
     justify-content: center;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.rectangle-7:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(183, 0, 0, 0.8);
+.rectangle-7{
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #b70000;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    transition: background-color 0.3s;
 }
+
+.rectangle-7 .контакты:hover {
+    background-color: #800000;
+}
+
 
 .контакты {
-    position: relative;
-    top: 3px;
-    font-size: 32px;
-    font-weight: 400;
+    font-size: 28px;
+    font-weight: 500;
     color: #ffffff;
     text-decoration: none;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
+}
+
+.team-section {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    padding: 40px;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.team-title {
+    font-size: 50px;
+    font-weight: 550;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #b70000;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: 10px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 25px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid #b70000;
+    text-align: center;
+}
+
+.team-photo {
+    width: 100%;
+    max-width: 250px;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(183, 0, 0, 0.3);
+}
+
+.team-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.team-position {
+    font-size: 16px;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.5;
 }
 
 /* Адаптация для планшетов */
@@ -1626,11 +1736,6 @@ body>main {
         letter-spacing: 10px;
     }
 
-    .проект-proклип-даст-тебе-возможность-попробовать-свои-силы-в-сфере-медиа {
-        font-size: 22px;
-        line-height: 1.4;
-    }
-
     .pic {
         flex: 0 0 350px;
     }
@@ -1638,39 +1743,62 @@ body>main {
 
 /* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
-    .main-content {
-        margin-top: 80px;
+    .project-header {
+        margin-bottom: 0;
     }
 
-  .content-box {
-    margin-top: 20px;
-    position: static; 
-    transform: none;
-    flex-direction: column;
-    padding: 30px 20px;
-    gap: 30px;
-    width: 95%;
-    top: 0; 
-  }
+    .main-content {
+        margin-top: 80px;
+        width: 100%;
+    }
 
-    .about .proклип {
-        font-size: 40px;
-        letter-spacing: 5px;
+    .content-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 20px;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .proклип {
+        position: relative;
+        left:8px;
+        order: 1;
+        font-size: 36px;
+        letter-spacing: 4px;
         text-align: center;
+        color: white;
+        margin: 0;
+        width: 100%;
+    }
+
+    .project-header {
+        gap: 0;
+        display: grid;
+        margin-bottom: 10px;
+    }
+
+    .projectPhoto {
         margin-bottom: 20px;
     }
 
-    .проект-proклип-даст-тебе-возможность-попробовать-свои-силы-в-сфере-медиа {
+    .project-description {
+        order: 2;
         font-size: 18px;
         line-height: 1.5;
-        word-spacing: normal;
-        text-align: center;
+        color: white;
+        margin: 0;
+        max-width: 90%;
+        width: 100%;
     }
 
     .pic {
-        flex: 0 0 auto;
+        order: 0;
         width: 100%;
         max-width: 400px;
+        height: auto;
         margin: 0 auto;
     }
 
@@ -1681,37 +1809,38 @@ body>main {
     }
 
     .контакты {
-        font-size: 26px;
+        font-size: 23px;
         letter-spacing: 3px;
         position: relative;
-        top: -1.5px;
-        letter-spacing: 3px;
+        top: -8px;
+        left: -16px;
     }
 
     .group-4 {
         text-align: center;
     }
-}
 
-/* Адаптация для очень маленьких экранов */
-@media (max-width: 480px) {
-    .about .proклип {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .team-member {
+        padding: 25px;
+    }
+
+    .team-photo {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .team-title {
         font-size: 32px;
-    }
-
-    .проект-proклип-даст-тебе-возможность-попробовать-свои-силы-в-сфере-медиа {
-        font-size: 16px;
-    }
-
-    .rectangle-7 {
-        width: 140px;
-        height: 36px;
-    }
-
-    .контакты {
-        font-size: 22px;
+        letter-spacing: 2px;
     }
 }
+
+
 
 /* ===== Страница контактов ===== */
 
@@ -2114,6 +2243,7 @@ body>main {
     }
 
     .footer-container {
+        grid-template-columns: auto;
         justify-content: center;
         padding: 0 10px;
     }
