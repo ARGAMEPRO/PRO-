@@ -20,13 +20,14 @@
     {
       "image": "assets/opening/g5.jpg",
       "alt": "Фото 5"
-    }
+    },
+    "/assets/uploads/g6.jpg"
   ],
   "video": {
     "title": "ОТКРЫТИЕ PROКЛИП",
     "artists": "Дмитрий Асташкин, Алексей Беседин",
     "views": "500 просмотров",
     "videoLink": "https://vk.com/video-230370939_456239025?list=e2a107a5082b2736ea",
-    "preview": "assets/opening/videoPrev.jpg"
+    "preview": "/assets/uploads/videoprev.jpg"
   }
 }
