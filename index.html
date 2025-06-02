@@ -58,48 +58,43 @@
             document.addEventListener('DOMContentLoaded', function () {
                 fetch('data/opening.json')
                     .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
+                        if (!response.ok) throw new Error('Network response was not ok');
                         return response.json();
                     })
-                    .then(data => {
-                        renderOpeningBlock(data);
-                    })
+                    .then(data => renderOpeningBlock(data))
                     .catch(err => {
                         console.error('Ошибка загрузки блока открытия:', err);
                         renderErrorState();
                     });
 
                 function renderOpeningBlock(data) {
-                    try {
-                        const section = document.createElement('section');
-                        section.className = 'proklip-opening';
+                    const section = document.createElement('section');
+                    section.className = 'proklip-opening';
 
-                        const hasGallery = Array.isArray(data.gallery) && data.gallery.length > 0;
-                        const hasVideo = data.video && data.video.videoLink;
+                    const hasGallery = Array.isArray(data.gallery) && data.gallery.length > 0;
+                    const hasVideo = data.video && data.video.videoLink;
 
-                        // Если нет фото, не показываем вообще ничего
-                        if (!hasGallery) {
-                            console.warn('Нет фото. Блок открытия не будет показан.');
-                            return;
-                        }
+                    if (!hasGallery) return;
 
-                        let galleryHTML = '';
-                        let videoHTML = '';
-
-                        if (hasGallery) {
-                            galleryHTML = `
-            <h3 class="opening-subtitle">Фотографии с открытия</h3>
+                    // Блок галереи
+                    let galleryHTML = '';
+                    if (hasGallery) {
+                        galleryHTML = `
+          <div class="gallery-block">
+            <h3 class="opening-subtitle gallery-subtitle">Фотографии с открытия</h3>
             <div class="opening-gallery">
               ${data.gallery.map(img => `<img src="${img}" alt="">`).join('')}
             </div>
-          `;
-                        }
+          </div>
+        `;
+                    }
 
-                        if (hasVideo) {
-                            videoHTML = `
-            <h3 class="opening-subtitle">Видео с открытия</h3>
+                    // Блок видео
+                    let videoHTML = '';
+                    if (hasVideo) {
+                        videoHTML = `
+          <div class="video-block">
+            <h3 class="opening-subtitle video-subtitle">Видео с открытия</h3>
             <div class="opening-video-card" style="background-image: url('${data.video.preview || ''}')">
               <div class="opening-video-glass">
                 <div class="glass-content">
@@ -112,26 +107,22 @@
                 </div>
               </div>
             </div>
-          `;
-                        }
-
-                        section.innerHTML = `
-          <h2 class="opening-title">${data.title || 'Открытие PROКЛИП'}</h2>
-          ${galleryHTML}
-          ${videoHTML}
+          </div>
         `;
+                    }
 
-                        const main = document.querySelector('main');
-                        const featured = document.querySelector('.featured-events');
-                        if (main && featured) {
-                            main.insertBefore(section, featured);
-                        } else {
-                            console.warn('Не найдены элементы для вставки. Вставляю в body.');
-                            document.body.appendChild(section);
-                        }
-                    } catch (error) {
-                        console.error('Ошибка рендеринга блока открытия:', error);
-                        renderErrorState();
+                    section.innerHTML = `
+        <h2 class="opening-title">${data.title || 'Открытие PROКЛИП'}</h2>
+        ${galleryHTML}
+        ${videoHTML}
+      `;
+
+                    const main = document.querySelector('main');
+                    const featured = document.querySelector('.featured-events');
+                    if (main && featured) {
+                        main.insertBefore(section, featured);
+                    } else {
+                        document.body.appendChild(section);
                     }
                 }
 
@@ -140,17 +131,12 @@
                     section.className = 'proklip-opening error';
                     section.innerHTML = `
         <h2 class="opening-title">Открытие PROКЛИП</h2>
-        <p>К сожалению, не удалось загрузить данные. Пожалуйста, попробуйте позже.</p>
+        <p>Не удалось загрузить данные.</p>
       `;
-
                     const main = document.querySelector('main');
-                    if (main) {
-                        const featured = document.querySelector('.featured-events');
-                        if (featured) {
-                            main.insertBefore(section, featured);
-                        } else {
-                            main.appendChild(section);
-                        }
+                    const featured = document.querySelector('.featured-events');
+                    if (main && featured) {
+                        main.insertBefore(section, featured);
                     } else {
                         document.body.appendChild(section);
                     }
