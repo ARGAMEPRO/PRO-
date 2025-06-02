@@ -1,12 +1,26 @@
 {
   "title": "Открытие PROКЛИП'а",
   "gallery": [
-    { "image": "assets/opening/g1.jpg", "alt": "Фото 1" },
-    { "image": "assets/opening/g2.jpg", "alt": "Фото 2" },
-    { "image": "assets/opening/g3.jpg", "alt": "Фото 3" },
-    { "image": "assets/opening/g4.jpg", "alt": "Фото 4" },
-    { "image": "assets/opening/g5.jpg", "alt": "Фото 5" },
-    { "image": "assets/opening/g6.jpg", "alt": "Фото 6" }
+    {
+      "image": "assets/opening/g1.jpg",
+      "alt": "Фото 1"
+    },
+    {
+      "image": "assets/opening/g2.jpg",
+      "alt": "Фото 2"
+    },
+    {
+      "image": "assets/opening/g3.jpg",
+      "alt": "Фото 3"
+    },
+    {
+      "image": "assets/opening/g4.jpg",
+      "alt": "Фото 4"
+    },
+    {
+      "image": "assets/opening/g5.jpg",
+      "alt": "Фото 5"
+    }
   ],
   "video": {
     "title": "ОТКРЫТИЕ PROКЛИП",
