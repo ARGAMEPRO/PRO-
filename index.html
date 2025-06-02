@@ -55,39 +55,89 @@
         </p>
 
         <script>
-            fetch('data/opening.json')
-                .then(response => response.json())
-                .then(data => renderOpeningBlock(data))
-                .catch(err => console.error('Ошибка загрузки блока открытия:', err));
+            document.addEventListener('DOMContentLoaded', function () {
+                fetch('data/opening.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        renderOpeningBlock(data);
+                    })
+                    .catch(err => {
+                        console.error('Ошибка загрузки блока открытия:', err);
+                        // Можно добавить fallback-контент или сообщение об ошибке
+                        renderErrorState();
+                    });
 
-            function renderOpeningBlock(data) {
-                const section = document.createElement('section');
-                section.className = 'proklip-opening';
-                section.innerHTML = `
-    <h2 class="opening-title">Открытие PROКЛИП'а</h2>
-    <div class="opening-gallery">
-      ${data.images.map(img => `<img src="${img.src}" alt="${img.alt}">`).join('')}
-    </div>
-    <div class="opening-video-card" style="background-image: url('${data.video.preview}')">
-      <div class="opening-video-glass">
-        <div class="glass-content">
-          <div class="video-info">
-            <h3>${data.video.title}</h3>
-            <p>${data.video.authors}</p>
-            <p>${data.video.views}</p>
+                function renderOpeningBlock(data) {
+                    try {
+                        const section = document.createElement('section');
+                        section.className = 'proklip-opening';
+
+                        // Проверяем наличие необходимых данных
+                        if (!data || !data.gallery || !data.video) {
+                            throw new Error('Invalid data structure');
+                        }
+
+                        section.innerHTML = `
+          <h2 class="opening-title">${data.title || 'Открытие PROКЛИП'}</h2>
+          <div class="opening-gallery">
+            ${data.gallery.map(img =>
+                            `<img src="${img.image || ''}" alt="${img.alt || ''}">`
+                        ).join('')}
           </div>
-          <a href="${data.video.link}" class="video-button">Смотреть</a>
-        </div>
-      </div>
-    </div>
-  `;
+          <div class="opening-video-card" style="background-image: url('${data.video.preview || ''}')">
+            <div class="opening-video-glass">
+              <div class="glass-content">
+                <div class="video-info">
+                  <h3>${data.video.title || ''}</h3>
+                  <p>${data.video.artists || ''}</p>
+                  <p>${data.video.views || ''}</p>
+                </div>
+                <a href="${data.video.videoLink || '#'}" class="video-button">Смотреть</a>
+              </div>
+            </div>
+          </div>
+        `;
 
-                // Вставим перед "главными мероприятиями"
-                const main = document.querySelector('main');
-                const featured = document.querySelector('.featured-events');
-                main.insertBefore(section, featured);
-            }
+                        const main = document.querySelector('main');
+                        const featured = document.querySelector('.featured-events');
+                        if (main && featured) {
+                            main.insertBefore(section, featured);
+                        } else {
+                            console.error('Не найдены элементы для вставки блока открытия');
+                            document.body.appendChild(section);
+                        }
+                    } catch (error) {
+                        console.error('Ошибка рендеринга блока открытия:', error);
+                        renderErrorState();
+                    }
+                }
 
+                function renderErrorState() {
+                    const section = document.createElement('section');
+                    section.className = 'proklip-opening error';
+                    section.innerHTML = `
+        <h2 class="opening-title">Открытие PROКЛИП</h2>
+        <p>К сожалению, не удалось загрузить данные. Пожалуйста, попробуйте позже.</p>
+      `;
+
+                    const main = document.querySelector('main');
+                    if (main) {
+                        const featured = document.querySelector('.featured-events');
+                        if (featured) {
+                            main.insertBefore(section, featured);
+                        } else {
+                            main.appendChild(section);
+                        }
+                    } else {
+                        document.body.appendChild(section);
+                    }
+                }
+            });
         </script>
 
 
