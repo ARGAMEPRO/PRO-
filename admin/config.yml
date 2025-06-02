@@ -129,7 +129,7 @@ collections:
           - label: "Галерея"
             name: "gallery"
             widget: "list"
-            field: { label: "Изображение", name: "image", widget: "image" }
+            field: { label: "Изображение", name: "", widget: "image" }  # просто список изображений, без alt
           - label: "Видео"
             name: "video"
             widget: "object"
@@ -139,3 +139,4 @@ collections:
               - { label: "Авторы", name: "artists", widget: "string" }
               - { label: "Просмотры", name: "views", widget: "string" }
               - { label: "Ссылка", name: "videoLink", widget: "string" }
+

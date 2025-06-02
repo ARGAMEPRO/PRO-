@@ -76,23 +76,14 @@
                         const section = document.createElement('section');
                         section.className = 'proklip-opening';
 
-                        // Проверка данных
-                        if (!data || !Array.isArray(data.gallery) || !data.video) {
+                        if (!data || !data.gallery || !data.video) {
                             throw new Error('Invalid data structure');
                         }
 
-                        // Создаём HTML
                         section.innerHTML = `
           <h2 class="opening-title">${data.title || 'Открытие PROКЛИП'}</h2>
           <div class="opening-gallery">
-            ${data.gallery.map(img => {
-                            if (typeof img === 'string') {
-                                return `<img src="${img}" alt="">`;
-                            } else if (typeof img === 'object') {
-                                return `<img src="${img.image || ''}" alt="${img.alt || ''}">`;
-                            }
-                            return '';
-                        }).join('')}
+            ${data.gallery.map(img => `<img src="${img}" alt="">`).join('')}
           </div>
           <div class="opening-video-card" style="background-image: url('${data.video.preview || ''}')">
             <div class="opening-video-glass">
@@ -102,7 +93,7 @@
                   <p>${data.video.artists || ''}</p>
                   <p>${data.video.views || ''}</p>
                 </div>
-                <a href="${data.video.videoLink || '#'}" class="video-button"${!data.video.videoLink ? ' style="pointer-events:none;opacity:0.5;"' : ''}>Смотреть</a>
+                <a href="${data.video.videoLink || '#'}" class="video-button">Смотреть</a>
               </div>
             </div>
           </div>
@@ -144,6 +135,7 @@
                 }
             });
         </script>
+
 
 
 
