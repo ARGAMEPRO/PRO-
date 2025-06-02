@@ -358,7 +358,7 @@ body>main {
     color: #a1a1a1;
 }
 
-.hero-description {
+.hero-description-pc {
     width: 100%;
     z-index: 3;
     font-size: 25px;
@@ -367,6 +367,10 @@ body>main {
     margin-bottom: 70px;
     font-weight: 100;
     padding: 0 60px;
+}
+
+.hero-description-mobile {
+    display: none;
 }
 
 /* ======== МОБИЛЬНАЯ ВЕРСИЯ ======== */
@@ -397,7 +401,12 @@ body>main {
         z-index: 2;
     }
 
-    .hero-description {
+    .hero-description-pc {
+        display: none;
+    }
+
+    .hero-description-mobile {
+        display: block;
         position: relative;
         left: -25px;
         display: block;
@@ -763,13 +772,13 @@ body>main {
     }
 
     .hero-subtitle,
-    .hero-description {
+    .hero-description-mobile {
         text-align: left;
         align-self: flex-start;
         /* на телефоне прижимаем к левому краю */
     }
 
-    .hero-description {
+    .hero-description-mobile {
         font-size: 15px;
         font-weight: 100;
         margin-bottom: 0;
