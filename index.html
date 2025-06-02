@@ -48,42 +48,49 @@
             <img src="assets/MAINphoto.jpg" alt="MainPhoto" class="hero-image">
         </section>
 
-            <p class="hero-description">
-                PROКЛИП - это возможности. Съëмки клипов, креативные образовательные лекции, молодёжные концертные
-                программы, помощь в развитии ВАШИХ проектов. PROКЛИП - это не только клипы, это креативная медиасфера, а
-                точнее, её развитие в Курске
-            </p>
+        <p class="hero-description">
+            PROКЛИП - это возможности. Съëмки клипов, креативные образовательные лекции, молодёжные концертные
+            программы, помощь в развитии ВАШИХ проектов. PROКЛИП - это не только клипы, это креативная медиасфера, а
+            точнее, её развитие в Курске
+        </p>
 
-        <section class="proklip-opening">
-            <h2 class="opening-title">Открытие PROКЛИП'а</h2>
+        <script>
+            fetch('data/opening.json')
+                .then(response => response.json())
+                .then(data => renderOpeningBlock(data))
+                .catch(err => console.error('Ошибка загрузки блока открытия:', err));
 
-            <!-- Галерея -->
-            <div class="opening-gallery">
-                <img src="assets/opening/g1.jpg" alt="Фото 1">
-                <img src="assets/opening/g2.jpg" alt="Фото 2">
-                <img src="assets/opening/g3.jpg" alt="Фото 3">
-                <img src="assets/opening/g4.jpg" alt="Фото 4">
-                <img src="assets/opening/g5.jpg" alt="Фото 5">
-                <img src="assets/opening/g6.jpg" alt="Фото 6">
-            </div>
+            function renderOpeningBlock(data) {
+                const section = document.createElement('section');
+                section.className = 'proklip-opening';
+                section.innerHTML = `
+    <h2 class="opening-title">Открытие PROКЛИП'а</h2>
+    <div class="opening-gallery">
+      ${data.images.map(img => `<img src="${img.src}" alt="${img.alt}">`).join('')}
+    </div>
+    <div class="opening-video-card" style="background-image: url('${data.video.preview}')">
+      <div class="opening-video-glass">
+        <div class="glass-content">
+          <div class="video-info">
+            <h3>${data.video.title}</h3>
+            <p>${data.video.authors}</p>
+            <p>${data.video.views}</p>
+          </div>
+          <a href="${data.video.link}" class="video-button">Смотреть</a>
+        </div>
+      </div>
+    </div>
+  `;
 
-            <!-- Видео с превью -->
-            <div class="opening-video-card" style="background-image: url('assets/opening/videoPrev.jpg')">
-                <div class="opening-video-glass">
-                    <div class="glass-content">
-                        <div class="video-info">
-                            <h3>ОТКРЫТИЕ PROКЛИП</h3>
-                            <p>Дмитрий Асташкин, Алексей Беседин</p>
-                            <p>500 просмотров</p>
-                        </div>
-                        <a href="https://vk.com/video-230370939_456239025?list=e2a107a5082b2736ea"
-                            class="video-button">Смотреть</a>
-                    </div>
-                </div>
-            </div>
+                // Вставим перед "главными мероприятиями"
+                const main = document.querySelector('main');
+                const featured = document.querySelector('.featured-events');
+                main.insertBefore(section, featured);
+            }
 
-            </div>
-        </section>
+        </script>
+
+
 
         <p class="hero-subtitle">
             <span class="highlight line">Снимай</span>

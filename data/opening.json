@@ -1,0 +1,17 @@
+{
+  "images": [
+    { "src": "assets/opening/g1.jpg", "alt": "Фото 1" },
+    { "src": "assets/opening/g2.jpg", "alt": "Фото 2" },
+    { "src": "assets/opening/g3.jpg", "alt": "Фото 3" },
+    { "src": "assets/opening/g4.jpg", "alt": "Фото 4" },
+    { "src": "assets/opening/g5.jpg", "alt": "Фото 5" },
+    { "src": "assets/opening/g6.jpg", "alt": "Фото 6" }
+  ],
+  "video": {
+    "title": "ОТКРЫТИЕ PROКЛИП",
+    "authors": "Дмитрий Асташкин, Алексей Беседин",
+    "views": "500 просмотров",
+    "link": "https://vk.com/video-230370939_456239025?list=e2a107a5082b2736ea",
+    "preview": "assets/opening/videoPrev.jpg"
+  }
+}

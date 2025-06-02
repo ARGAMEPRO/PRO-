@@ -116,3 +116,31 @@ collections:
                 }
               - { label: "Изображение", name: "image", widget: "image" }
               - { label: "Ссылка", name: "link", widget: "string" }
+
+  - label: "Открытие PROКЛИП"
+    name: "opening"
+    files:
+      - label: "Контент открытия"
+        name: "opening"
+        file: "data/opening.json"
+        format: "json"
+        fields:
+          - label: "Заголовок секции"
+            name: "title"
+            widget: "string"
+          - label: "Галерея"
+            name: "gallery"
+            widget: "list"
+            field: 
+              label: "Фото"
+              name: "image"
+              widget: "image"
+          - label: "Видео"
+            name: "video"
+            widget: "object"
+            fields:
+              - { label: "Превью (фон)", name: "preview", widget: "image" }
+              - { label: "Название видео", name: "title", widget: "string" }
+              - { label: "Авторы", name: "artists", widget: "string" }
+              - { label: "Просмотры", name: "views", widget: "string" }
+              - { label: "Ссылка на видео", name: "videoLink", widget: "string" }
