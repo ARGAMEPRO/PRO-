@@ -125,21 +125,19 @@ collections:
         file: "data/opening.json"
         format: "json"
         fields:
-          - label: "Заголовок секции"
-            name: "title"
-            widget: "string"
+          - { label: "Заголовок секции", name: "title", widget: "string" }
           - label: "Галерея"
             name: "gallery"
             widget: "list"
-            fields:  # ← Изменилось с `field` на `fields` для нескольких полей
-              - { label: "Фото", name: "image", widget: "image" }
+            fields:  # Важно: используем fields (множественное число) вместо field
+              - { label: "Изображение", name: "image", widget: "image" }
               - { label: "Описание", name: "alt", widget: "string", required: false }
           - label: "Видео"
             name: "video"
             widget: "object"
             fields:
-              - { label: "Превью (фон)", name: "preview", widget: "image" }
-              - { label: "Название видео", name: "title", widget: "string" }
+              - { label: "Превью", name: "preview", widget: "image" }
+              - { label: "Заголовок", name: "title", widget: "string" }
               - { label: "Авторы", name: "artists", widget: "string" }
               - { label: "Просмотры", name: "views", widget: "string" }
-              - { label: "Ссылка на видео", name: "videoLink", widget: "string" }
+              - { label: "Ссылка", name: "videoLink", widget: "string" }
