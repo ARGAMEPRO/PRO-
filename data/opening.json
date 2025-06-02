@@ -1,26 +1,11 @@
 {
   "title": "Открытие PROКЛИП'а",
   "gallery": [
-    {
-      "image": "assets/opening/g1.jpg",
-      "alt": "Фото 1"
-    },
-    {
-      "image": "assets/opening/g2.jpg",
-      "alt": "Фото 2"
-    },
-    {
-      "image": "assets/opening/g3.jpg",
-      "alt": "Фото 3"
-    },
-    {
-      "image": "assets/opening/g4.jpg",
-      "alt": "Фото 4"
-    },
-    {
-      "image": "assets/opening/g5.jpg",
-      "alt": "Фото 5"
-    },
+    "/assets/uploads/g1.jpg",
+    "/assets/uploads/g2.jpg",
+    "/assets/uploads/g3.jpg",
+    "/assets/uploads/g4.jpg",
+    "/assets/uploads/g5.jpg",
     "/assets/uploads/g6.jpg"
   ],
   "video": {
