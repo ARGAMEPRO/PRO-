@@ -590,6 +590,14 @@ body>main {
 }
 }
 
+.opening-subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+  color: #333;
+}
+
+
 .opening-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));

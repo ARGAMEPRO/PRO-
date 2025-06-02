@@ -76,27 +76,49 @@
                         const section = document.createElement('section');
                         section.className = 'proklip-opening';
 
-                        if (!data || !data.gallery || !data.video) {
-                            throw new Error('Invalid data structure');
+                        const hasGallery = Array.isArray(data.gallery) && data.gallery.length > 0;
+                        const hasVideo = data.video && data.video.videoLink;
+
+                        // Если нет фото, не показываем вообще ничего
+                        if (!hasGallery) {
+                            console.warn('Нет фото. Блок открытия не будет показан.');
+                            return;
+                        }
+
+                        let galleryHTML = '';
+                        let videoHTML = '';
+
+                        if (hasGallery) {
+                            galleryHTML = `
+            <h3 class="opening-subtitle">Фотографии с открытия</h3>
+            <div class="opening-gallery">
+              ${data.gallery.map(img => `<img src="${img}" alt="">`).join('')}
+            </div>
+          `;
+                        }
+
+                        if (hasVideo) {
+                            videoHTML = `
+            <h3 class="opening-subtitle">Видео с открытия</h3>
+            <div class="opening-video-card" style="background-image: url('${data.video.preview || ''}')">
+              <div class="opening-video-glass">
+                <div class="glass-content">
+                  <div class="video-info">
+                    <h3>${data.video.title || ''}</h3>
+                    <p>${data.video.artists || ''}</p>
+                    <p>${data.video.views || ''}</p>
+                  </div>
+                  <a href="${data.video.videoLink}" class="video-button">Смотреть</a>
+                </div>
+              </div>
+            </div>
+          `;
                         }
 
                         section.innerHTML = `
           <h2 class="opening-title">${data.title || 'Открытие PROКЛИП'}</h2>
-          <div class="opening-gallery">
-            ${data.gallery.map(img => `<img src="${img}" alt="">`).join('')}
-          </div>
-          <div class="opening-video-card" style="background-image: url('${data.video.preview || ''}')">
-            <div class="opening-video-glass">
-              <div class="glass-content">
-                <div class="video-info">
-                  <h3>${data.video.title || ''}</h3>
-                  <p>${data.video.artists || ''}</p>
-                  <p>${data.video.views || ''}</p>
-                </div>
-                <a href="${data.video.videoLink || '#'}" class="video-button">Смотреть</a>
-              </div>
-            </div>
-          </div>
+          ${galleryHTML}
+          ${videoHTML}
         `;
 
                         const main = document.querySelector('main');
@@ -104,7 +126,7 @@
                         if (main && featured) {
                             main.insertBefore(section, featured);
                         } else {
-                            console.error('Не найдены элементы для вставки блока открытия');
+                            console.warn('Не найдены элементы для вставки. Вставляю в body.');
                             document.body.appendChild(section);
                         }
                     } catch (error) {
@@ -135,10 +157,6 @@
                 }
             });
         </script>
-
-
-
-
 
         <p class="hero-subtitle">
             <span class="highlight line">Снимай</span>
