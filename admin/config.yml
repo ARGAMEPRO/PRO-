@@ -131,10 +131,9 @@ collections:
           - label: "Галерея"
             name: "gallery"
             widget: "list"
-            field: 
-              label: "Фото"
-              name: "image"
-              widget: "image"
+            fields:  # ← Изменилось с `field` на `fields` для нескольких полей
+              - { label: "Фото", name: "image", widget: "image" }
+              - { label: "Описание", name: "alt", widget: "string", required: false }
           - label: "Видео"
             name: "video"
             widget: "object"
