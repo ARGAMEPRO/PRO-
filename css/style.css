@@ -1766,7 +1766,7 @@ body>main {
     justify-content: center;
 }
 
-.rectangle-7{
+.rectangle-7 {
     display: inline-block;
     padding: 15px 30px;
     background-color: #b70000;
@@ -1774,16 +1774,16 @@ body>main {
     border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 18px;
     transition: background-color 0.3s;
+    margin-bottom: 30px;
 }
 
-.rectangle-7 .контакты:hover {
+.rectangle-7:hover {
     background-color: #800000;
 }
 
 
-.контакты {
+.контакты-кнопка {
     font-size: 28px;
     font-weight: 500;
     color: #ffffff;
@@ -1793,7 +1793,7 @@ body>main {
 
 .team-section {
     width: 100%;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto 40px;
     border-radius: 40px;
     text-align: center;
@@ -1933,7 +1933,7 @@ body>main {
         margin: 0 auto;
     }
 
-    .контакты {
+    .контакты-кнопка {
         font-size: 23px;
         letter-spacing: 3px;
         position: relative;
