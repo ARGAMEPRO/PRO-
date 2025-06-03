@@ -1,11 +1,3 @@
 {
-  "concerts": [
-    {
-      "title": "ДЕНЬГИ - ЭТО БУМАГА",
-      "date": "2025-06-27T13:00:00.000Z",
-      "location": "МБУ Городской молодёжный центр \"Гелиос\"",
-      "image": "/assets/uploads/1002450886.jpg",
-      "registrationLink": "https://forms.yandex.ru/u/68348cc5d046880c6c629e4c"
-    }
-  ]
+  "concerts": []
 }
