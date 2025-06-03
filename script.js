@@ -1,6 +1,6 @@
-document.querySelector('.pic').addEventListener('mousemove', (e) => {
-    const wrapper = e.currentTarget.querySelector('.img-wrapper');
-    const rect = e.currentTarget.getBoundingClientRect();
+document.querySelector('.img-wrapper').addEventListener('mousemove', (e) => {
+    const wrapper = e.currentTarget;
+    const rect = wrapper.getBoundingClientRect();
 
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
@@ -14,11 +14,12 @@ document.querySelector('.pic').addEventListener('mousemove', (e) => {
     wrapper.style.transform = `scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 });
 
-document.querySelector('.pic').addEventListener('mouseleave', (e) => {
-    const wrapper = e.currentTarget.querySelector('.img-wrapper');
+document.querySelector('.img-wrapper').addEventListener('mouseleave', (e) => {
+    const wrapper = e.currentTarget;
     wrapper.style.setProperty('--highlight-opacity', '0');
     wrapper.style.transform = 'scale(1)';
 });
+
 
 
 // Бургер-меню для мобилки
