@@ -61,8 +61,6 @@
             точнее, её развитие в Курске
         </div>
 
-
-
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 fetch('data/opening.json')
@@ -153,21 +151,18 @@
             });
         </script>
 
-        <p class="hero-subtitle">
-            <span class="highlight line">Снимай</span>
-            <span class="line">собственные клипы</span>
-            <span class="highlight line">не имея опыта!</span>
-        </p>
-
-
-
-
         <section class="featured-events">
+
+            <p class="hero-subtitle">
+                <span class="highlight line">Снимай</span>
+                <span class="line">собственные клипы</span>
+                <span class="highlight line">не имея опыта!</span>
+            </p>
+
             <div class="featured-container" id="featured-events">
                 <!-- Блок с главными мероприятиями будет загружаться через JS -->
             </div>
         </section>
-
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const featuredSection = document.querySelector('.featured-events .featured-container');
@@ -196,9 +191,12 @@
             `;
 
                     events.forEach(event => {
-                        const artistHTML = event.artist ? `<p class="event-artist">${event.artist}</p>` : '';
+                        const typeLabel = event.type === 'clip' ? 'КЛИПЫ' :
+                            event.type === 'lecture' ? 'ЛЕКЦИИ' : 'КОНЦЕРТЫ';
 
-                        // Отображаем дату только для lecture/concert
+                        const artistHTML = event.artist ? `<p class="event-artist">${event.artist}</p>` : '';
+                        const subtitleHTML = event.subtitle ? `<p class="event-subtitle">${event.subtitle}</p>` : '';
+
                         let dateHTML = '';
                         if (event.type === 'lecture' || event.type === 'concert') {
                             dateHTML = event.date
@@ -210,24 +208,23 @@
                                     minute: '2-digit'
                                 })}</p>`
                                 : `<p class="event-date empty"></p>`;
-                        } else {
-                            // "пустая" дата у клипов для выравнивания
-                            dateHTML = `<p class="event-date placeholder" style="visibility: hidden;">дата</p>`;
                         }
 
-                        let buttonText = '';
-                        if (event.type === 'clip') buttonText = 'Смотреть';
-                        if (event.type === 'lecture') buttonText = 'Зарегистрироваться';
-                        if (event.type === 'concert') buttonText = 'Зарегистрироваться';
+                        let buttonText = event.type === 'clip' ? 'Смотреть' : 'Зарегистрироваться';
 
                         html += `
                     <div class="featured-item featured-${event.type}">
-                        <h3>${event.type === 'clip' ? 'Клипы' : event.type === 'lecture' ? 'Лекции' : 'Концерты'}</h3>
+                        <div class="type-label">${typeLabel}</div>
                         <div class="event-preview" style="background-image: url('${event.image}')"></div>
-                        <h4>${event.title}</h4>
-                        ${artistHTML}
-                        ${dateHTML}
-                        <a href="${event.link}" class="featured-link">${buttonText}</a>
+                        <div class="featured-content">
+                            <div class="text-content">
+                                <h4>${event.title}</h4>
+                                ${subtitleHTML}
+                                ${artistHTML}
+                                ${dateHTML}
+                            </div>
+                            <a href="${event.link}" class="featured-link" target="_blank">${buttonText}</a>
+                        </div>
                     </div>
                 `;
                     });
