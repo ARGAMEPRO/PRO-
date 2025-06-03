@@ -1634,7 +1634,7 @@ body>main {
     font-size: 70px;
     font-weight: 550;
     color: #ffffff;
-    text-shadow: 2px 2px 0 #b70000;
+    text-shadow: 2px 2px 0 #3460fe;
     margin: 0;
     letter-spacing: 4px;
     position: relative;
@@ -1665,10 +1665,10 @@ body>main {
     max-width: 1400px;
     margin: 40px auto;
     background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid #b70000;
+    border: 2px solid #3460fe;
     border-radius: 40px;
     padding: 40px;
-    box-shadow: 0 0 20px rgba(183, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 106, 255, 0.5);
     display: flex;
     flex-direction: column;
     /* ← вот ключ! */
@@ -1773,7 +1773,7 @@ body>main {
 .rectangle-7 {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #b70000;
+    background-color: #3460fe;
     color: white;
     border-radius: 10px;
     text-decoration: none;
@@ -1783,7 +1783,7 @@ body>main {
 }
 
 .rectangle-7:hover {
-    background-color: #800000;
+    background-color: #233b94;
 }
 
 
@@ -1807,7 +1807,7 @@ body>main {
     font-size: 50px;
     font-weight: 550;
     color: #ffffff;
-    text-shadow: 2px 2px 0 #b70000;
+    text-shadow: 2px 2px 0 #3460fe;
     margin-bottom: 40px;
     text-align: center;
     letter-spacing: 10px;
@@ -1825,7 +1825,7 @@ body>main {
     border-radius: 25px;
     padding: 30px;
     transition: all 0.3s ease;
-    border: 1px solid #b70000;
+    border: 1px solid #3460fe;
     text-align: center;
 }
 
@@ -1841,7 +1841,7 @@ body>main {
 
 .team-member:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(183, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 115, 255, 0.3);
 }
 
 .team-name {
@@ -1935,6 +1935,7 @@ body>main {
         width: 100px;
         height: 10px;
         margin: 0 auto;
+        margin-bottom: 20px;
     }
 
     .контакты-кнопка {
