@@ -2334,6 +2334,11 @@ body>main {
     width: 24px;
     height: 24px;
     object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.content-box #contacts {
+  align-self: stretch; /* "Вырезает" из центровки, растягивается на всю ширину */
 }
 
 .social-icons a {
@@ -2372,7 +2377,7 @@ body>main {
 }
 
 .highlight-red {
-    color: #e20100;
+    color: #3460fe;
 }
 
 .contact-form {
@@ -2689,12 +2694,13 @@ body>main {
         /* Запрещаем перенос */
         overflow-x: auto;
         /* Добавляем горизонтальный скролл, если не влазит */
-        gap: 15px;
+        gap: 10px;
         justify-content: flex-start;
         align-items: center;
     }
 
     .footer-left a {
+        font-size: smaller;
         white-space: nowrap;
         /* Чтобы кнопки не переносились внутри себя */
         flex-shrink: 0;
