@@ -2397,18 +2397,18 @@ body>main {
     z-index: -1;
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 18px 15px;
-    background-color: rgba(51, 51, 51, 0.5) !important;
-    border: 2px solid #333333;
-    border-radius: 11px;
-    color: #ffffff;
+.floating-label input,
+.floating-label textarea {
+    width: 100%; /* чтобы заняли всю ширину контейнера */
+    max-width: 100%; /* чтобы не вылезали за пределы */
+    box-sizing: border-box; /* чтобы padding и border не ломали ширину */
+    padding: 12px 15px; /* можно чуть добавить отступы, чтобы не слипались с лейблом */
+    background: transparent; /* если надо, чтоб не конфликтовало с дизайном */
+    border: 1px solid #ccc; /* или свой стиль */
+    border-radius: 8px;
     font-size: 16px;
-    transition: all 0.3s ease;
-    outline: none;
-    resize: none;
+    color: #fff;
+    background-color: rgba(51, 51, 51, 0.3) !important;
 }
 
 .form-group textarea {
@@ -2526,10 +2526,12 @@ body>main {
 
     .contact-form {
         order: 2;
-        left: 0;
-        padding: 25px 20px;
         width: 100%;
+        margin: 0 auto;
+        padding: 20px 15px;
         border-radius: 18px;
+        box-sizing: border-box;
+        left: 0;
     }
 
     .form-title {
@@ -2565,7 +2567,7 @@ body>main {
     .submit-btn {
         font-size: 14px;
         height: 42px;
-        letter-spacing: 5px;
+        letter-spacing: 3px;
         margin-top: 0;
     }
 }
