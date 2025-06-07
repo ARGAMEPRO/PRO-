@@ -312,13 +312,20 @@
                 document.addEventListener('DOMContentLoaded', () => {
                     const postsContainer = document.querySelector('.blog-posts .posts-container');
 
+                    // Проверка Swiper
+                    if (typeof Swiper === 'undefined') {
+                        console.error('Swiper не подключен! Добавьте скрипт Swiper');
+                    }
+
                     fetch('data/posts.json')
                         .then(response => {
-                            if (!response.ok) throw new Error('Network response was not ok');
+                            console.log('Статус загрузки:', response.status); // Для отладки
+                            if (!response.ok) throw new Error('Ошибка загрузки');
                             return response.json();
                         })
                         .then(data => {
-                            if (data && data.posts && data.posts.length > 0) {
+                            console.log('Полученные данные:', data); // Для отладки
+                            if (data?.posts?.length) {
                                 renderPosts(data.posts);
                                 initSliders();
                             } else {
@@ -326,7 +333,7 @@
                             }
                         })
                         .catch(error => {
-                            console.error('Error loading posts:', error);
+                            console.error('Ошибка:', error);
                             showNoPostsMessage();
                         });
 
@@ -337,47 +344,26 @@
         `;
 
                         posts.forEach(post => {
-                            const dateHTML = post.date
-                                ? `<p class="post-date">${new Date(post.date).toLocaleDateString('ru-RU', {
-                                    day: 'numeric',
-                                    month: 'long',
-                                    year: 'numeric'
-                                })}</p>`
-                                : '';
-
-                            // Приведение изображений к массиву строк
-                            let imageList = [];
-
-                            if (Array.isArray(post.images) && post.images.length > 0) {
-                                imageList = post.images.map(img => {
-                                    if (typeof img === 'string') return img;
-                                    if (typeof img === 'object' && img.image) return img.image;
-                                    return null;
-                                }).filter(Boolean);
-                            }
-
-                            let imagesHTML = '';
-                            if (imageList.length > 0) {
-                                imagesHTML = `
-                    <div class="post-images swiper">
-                        <div class="swiper-wrapper">
-                            ${imageList.map(img => `
-                                <div class="swiper-slide">
-                                    <img src="${img}" alt="${post.title}">
-                                </div>
-                            `).join('')}
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                            const date = post.date ? new Date(post.date).toLocaleDateString('ru-RU') : '';
+                            const imagesHTML = post.images?.length ? `
+                <div class="post-images swiper">
+                    <div class="swiper-wrapper">
+                        ${post.images.map(img => `
+                            <div class="swiper-slide">
+                                <img src="${img}" alt="${post.title}" onerror="this.style.display='none'">
+                            </div>
+                        `).join('')}
                     </div>
-                `;
-                            }
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            ` : '';
 
                             html += `
                 <article class="post-card">
                     ${imagesHTML}
                     <div class="post-content">
-                        ${dateHTML}
+                        ${date ? `<p class="post-date">${date}</p>` : ''}
                         <h3 class="post-title">${post.title}</h3>
                         <p class="post-excerpt">${post.excerpt}</p>
                         <a href="/post/${post.slug}" class="read-more">Читать далее</a>
@@ -391,6 +377,8 @@
                     }
 
                     function initSliders() {
+                        if (typeof Swiper === 'undefined') return;
+
                         document.querySelectorAll('.post-images.swiper').forEach(el => {
                             new Swiper(el, {
                                 loop: true,
@@ -419,7 +407,6 @@
             </div>
         </section>
 
-        <!-- Блок ПОСТОВ -->
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 const featuredSection = document.querySelector('.featured-events .featured-container');
