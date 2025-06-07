@@ -1,24 +1,26 @@
 {
-  "posts": [
-    {
-      "title": "Пример поста с несколькими фото",
-      "date": "2023-05-15T00:00:00.000Z",
-      "images": [
-        "/img/uploads/image1.jpg",
-        "/img/uploads/image2.jpg",
-        "/img/uploads/image3.jpg"
-      ],
-      "excerpt": "Этот пост содержит несколько фотографий в слайдере.",
-      "slug": "primer-s-foto",
-      "body": "Полный текст поста..."
-    },
-    {
-      "title": "Пост с одним изображением",
-      "date": "2023-05-10T00:00:00.000Z",
-      "image": "/img/uploads/single-image.jpg",
-      "excerpt": "Этот пост содержит только одно изображение.",
-      "slug": "post-s-odnim-izobrazheniem",
-      "body": "Полный текст..."
-    }
-  ]
+    "posts": [
+        {
+            "title": "Пример поста с несколькими фото",
+            "date": "2023-05-15T00:00:00.000Z",
+            "images": [
+                "/img/uploads/image1.jpg",
+                "/img/uploads/image2.jpg",
+                "/img/uploads/image3.jpg"
+            ],
+            "excerpt": "Этот пост содержит несколько фотографий в слайдере.",
+            "slug": "primer-s-foto",
+            "body": "Полный текст поста..."
+        },
+        {
+            "title": "Пост с одним изображением",
+            "date": "2023-05-10T00:00:00.000Z",
+            "images": [
+                "/img/uploads/single-image.jpg"
+            ],
+            "excerpt": "Этот пост содержит только одно изображение.",
+            "slug": "post-s-odnim-izobrazheniem",
+            "body": "Полный текст..."
+        }
+    ]
 }
