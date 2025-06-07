@@ -159,6 +159,203 @@
                 <span class="highlight line">не имея опыта!</span>
             </p>
 
+            <section class="blog-posts">
+                <div class="posts-container"></div>
+            </section>
+
+            <style>
+                /* Основные стили */
+                .blog-posts {
+                    padding: 4rem 2rem;
+                    background: #0f0f0f;
+                    /* Темно-синий фон */
+                }
+
+                .posts-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
+
+                .posts-title {
+                    text-align: center;
+                    font-size: 2.5rem;
+                    color: #e8eaf6;
+                    /* Светло-голубой текст */
+                    margin-bottom: 3rem;
+                    position: relative;
+                    font-weight: 600;
+                }
+
+                .posts-title:after {
+                    content: '';
+                    display: block;
+                    width: 80px;
+                    height: 4px;
+                    background: #3949ab;
+                    /* Акцентный синий */
+                    margin: 1rem auto 0;
+                }
+
+                .posts-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                    gap: 2rem;
+                }
+
+                .post-card {
+                    background: #e8eaf6;
+                    /* Светло-голубой фон карточки */
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    border: 1px solid #3949ab;
+                    /* Акцентная рамка */
+                }
+
+                .post-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                }
+
+                .post-image {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    border-bottom: 2px solid #3949ab;
+                    /* Акцентная линия под изображением */
+                }
+
+                .post-content {
+                    padding: 1.5rem;
+                }
+
+                .post-date {
+                    font-size: 0.9rem;
+                    color: #5c6bc0;
+                    /* Средний синий */
+                    margin-bottom: 0.5rem;
+                }
+
+                .post-title {
+                    font-size: 1.4rem;
+                    color: #1a237e;
+                    /* Темно-синий */
+                    margin-bottom: 1rem;
+                    font-weight: 600;
+                }
+
+                .post-excerpt {
+                    color: #303f9f;
+                    /* Темно-синий текст */
+                    line-height: 1.6;
+                    margin-bottom: 1.5rem;
+                }
+
+                .read-more {
+                    display: inline-block;
+                    padding: 0.5rem 1rem;
+                    background: #3949ab;
+                    /* Акцентный синий */
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 4px;
+                    transition: all 0.3s ease;
+                    font-weight: 500;
+                }
+
+                .read-more:hover {
+                    background: #303f9f;
+                    /* Темнее при наведении */
+                    transform: translateY(-2px);
+                }
+
+                .no-posts-message {
+                    text-align: center;
+                    padding: 2rem;
+                    /* Светло-голубой фон */
+                    border-radius: 8px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    border: 2px solid #0022ff ;
+                    /* Темно-синий текст */
+                }
+
+                /* Адаптивность */
+                @media (max-width: 768px) {
+                    .posts-grid {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .posts-title {
+                        font-size: 2rem;
+                    }
+                }
+            </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const postsContainer = document.querySelector('.blog-posts .posts-container');
+
+                    fetch('data/posts.json')
+                        .then(response => {
+                            if (!response.ok) throw new Error('Network response was not ok');
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data && data.posts && data.posts.length > 0) {
+                                renderPosts(data.posts);
+                            } else {
+                                showNoPostsMessage();
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error loading posts:', error);
+                            showNoPostsMessage();
+                        });
+
+                    function renderPosts(posts) {
+                        let html = `
+        <h2 class="posts-title">Последние публикации</h2>
+        <div class="posts-grid">
+      `;
+
+                        posts.forEach(post => {
+                            const dateHTML = post.date
+                                ? `<p class="post-date">${new Date(post.date).toLocaleDateString('ru-RU', {
+                                    day: 'numeric',
+                                    month: 'long',
+                                    year: 'numeric'
+                                })}</p>`
+                                : '';
+
+                            html += `
+          <article class="post-card">
+            <img src="${post.image}" alt="${post.title}" class="post-image">
+            <div class="post-content">
+              ${dateHTML}
+              <h3 class="post-title">${post.title}</h3>
+              <p class="post-excerpt">${post.excerpt}</p>
+              <a href="${post.slug}" class="read-more">Читать далее</a>
+            </div>
+          </article>
+        `;
+                        });
+
+                        html += `</div>`;
+                        postsContainer.innerHTML = html;
+                    }
+
+                    function showNoPostsMessage() {
+                        postsContainer.innerHTML = `
+        <div class="no-posts-message">
+          <h2 class="posts-title">Последние публикации</h2>
+          <p>Скоро здесь появятся новые статьи. Следите за обновлениями!</p>
+        </div>
+      `;
+                    }
+                });
+            </script>
+
             <div class="featured-container" id="featured-events">
                 <!-- Блок с главными мероприятиями будет загружаться через JS -->
             </div>
