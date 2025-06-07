@@ -108,13 +108,13 @@ body>main {
 /* Основное меню (десктоп) */
 .buttoms {
     display: flex;
-    gap: 150px;
+    gap: 70px;
 }
 
 .buttoms a {
     color: white !important;
     text-decoration: none;
-    font-size: 23px !important;
+    font-size: 19px !important;
     font-weight: 100 !important;
     transition: color 0.3s ease;
     position: relative;
@@ -333,40 +333,39 @@ body>main {
     position: relative;
     z-index: 3;
     padding: 0 5%;
-    max-width: 50%;
     color: white;
+    max-width: 75%;
 }
 
 .hero-title {
     text-shadow: 6px 6px 0 #3460fe;
-    font-size: 90px !important;
+    font-size: 80px !important;
     letter-spacing: 45px;
     font-size: 3rem;
     font-weight: 700;
     margin: 0;
+    margin-top: 50px;
 }
 
 .hero-tagline {
     font-size: 1.7rem;
     font-weight: 300;
     letter-spacing: 5px;
-    padding-top: 50px;
+    padding-top: 15px;
     color: #a1a1a1;
-    margin-bottom: 230px;
+    margin-bottom: 130px;
 }
 
 .hero-description-pc {
-    width: 70%;
+    width: 50%;
     z-index: 3;
-    font-size: 28px;
+    font-size: 23px;
     color: #fff;
     line-height: 1.6;
     margin-bottom: 70px;
     font-weight: 200;
-    word-spacing: 7px;
+    word-spacing: 5px;
     line-height: 45px;
-
-
 }
 
 .hero-description-mobile {
@@ -418,7 +417,7 @@ body>main {
 }
 
 .hero-subtitle {
-    font-size: 75px;
+    font-size: 50px;
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: clamp(1px, 1vw, 3px);
@@ -598,7 +597,7 @@ body>main {
 
 .featured-title {
     text-align: center;
-    font-size: 32px;
+    font-size: 50px;
     color: #fff;
     margin-bottom: 40px;
     text-transform: uppercase;
@@ -639,7 +638,7 @@ body>main {
 }
 
 .opening-title {
-    font-size: 86px;
+    font-size: 50px;
     font-weight: 600;
     text-align: center;
     margin-bottom: 30px;
@@ -675,7 +674,7 @@ body>main {
 
 .opening-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 10px;
     margin-bottom: 40px;
 }
@@ -1899,7 +1898,7 @@ body>main {
 
 .content-box {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1400px;
     margin: 40px auto;
     background-color: rgba(0, 0, 0, 0.7);
     border: 2px solid #3460fe;
@@ -2033,7 +2032,7 @@ body>main {
 }
 
 .project-description {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 300;
     color: #ffffff;
     line-height: 1.6;
@@ -2075,7 +2074,7 @@ body>main {
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .rectangle-7:hover {
@@ -2595,14 +2594,14 @@ body>main {
     align-items: center;
     max-width: 1800px;
     margin: 0 auto;
-    gap: 30px;
+    gap: 20px;
     padding: 0 40px;
 }
 
 .footer-left {
     justify-self: start;
     display: flex;
-    gap: 30px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
@@ -2617,12 +2616,13 @@ body>main {
     justify-self: end;
     display: flex;
     gap: 30px;
+    margin-right: 60px;
 }
 
 .footer-left a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 400;
     transition: color 0.3s;
     border: none;
@@ -2637,12 +2637,12 @@ body>main {
 }
 
 .footer-center img {
-    width: 35px;
+    width: 30px;
     height: auto;
 }
 
 .footer-center p {
-    font-size: 12px;
+    font-size: 8px;
     color: #989797;
     margin-top: 5px;
     text-align: center;
