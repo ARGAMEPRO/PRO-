@@ -167,8 +167,6 @@
                 /* Основные стили */
                 .blog-posts {
                     padding: 4rem 2rem;
-                    background: #0f0f0f;
-                    /* Темно-синий фон */
                 }
 
                 .posts-container {
@@ -180,7 +178,6 @@
                     text-align: center;
                     font-size: 2.5rem;
                     color: #e8eaf6;
-                    /* Светло-голубой текст */
                     margin-bottom: 3rem;
                     position: relative;
                     font-weight: 600;
@@ -192,7 +189,6 @@
                     width: 80px;
                     height: 4px;
                     background: #3949ab;
-                    /* Акцентный синий */
                     margin: 1rem auto 0;
                 }
 
@@ -204,13 +200,11 @@
 
                 .post-card {
                     background: #e8eaf6;
-                    /* Светло-голубой фон карточки */
                     border-radius: 8px;
                     overflow: hidden;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
                     border: 1px solid #3949ab;
-                    /* Акцентная рамка */
                 }
 
                 .post-card:hover {
@@ -218,12 +212,41 @@
                     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
                 }
 
-                .post-image {
+                /* Стили для слайдера изображений */
+                .post-images {
+                    position: relative;
+                    height: 250px;
+                }
+
+                .swiper {
                     width: 100%;
-                    height: 200px;
+                    height: 100%;
+                }
+
+                .swiper-slide {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .swiper-slide img {
+                    width: 100%;
+                    height: 100%;
                     object-fit: cover;
-                    border-bottom: 2px solid #3949ab;
-                    /* Акцентная линия под изображением */
+                }
+
+                .swiper-button-next,
+                .swiper-button-prev {
+                    color: white;
+                    background: rgba(0, 0, 0, 0.5);
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                }
+
+                .swiper-button-next:after,
+                .swiper-button-prev:after {
+                    font-size: 1.2rem;
                 }
 
                 .post-content {
@@ -233,21 +256,18 @@
                 .post-date {
                     font-size: 0.9rem;
                     color: #5c6bc0;
-                    /* Средний синий */
                     margin-bottom: 0.5rem;
                 }
 
                 .post-title {
                     font-size: 1.4rem;
                     color: #1a237e;
-                    /* Темно-синий */
                     margin-bottom: 1rem;
                     font-weight: 600;
                 }
 
                 .post-excerpt {
                     color: #303f9f;
-                    /* Темно-синий текст */
                     line-height: 1.6;
                     margin-bottom: 1.5rem;
                 }
@@ -256,7 +276,6 @@
                     display: inline-block;
                     padding: 0.5rem 1rem;
                     background: #3949ab;
-                    /* Акцентный синий */
                     color: white;
                     text-decoration: none;
                     border-radius: 4px;
@@ -266,7 +285,6 @@
 
                 .read-more:hover {
                     background: #303f9f;
-                    /* Темнее при наведении */
                     transform: translateY(-2px);
                 }
 
@@ -276,11 +294,9 @@
                     /* Светло-голубой фон */
                     border-radius: 8px;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    border: 2px solid #0022ff ;
-                    /* Темно-синий текст */
+                    border: 2px solid #0022ff;
                 }
 
-                /* Адаптивность */
                 @media (max-width: 768px) {
                     .posts-grid {
                         grid-template-columns: 1fr;
@@ -362,81 +378,102 @@
         </section>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                const featuredSection = document.querySelector('.featured-events .featured-container');
+                const postsContainer = document.querySelector('.blog-posts .posts-container');
 
-                fetch('data/featured.json')
+                fetch('data/posts.json')
                     .then(response => {
                         if (!response.ok) throw new Error('Network response was not ok');
                         return response.json();
                     })
                     .then(data => {
-                        if (data && data.featured && data.featured.length > 0) {
-                            renderFeaturedEvents(data.featured);
+                        if (data && data.posts && data.posts.length > 0) {
+                            renderPosts(data.posts);
+                            initSliders();
                         } else {
-                            showNoEventsMessage();
+                            showNoPostsMessage();
                         }
                     })
                     .catch(error => {
-                        console.error('Error loading featured events:', error);
-                        showNoEventsMessage();
+                        console.error('Error loading posts:', error);
+                        showNoPostsMessage();
                     });
 
-                function renderFeaturedEvents(events) {
+                function renderPosts(posts) {
                     let html = `
-                <h2 class="featured-title">Главные мероприятия</h2>
-                <div class="featured-grid">
-            `;
+      <h2 class="posts-title">Последние публикации</h2>
+      <div class="posts-grid">
+    `;
 
-                    events.forEach(event => {
-                        const typeLabel = event.type === 'clip' ? 'КЛИПЫ' :
-                            event.type === 'lecture' ? 'ЛЕКЦИИ' : 'КОНЦЕРТЫ';
+                    posts.forEach(post => {
+                        const dateHTML = post.date
+                            ? `<p class="post-date">${new Date(post.date).toLocaleDateString('ru-RU', {
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric'
+                            })}</p>`
+                            : '';
 
-                        const artistHTML = event.artist ? `<p class="event-artist">${event.artist}</p>` : '';
-                        const subtitleHTML = event.subtitle ? `<p class="event-subtitle">${event.subtitle}</p>` : '';
-
-                        let dateHTML = '';
-                        if (event.type === 'lecture' || event.type === 'concert') {
-                            dateHTML = event.date
-                                ? `<p class="event-date">${new Date(event.date).toLocaleDateString('ru-RU', {
-                                    day: 'numeric',
-                                    month: 'long',
-                                    year: 'numeric',
-                                    hour: '2-digit',
-                                    minute: '2-digit'
-                                })}</p>`
-                                : `<p class="event-date empty"></p>`;
+                        // Генерация HTML для слайдера изображений
+                        let imagesHTML = '';
+                        if (post.images && post.images.length > 0) {
+                            imagesHTML = `
+          <div class="post-images swiper">
+            <div class="swiper-wrapper">
+              ${post.images.map(img => `
+                <div class="swiper-slide">
+                  <img src="${img}" alt="${post.title}">
+                </div>
+              `).join('')}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        `;
+                        } else if (post.image) {
+                            // Обратная совместимость с одиночным изображением
+                            imagesHTML = `
+          <div class="post-images">
+            <img src="${post.image}" alt="${post.title}" class="post-image">
+          </div>
+        `;
                         }
 
-                        let buttonText = event.type === 'clip' ? 'Смотреть' : 'Зарегистрироваться';
-
                         html += `
-                    <div class="featured-item featured-${event.type}">
-                        <div class="type-label">${typeLabel}</div>
-                        <div class="event-preview" style="background-image: url('${event.image}')"></div>
-                        <div class="featured-content">
-                            <div class="text-content">
-                                <h4>${event.title}</h4>
-                                ${subtitleHTML}
-                                ${artistHTML}
-                                ${dateHTML}
-                            </div>
-                            <a href="${event.link}" class="featured-link" target="_blank">${buttonText}</a>
-                        </div>
-                    </div>
-                `;
+        <article class="post-card">
+          ${imagesHTML}
+          <div class="post-content">
+            ${dateHTML}
+            <h3 class="post-title">${post.title}</h3>
+            <p class="post-excerpt">${post.excerpt}</p>
+            <a href="/post/${post.slug}" class="read-more">Читать далее</a>
+          </div>
+        </article>
+      `;
                     });
 
                     html += `</div>`;
-                    featuredSection.innerHTML = html;
+                    postsContainer.innerHTML = html;
                 }
 
-                function showNoEventsMessage() {
-                    featuredSection.innerHTML = `
-                <div class="no-events-message">
-                    <h2 class="featured-title">Главные мероприятия</h2>
-                    <p>Скоро будут новые мероприятия! Следите за обновлениями.</p>
-                </div>
-            `;
+                function initSliders() {
+                    document.querySelectorAll('.post-images.swiper').forEach(el => {
+                        new Swiper(el, {
+                            loop: true,
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            },
+                        });
+                    });
+                }
+
+                function showNoPostsMessage() {
+                    postsContainer.innerHTML = `
+      <div class="no-posts-message">
+        <h2 class="posts-title">Блог</h2>
+        <p>Скоро здесь появятся новые статьи. Следите за обновлениями!</p>
+      </div>
+    `;
                 }
             });
         </script>
