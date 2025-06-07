@@ -35,10 +35,6 @@ body {
 }
 
 
-body>*:not(.footer, .header) {
-    flex: 1 0 auto;
-}
-
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #0f0f0f;
@@ -2700,7 +2696,7 @@ body>main {
     }
 
     .footer-left a {
-        font-size: smaller;
+        font-size: 13px !important;
         white-space: nowrap;
         /* Чтобы кнопки не переносились внутри себя */
         flex-shrink: 0;
