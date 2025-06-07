@@ -1,11 +1,26 @@
 {
-    "posts": [
-        {
-            "title": "Заголовок",
-            "slug": "nazvanie-stati",
-            "date": "2024-05-20",
-            "excerpt": "Краткое описание...",
-            "images": ["/img/1.jpg", "/img/2.jpg"]
-        }
-    ]
+  "posts": [
+    {
+      "title": "Заголовок",
+      "slug": "nazvanie-stati",
+      "date": "2024-05-20",
+      "excerpt": "Краткое описание...",
+      "images": [
+        "/img/1.jpg",
+        "/img/2.jpg"
+      ],
+      "body": "ф﻿ыфыфыфыфыф"
+    },
+    {
+      "date": "2025-06-20T18:23:17.571Z",
+      "title": "тест",
+      "images": [
+        "/assets/uploads/g2.jpg",
+        "/assets/uploads/1002450883.jpg"
+      ],
+      "excerpt": "прикинь чо ",
+      "body": "о﻿маган он реально так сказал",
+      "slug": "тест"
+    }
+  ]
 }
