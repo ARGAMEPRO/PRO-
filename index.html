@@ -201,6 +201,9 @@
                 }
 
                 .post-card {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
                     background: #e8eaf6;
                     border-radius: 8px;
                     overflow: hidden;
@@ -218,6 +221,7 @@
                 .post-images {
                     position: relative;
                     height: 250px;
+                    flex-shrink: 0;
                 }
 
                 .swiper {
@@ -253,6 +257,9 @@
 
                 .post-content {
                     padding: 1.5rem;
+                    flex-grow: 1;
+                    display: flex;
+                    flex-direction: column;
                 }
 
                 .post-date {
@@ -272,6 +279,14 @@
                     color: #303f9f;
                     line-height: 1.6;
                     margin-bottom: 1.5rem;
+                    flex-grow: 1;
+                    /* Текст занимает доступное пространство */
+                    overflow: hidden;
+                    /* Обрезаем длинный текст */
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    /* Ограничиваем до 3 строк */
+                    -webkit-box-orient: vertical;
                 }
 
                 .read-more {
@@ -306,6 +321,10 @@
 
                     .posts-title {
                         font-size: 2rem;
+                    }
+
+                    .post-images {
+                        height: 200px;
                     }
                 }
             </style>
