@@ -333,19 +333,17 @@
                 document.addEventListener('DOMContentLoaded', () => {
                     const postsContainer = document.querySelector('.blog-posts .posts-container');
 
-                    // Проверка Swiper
+                    // Проверка подключения Swiper
                     if (typeof Swiper === 'undefined') {
                         console.error('Swiper не подключен! Добавьте скрипт Swiper');
                     }
 
                     fetch('data/posts.json')
                         .then(response => {
-                            console.log('Статус загрузки:', response.status); // Для отладки
-                            if (!response.ok) throw new Error('Ошибка загрузки');
+                            if (!response.ok) throw new Error('Ошибка загрузки данных');
                             return response.json();
                         })
                         .then(data => {
-                            console.log('Полученные данные:', data); // Для отладки
                             if (data?.posts?.length) {
                                 renderPosts(data.posts);
                                 initSliders();
@@ -365,13 +363,18 @@
         `;
 
                         posts.forEach(post => {
-                            const date = post.date ? new Date(post.date).toLocaleDateString('ru-RU') : '';
+                            const date = post.date ? new Date(post.date).toLocaleDateString('ru-RU', {
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric'
+                            }) : '';
+
                             const imagesHTML = post.images?.length ? `
                 <div class="post-images swiper">
                     <div class="swiper-wrapper">
                         ${post.images.map(img => `
                             <div class="swiper-slide">
-                                <img src="${img}" alt="${post.title}" onerror="this.style.display='none'">
+                                <img src="${img}" alt="${post.title}" loading="lazy">
                             </div>
                         `).join('')}
                     </div>
@@ -386,8 +389,10 @@
                     <div class="post-content">
                         ${date ? `<p class="post-date">${date}</p>` : ''}
                         <h3 class="post-title">${post.title}</h3>
-                        <p class="post-excerpt">${post.excerpt}</p>
-                        <a href="/post/${post.slug}" class="read-more">Читать далее</a>
+                        <div class="post-text-content">
+                            <p class="post-excerpt">${post.excerpt || ''}</p>
+                            <a href="/post/${post.slug}" class="read-more">Читать далее</a>
+                        </div>
                     </div>
                 </article>
             `;
