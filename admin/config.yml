@@ -6,9 +6,6 @@ backend:
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
-admin:
-  css: cms-custom.css
-
 collections:
   - label: "Концерты"
     name: "concerts"
