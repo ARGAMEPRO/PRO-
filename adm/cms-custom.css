@@ -1,0 +1,90 @@
+/* Основной тёмный фон с эффектом стекла */
+.nc-root,
+.nc-githubBar,
+.nc-notif,
+.nc-mediaLibrary-card,
+.nc-entryListing-list,
+.nc-entryEditor-container,
+.nc-workflow-container,
+.nc-previewPane-frameContainer {
+  background: rgba(40, 42, 46, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #e0e0e0 !important;
+}
+
+/* Синие обводки и акценты */
+.nc-githubButton,
+.nc-button,
+.nc-entryEditor-toolbarButton,
+.nc-workflow-button,
+.nc-active,
+.nc-menuButton {
+  border: 1px solid #3a86ff !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Эффект при наведении */
+.nc-button:hover,
+.nc-githubButton:hover,
+.nc-entryEditor-toolbarButton:hover {
+  background: rgba(58, 134, 255, 0.2) !important;
+  box-shadow: 0 0 10px rgba(58, 134, 255, 0.5) !important;
+}
+
+/* Карточки с эффектом стекла */
+.nc-mediaLibrary-card,
+.nc-entryListing-card,
+.nc-widget-top,
+.nc-controlPane-control {
+  background: rgba(50, 52, 56, 0.7) !important;
+  border: 1px solid rgba(58, 134, 255, 0.3) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  margin-bottom: 16px !important;
+}
+
+/* Заголовки и текст */
+.nc-controlPane-label,
+.nc-entryListing-listHeader,
+.nc-entryEditor-container h2,
+.nc-entryEditor-container h3 {
+  color: #3a86ff !important;
+  text-shadow: 0 0 5px rgba(58, 134, 255, 0.3) !important;
+}
+
+/* Поля ввода */
+.nc-control-input,
+.nc-control-textarea,
+.nc-control-select {
+  background: rgba(30, 32, 36, 0.7) !important;
+  border: 1px solid #3a86ff !important;
+  color: #e0e0e0 !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+}
+
+/* Анимации для интерактивных элементов */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(58, 134, 255, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(58, 134, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(58, 134, 255, 0); }
+}
+
+.nc-button-primary {
+  animation: pulse 2s infinite !important;
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(30, 32, 36, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: #3a86ff;
+  border-radius: 4px;
+}
