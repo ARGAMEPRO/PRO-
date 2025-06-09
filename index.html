@@ -194,14 +194,15 @@
                 }
 
                 .posts-grid {
-                    display: flex;
-                    flex-wrap: wrap;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    /* 2 колонки */
                     gap: 2rem;
                 }
 
                 .posts-grid>* {
-                    flex: 1 1 350px;
-                    max-width: 100%;
+                    flex: none !important;
+                    max-width: none !important;
                 }
 
                 /* Измененные стили карточки */
@@ -216,6 +217,8 @@
                     flex-direction: column;
                     height: 100%;
                     /* Возвращаем height: 100% */
+                    margin: 0;
+                    width: 100%;
                 }
 
                 .post-card:hover {
