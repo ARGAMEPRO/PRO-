@@ -421,8 +421,8 @@ body>main {
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: clamp(1px, 1vw, 3px);
-    margin-bottom: 200px;
-    padding-right: 10px;
+    margin-bottom: 120px;
+    padding-left: 10px;
 }
 
 .hero-subtitle .line {
@@ -461,6 +461,139 @@ body>main {
     font-weight: 700;
 }
 
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
+}
+
+.body-no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.modal:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: #1a1919;
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto; /* Автоматические отступы */
+    border-radius: 8px;
+    position: relative;
+    box-sizing: border-box;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    border: 1px solid #3460fe;
+}
+
+.modal-close {
+    position: sticky; 
+    top: 15px;
+    right: 15px;
+    float: right; 
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    z-index: 1001;
+    background: rgba(255,255,255,0.9);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    margin-left: auto; /* Для выравнивания вправо */
+    margin-bottom: -40px; /* Компенсируем float */
+}
+
+/* Остальные стили остаются без изменений */
+
+.modal-close:hover {
+    color: #e74c3c;
+    background: rgba(255,255,255,1);
+}
+
+/* Стили для контента модального окна */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.modal-text-content {
+    max-width: 100%; /* Гарантирует, что текст не выйдет за границы */
+    overflow-wrap: break-word; /* Для надёжного переноса */
+}
+
+.modal-text-content h2 {
+    font-size: 30px;
+}
+
+.post-images {
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.post-excerpt-modal {
+    font-size: 1.2em;
+    line-height: 1.5;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.post-full-content {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .modal {
+        align-items: flex-start; /* Выравнивание по верху */
+        padding-top: 20px;
+    }
+    
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 16px; /* Было 0, оставляем скругления */
+        margin: 0;
+        padding: 20px;
+        padding-top: 50px;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+    }
+    
+    .modal-close {
+        position: fixed; /* Фиксированная позиция */
+        top: 15px;
+        right: 15px;
+        font-size: 24px;
+        width: 36px;
+        height: 36px;
+        z-index: 1001;
+    }
+}
 
 /* Стили для секции мероприятий */
 
@@ -851,7 +984,8 @@ body>main {
         font-size: 30px !important;
         font-weight: 200;
         margin-left: 10px;
-        margin-bottom: 60px;
+        position: relative;
+        top: -90px;
     }
 
     .hero-image {

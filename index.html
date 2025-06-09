@@ -42,6 +42,13 @@
     </header>
 
     <main>
+
+        <div id="post-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+                <div class="modal-body"></div>
+            </div>
+        </div>
         <section class="hero-section">
             <div class="hero-content">
                 <h1 class="hero-title">PROКЛИП</h1>
@@ -169,6 +176,7 @@
                 /* Основные стили */
                 .blog-posts {
                     padding: 4rem 0.5rem;
+                    padding-top: 0;
                 }
 
                 .posts-container {
@@ -178,10 +186,11 @@
 
                 .posts-title {
                     text-align: center;
-                    font-size: 2.5rem;
+                    font-size: 50px;
                     margin-bottom: 3rem;
                     position: relative;
                     font-weight: 600;
+                    text-transform: uppercase;
                 }
 
                 .posts-title:after {
@@ -297,7 +306,6 @@
 
                 .post-date {
                     font-size: 0.9rem;
-                    color: #cfd3ff;
                     margin-bottom: 0.5rem;
                 }
 
@@ -350,7 +358,7 @@
                     }
 
                     .posts-title {
-                        font-size: 2rem;
+                        font-size: 26px;
                     }
 
                     .post-images {
@@ -412,11 +420,15 @@
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
                     const postsContainer = document.querySelector('.blog-posts .posts-container');
+                    const modal = document.getElementById('post-modal');
+                    const modalBody = modal.querySelector('.modal-body');
+                    const modalClose = modal.querySelector('.modal-close');
 
-                    // Проверка подключения Swiper
                     if (typeof Swiper === 'undefined') {
                         console.error('Swiper не подключен! Добавьте скрипт Swiper');
                     }
+
+                    let allPosts = [];
 
                     fetch('data/posts.json')
                         .then(response => {
@@ -425,6 +437,7 @@
                         })
                         .then(data => {
                             if (data?.posts?.length) {
+                                allPosts = data.posts;
                                 renderPosts(data.posts);
                                 initSliders();
                             } else {
@@ -438,9 +451,9 @@
 
                     function renderPosts(posts) {
                         let html = `
-            <h2 class="posts-title">Последние публикации</h2>
-            <div class="posts-grid">
-        `;
+                <h2 class="posts-title">Последние публикации</h2>
+                <div class="posts-grid">
+            `;
 
                         posts.forEach(post => {
                             const date = post.date ? new Date(post.date).toLocaleDateString('ru-RU', {
@@ -450,36 +463,44 @@
                             }) : '';
 
                             const imagesHTML = post.images?.length ? `
-                <div class="post-images swiper">
-                    <div class="swiper-wrapper">
-                        ${post.images.map(img => `
-                            <div class="swiper-slide">
-                                <img src="${img}" alt="${post.title}" loading="lazy">
-                            </div>
-                        `).join('')}
+                    <div class="post-images swiper">
+                        <div class="swiper-wrapper">
+                            ${post.images.map(img => `
+                                <div class="swiper-slide">
+                                    <img src="${img}" alt="${post.title}" loading="lazy">
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-            ` : '';
+                ` : '';
 
                             html += `
-                <article class="post-card">
-                    ${imagesHTML}
-                    <div class="post-content">
-                        ${date ? `<p class="post-date">${date}</p>` : ''}
-                        <h3 class="post-title">${post.title}</h3>
-                        <div class="post-text-content">
-                            <p class="post-excerpt">${post.excerpt || ''}</p>
-                            <a href="/post/${post.slug}" class="read-more">Читать далее</a>
+                    <article class="post-card">
+                        ${imagesHTML}
+                        <div class="post-content">
+                            ${date ? `<p class="post-date">${date}</p>` : ''}
+                            <h3 class="post-title">${post.title}</h3>
+                            <div class="post-text-content">
+                                <p class="post-excerpt">${post.excerpt || ''}</p>
+                                <button class="read-more" data-slug="${post.slug}">Читать далее</button>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            `;
+                    </article>
+                `;
                         });
 
                         html += `</div>`;
                         postsContainer.innerHTML = html;
+
+                        // Назначаем обработчики на кнопки
+                        document.querySelectorAll('.read-more').forEach(button => {
+                            button.addEventListener('click', (e) => {
+                                const slug = e.currentTarget.getAttribute('data-slug');
+                                openModal(slug);
+                            });
+                        });
                     }
 
                     function initSliders() {
@@ -496,13 +517,80 @@
                         });
                     }
 
+                    function openModal(slug) {
+                        const post = allPosts.find(p => p.slug === slug);
+                        if (!post) return;
+                        const date = post.date ? new Date(post.date).toLocaleDateString('ru-RU', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        }) : '';
+
+                        const imagesHTML = post.images?.length ? `
+        <div class="post-images swiper">
+            <div class="swiper-wrapper">
+                ${post.images.map(img => `
+                    <div class="swiper-slide">
+                        <img src="${img}" alt="${post.title}" loading="lazy">
+                    </div>
+                `).join('')}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    ` : '';
+
+                        modalBody.innerHTML = `
+        ${imagesHTML}
+        <div class="modal-text-content">
+            <h2>${post.title}</h2>
+            ${date ? `<p class="post-date">${date}</p>` : ''}
+            ${post.excerpt ? `<p class="post-excerpt-modal">${post.excerpt}</p>` : ''}
+            <div class="post-full-content">
+                <p>${post.body || 'Полный текст не найден.'}</p>
+            </div>
+        </div>
+    `;
+
+                        modal.classList.remove('hidden');
+                        modal.scrollTo(0, 0);
+                        if (window.innerWidth <= 768) {
+                            setTimeout(() => {
+                                modal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 50);
+                        }
+
+                        // Инициализация Swiper
+                        if (typeof Swiper !== 'undefined' && post.images?.length) {
+                            new Swiper(modalBody.querySelector('.post-images.swiper'), {
+                                loop: true,
+                                navigation: {
+                                    nextEl: modalBody.querySelector('.swiper-button-next'),
+                                    prevEl: modalBody.querySelector('.swiper-button-prev'),
+                                },
+                            });
+                        }
+                    }
+
+                    modalClose.addEventListener('click', () => {
+                        modal.classList.add('hidden');
+                        modalBody.innerHTML = '';
+                    });
+
+                    window.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                            modal.classList.add('hidden');
+                            modalBody.innerHTML = '';
+                        }
+                    });
+
                     function showNoPostsMessage() {
                         postsContainer.innerHTML = `
-            <div class="no-posts-message">
-                <h2 class="posts-title">Блог</h2>
-                <p>Скоро здесь появятся новые статьи. Следите за обновлениями!</p>
-            </div>
-        `;
+                <div class="no-posts-message">
+                    <h2 class="posts-title">Блог</h2>
+                    <p>Скоро здесь появятся новые статьи. Следите за обновлениями!</p>
+                </div>
+            `;
                     }
                 });
             </script>
