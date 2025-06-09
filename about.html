@@ -47,48 +47,160 @@
                         <img src="assets/projectPhoto.jpg" alt="Project photo" class="projectPhoto">
                     </div>
                 </div>
+                <style>
+                    .text-content {
+                        margin: 0 auto;
+                        padding: 40px 20px;
+                        color: #ffffff;
+                    }
+
+                    .title-container {
+                        text-align: center;
+                        margin-bottom: 50px;
+                        position: relative;
+                    }
+
+                    .proклип {
+                        font-size: 4rem;
+                        font-weight: 800;
+                        background: linear-gradient(90deg, #4361ee, #3a0ca3);
+                        -webkit-background-clip: text;
+                        background-clip: text;
+                        color: transparent;
+                        display: inline-block;
+                        margin-bottom: 20px;
+                    }
+
+                    .title-container::after {
+                        content: '';
+                        display: block;
+                        width: 100px;
+                        height: 4px;
+                        background: linear-gradient(90deg, #4361ee, #3a0ca3);
+                        margin: 0 auto;
+                        border-radius: 2px;
+                    }
+
+                    .project-description {
+                        font-size: 1.25rem;
+                        font-weight: 300;
+                        line-height: 1.8;
+                        margin-bottom: 30px;
+                        position: relative;
+                        padding-left: 20px;
+                        border-left: 3px solid rgba(21, 44, 145, 0.3);
+                        /* тёмно-синий */
+                        transition: all 0.3s ease;
+                    }
+
+                    .project-description:hover {
+                        border-left-color: #0e258b;
+                        /* тёмно-синий при наведении */
+                        transform: translateX(5px);
+                    }
+
+                    .project-description:nth-child(even) {
+                        background: rgba(33, 60, 179, 0.05);
+                        /* лёгкий синий фон */
+                        padding: 20px;
+                        border-radius: 8px;
+                    }
+
+                    .project-description em {
+                        font-style: normal;
+                        font-weight: 500;
+                        color: #0b4cda;
+                        /* умеренно-синий */
+                    }
+
+                    .project-description strong {
+                        font-weight: 600;
+                        color: #0438c9;
+                        /* глубокий синий */
+                    }
+
+                    @media (max-width: 768px) {
+                        .proклип {
+                            font-size: 3rem;
+                        }
+
+                        .project-description {
+                            font-size: 1.1rem;
+                            padding-left: 15px;
+                            /* Отключаем анимации на телефоне */
+                            transition: none;
+                        }
+
+                        .project-description:hover {
+                            transform: none;
+                            border-left-color: rgba(33, 53, 140, 0.3);
+                            /* Без смены цвета при наведении */
+                        }
+                    }
+
+                    @media (max-width: 480px) {
+                        .proклип {
+                            font-size: 2.5rem;
+                        }
+
+                        .project-description {
+                            font-size: 1rem;
+                            padding-left: 10px;
+                            /* Отключаем анимации на телефоне */
+                            transition: none;
+                        }
+
+                        .project-description:hover {
+                            transform: none;
+                            border-left-color: rgba(33, 53, 140, 0.3);
+                            /* Без смены цвета при наведении */
+                        }
+                    }
+                </style>
+
                 <div class="text-content">
                     <div class="title-container">
                         <h1 class="proклип">PROКЛИП</h1>
                     </div>
+
                     <p class="project-description">
-                        Проект PROКЛИП даст тебе возможность попробовать свои силы в сфере медиа, сняться в
-                        профессиональном
-                        кино или даже снять свой собственный музыкальный клип.
+                        <em>Проект PROКЛИП</em> даст тебе возможность попробовать свои силы в сфере медиа, сняться в
+                        профессиональном кино или даже снять свой собственный музыкальный клип.
                     </p>
+
                     <p class="project-description">
                         Идея создать проект PROКЛИП пришла совершенно случайно, как приходят множество других идей. У
                         нас в городе очень много подростков, которых интересует медиаиндустрия. Конечно, есть множество
-                        медиашкол, которые могут помочь в развитии таланта, НО! когда ты не знаешь, чего ты хочешь,
-                        когда ты сомневаешься в своих силах, тебе хочется сначала попробовать, а потом принять решение.
+                        медиашкол, которые могут помочь в развитии таланта, <strong>НО!</strong> когда ты не знаешь,
+                        чего ты хочешь, когда ты сомневаешься в своих силах, тебе хочется сначала попробовать, а потом
+                        принять решение.
                     </p>
 
                     <p class="project-description">
                         Проект создавался с целью представления возможности подросткам и молодёжи попробовать свои силы
-                        в медиаиндустрии, придумать свой проект, свой клип, свой фильм, сняться в клипе или даже снять
-                        свой клип.
+                        в медиаиндустрии, <em>придумать свой проект, свой клип, свой фильм</em>, сняться в клипе или
+                        даже снять свой клип.
                     </p>
 
                     <p class="project-description">
-                        Наша команда — подростки 15–18 лет, задача каждого из нас — помочь Вам раскрыть свой талант.
-                        Во-первых, мы с вами на одной волне. Никаких рамок, никаких требований. Полная свобода мысли,
-                        слова, действия. Во-вторых, несмотря на наш возраст, мы имеем приемлемый опыт работы в
-                        индустрии: многие из нас являются учениками и выпускниками Школы Креативных Индустрий. Некоторые
-                        сняли собственные фильмы, некоторые — профессиональные артисты, музыканты, видеографы,
-                        монтажёры, сценаристы. Каждый член команды — это профессионал. Скажу по секрету, этот сайт
-                        написан 15-летним подростком.
+                        <strong>Наша команда</strong> — подростки 15–18 лет, задача каждого из нас — помочь Вам раскрыть
+                        свой талант. Во-первых, мы с вами на одной волне. Никаких рамок, никаких требований. Полная
+                        свобода мысли, слова, действия. Во-вторых, несмотря на наш возраст, мы имеем приемлемый опыт
+                        работы в индустрии: многие из нас являются учениками и выпускниками Школы Креативных Индустрий.
+                        Некоторые сняли собственные фильмы, некоторые — профессиональные артисты, музыканты, видеографы,
+                        монтажёры, сценаристы. <em>Каждый член команды — это профессионал.</em> Скажу по секрету, этот
+                        сайт написан 15-летним подростком.
                     </p>
 
                     <p class="project-description">
-                        PROКЛИП — это не только клипы, это медиапроект, молодёжное движение. В рамках проекта
-                        подразумевается проведение креативных лекций, молодёжных концертов и много другой интересной
-                        движухи.
+                        <strong>PROКЛИП</strong> — это не только клипы, это медиапроект, молодёжное движение. В рамках
+                        проекта подразумевается проведение креативных лекций, молодёжных концертов и много другой
+                        интересной движухи.
                     </p>
 
                     <p class="project-description">
                         Мы имеем большую всестороннюю поддержку, благодаря которой можем развивать проект.
                     </p>
-
                 </div>
             </div>
 
@@ -145,50 +257,371 @@
                 </div>
             </section>
 
-            <!-- Партнёры -->
             <section class="partners-section">
                 <h2 class="partners-title">НАШИ ПАРТНЁРЫ</h2>
                 <div class="partners-grid">
-                    <div class="partner">
+                    <!-- Партнер 1 -->
+                    <div class="partner" onclick="openPartnerModal('https://vk.com/potokcc')">
                         <div class="partner-logo">
                             <img src="assets/partners/поток.png" alt="ПОТОК">
                         </div>
                         <p class="partner-name">Курский Кластер Креативных Индустрий и Технологий "ПОТОК"</p>
+                        <div class="partner-hover-effect"></div>
                     </div>
-                    <div class="partner">
+
+                    <!-- Партнер 2 -->
+                    <div class="partner" onclick="openPartnerModal('https://vk.com/shki_kursk')">
                         <div class="partner-logo">
                             <img src="assets/partners/шки.png" alt="Школа Креативных Индустрий">
                         </div>
                         <p class="partner-name">Школа Креативных Индустрий</p>
+                        <div class="partner-hover-effect"></div>
                     </div>
-                    <div class="partner">
+
+                    <!-- Партнер 3 -->
+                    <div class="partner" onclick="openPartnerModal('https://vk.com/8km_films')">
                         <div class="partner-logo">
                             <img src="assets/partners/8км.png" alt="Проект 8КМ">
                         </div>
                         <p class="partner-name">Проект 8КМ</p>
+                        <div class="partner-hover-effect"></div>
                     </div>
-                    <div class="partner">
+
+                    <!-- Партнер 4 -->
+                    <div class="partner" onclick="openPartnerModal('https://vk.com/mypervie46')">
                         <div class="partner-logo">
                             <img src="assets/partners/движение первых.png" alt="Движение Первых">
                         </div>
                         <p class="partner-name">Движение Первых</p>
+                        <div class="partner-hover-effect"></div>
                     </div>
-                    <div class="partner">
+
+                    <!-- Партнер 5 -->
+                    <div class="partner" onclick="openPartnerModal('https://vk.com/teleshko_kursk')">
                         <div class="partner-logo">
                             <img src="assets/partners/телешко.png" alt="Школа телевидения ТЕЛЕШКО">
                         </div>
                         <p class="partner-name">Школа телевидения "ТЕЛЕШКО"</p>
+                        <div class="partner-hover-effect"></div>
                     </div>
-                    <div class="partner">
+
+                    <!-- Партнер 6 -->
+                    <div class="partner" onclick="openPartnerModal('https://vk.com/kmuzk')">
                         <div class="partner-logo">
                             <img src="assets/partners/кмк.png" alt="Курский Музыкальный Колледж им. Г.В. Свиридова">
                         </div>
-                        <p class="partner-name">Курский Музыкальный Колледж им. Г. В. Свиридова</p>
+                        <p class="partner-name">Курский Музыкальный Колледж им. Г.В. Свиридова</p>
+                        <div class="partner-hover-effect"></div>
                     </div>
                 </div>
             </section>
 
+            <!-- Модальное окно -->
+            <div id="partnerModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3>Перейти на сайт партнера?</h3>
+                    <p>Вы будете перенаправлены на внешний ресурс</p>
+                    <div class="modal-buttons">
+                        <button class="modal-btn confirm-btn" onclick="proceedToPartner()">Перейти</button>
+                        <button class="modal-btn cancel-btn" onclick="closeModal()">Отмена</button>
+                    </div>
+                </div>
+            </div>
 
+            <style>
+                :root {
+                    --primary-color: #4361ee;
+                    --primary-hover: #3a56d4;
+                    --background-light: #f8f9fa;
+                    --text-color: #ffffff;
+                    --light-gray: #c4c4c4;
+                    --border-radius: 16px;
+                    --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                    --transition: all 0.3s ease;
+                }
+
+                .partners-section {
+                    padding: 60px 20px;
+                    margin: 0 auto;
+                }
+
+                .partners-title {
+                    text-align: center;
+                    font-size: 2.5rem;
+                    margin-bottom: 50px;
+                    color: var(--text-color);
+                    font-weight: 700;
+                    position: relative;
+                }
+
+                .partners-title:after {
+                    content: '';
+                    display: block;
+                    width: 80px;
+                    height: 4px;
+                    background: var(--primary-color);
+                    margin: 15px auto 0;
+                    border-radius: 2px;
+                }
+
+                .partners-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                    gap: 30px;
+                    padding: 20px 0;
+                }
+
+                .partner {
+                    border-radius: var(--border-radius);
+                    padding: 25px;
+                    text-align: center;
+                    transition: var(--transition);
+                    box-shadow: var(--box-shadow);
+                    position: relative;
+                    overflow: hidden;
+                    cursor: pointer;
+                }
+
+                .partner:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+                }
+
+                .partner-logo {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 20px;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .partner-logo img {
+                    max-height: 100%;
+                    max-width: 100%;
+                    object-fit: contain;
+                    transition: var(--transition);
+                }
+
+                .partner:hover .partner-logo img {
+                    transform: scale(1.05);
+                }
+
+                .partner-name {
+                    font-size: 1.1rem;
+                    color: var(--text-color);
+                    margin: 0;
+                    position: relative;
+                    z-index: 1;
+                    font-weight: 500;
+                }
+
+                /* Новый элемент для эффекта при наведении */
+                .partner-hover-effect {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(67, 97, 238, 0.2) 100%);
+                    opacity: 0;
+                    transition: var(--transition);
+                    z-index: 0;
+                    border-radius: var(--border-radius);
+                }
+
+                .partner:hover .partner-hover-effect {
+                    opacity: 1;
+                }
+
+                .modal {
+                    display: none;
+                    position: fixed;
+                    z-index: 1000;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.6);
+                    backdrop-filter: blur(5px);
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    padding: 20px;
+                    /* Добавляем отступы по краям */
+                    box-sizing: border-box;
+                    /* Чтобы padding не влиял на ширину */
+                }
+
+                .modal-content {
+                    background: #1a1919;
+                    border-radius: var(--border-radius);
+                    padding: 30px;
+                    width: 100%;
+                    max-width: 400px;
+                    text-align: center;
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+                    transform: translateY(20px);
+                    transition: transform 0.3s ease;
+                    position: relative;
+                    margin: 0 auto;
+                    border: 1px solid #2e2d2d;
+                }
+
+                .modal.show {
+                    display: flex;
+                    opacity: 1;
+                }
+
+                .modal.show .modal-content {
+                    transform: translateY(0);
+                }
+
+                .modal-icon {
+                    margin-bottom: 20px;
+                }
+
+                .modal-icon svg {
+                    color: #ffffff;
+                    /* Синий цвет иконки */
+                }
+
+                .modal-content h3 {
+                    margin: 0 0 10px;
+                    color: #ffffff;
+                    /* Белый текст для заголовка */
+                    font-size: 1.5rem;
+                }
+
+                .modal-content p {
+                    color: #a0a0a0;
+                    /* Светло-серый для подтекста */
+                    margin-bottom: 25px;
+                    font-size: 1rem;
+                }
+
+                .modal-buttons {
+                    display: flex;
+                    gap: 15px;
+                    justify-content: center;
+                }
+
+                .modal-btn {
+                    padding: 12px 25px;
+                    border-radius: 50px;
+                    border: none;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: var(--transition);
+                    font-size: 1rem;
+                }
+
+                .confirm-btn {
+                    background: var(--primary-color);
+                    color: white;
+                }
+
+                .confirm-btn:hover {
+                    background: var(--primary-hover);
+                }
+
+                .cancel-btn {
+                    background: #2e2e2e;
+                    /* Темно-серый фон */
+                    color: #d0d0d0;
+                    /* Светло-серый текст */
+                    border: 1px solid #3e3e3e;
+                }
+
+                .cancel-btn:hover {
+                    background: #3a3a3a;
+                    color: white;
+                }
+
+                @media (max-width: 768px) {
+                    .modal {
+                        padding: 35px;
+                    }
+
+                    .modal-content {
+                        padding: 25px 20px;
+                    }
+
+                    .modal-buttons {
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+
+                    .modal-btn {
+                        width: 100%;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .modal-content {
+                        padding: 20px 15px;
+                    }
+
+                    .modal-content h3 {
+                        font-size: 1.3rem;
+                        /* Уменьшаем размер заголовка */
+                    }
+
+                    .modal-content p {
+                        font-size: 0.9rem;
+                        /* Уменьшаем размер текста */
+                        margin-bottom: 20px;
+                    }
+                }
+            </style>
+
+            <script>
+                let currentPartnerUrl = '';
+
+                function openPartnerModal(url) {
+                    currentPartnerUrl = url;
+                    const modal = document.getElementById('partnerModal');
+                    modal.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeModal() {
+                    const modal = document.getElementById('partnerModal');
+                    modal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                }
+
+                function proceedToPartner() {
+                    if (currentPartnerUrl) {
+                        window.open(currentPartnerUrl, '_blank');
+                    }
+                    closeModal();
+                }
+
+                // Закрывать модальное окно при клике вне его
+                window.onclick = function (event) {
+                    const modal = document.getElementById('partnerModal');
+                    if (event.target === modal) {
+                        closeModal();
+                    }
+                }
+
+                // Закрывать по ESC
+                document.onkeydown = function (e) {
+                    if (e.key === "Escape") {
+                        closeModal();
+                    }
+                };
+            </script>
         </div>
     </main>
     <footer class="footer">

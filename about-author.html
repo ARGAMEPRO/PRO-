@@ -46,43 +46,138 @@
                     <img src="assets/IMG_3394 1.jpg" alt="Author photo" class="img_3394-1">
                 </div>
             </div>
-            <div class="text-content">
+            <div class="text-content modern-about">
+
+                <style>
+                    /* Новый контейнер для секций */
+                    .modern-about {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 40px;
+                    }
+
+                    /* Блок с отступом и обводкой */
+                    .about-section {
+                        background-color: rgba(75, 75, 75, 0.05);
+                        padding: 20px 25px;
+                        border-radius: 12px;
+                        box-shadow: 0 0 10px rgba(52, 96, 254, 0.4);
+                    }
+
+                    /* Заголовки секций */
+                    .about-subtitle {
+                        font-size: 28px;
+                        color: #3460fe;
+                        margin-bottom: 10px;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                    }
+
+                    /* Списки для улучшения восприятия */
+                    .author-list {
+                        list-style: none;
+                        padding-left: 0;
+                    }
+
+                    .author-list li {
+                        position: relative;
+                        padding-left: 20px;
+                        margin-bottom: 10px;
+                        font-size: 20px;
+                    }
+
+                    .author-list li::before {
+                        content: '';
+                        width: 6px;
+                        height: 6px;
+                        background-color: #3460fe;
+                        border-radius: 50%;
+                        position: absolute;
+                        left: 0;
+                        top: 10px;
+                    }
+
+                    /* Мягкая адаптация текста */
+                    .author-description {
+                        font-size: 22px;
+                        line-height: 1.5;
+                        color: #ffffff;
+                    }
+
+                    /* Мобильная адаптация */
+                    @media (max-width: 768px) {
+
+                        .about-subtitle {
+                            font-size: 22px;
+                        }
+
+                        .author-description {
+                            font-size: 18px;
+                        }
+
+                        .author-list li {
+                            font-size: 18px;
+                        }
+                    }
+                </style>
+
                 <div class="title-container">
                     <h1 class="proклип">Алекс Беседин</h1>
                 </div>
-                <p class="author-description">
-                    Меня зовут Алексей Беседин, мне 16 лет. Я видеограф, монтажёр, режиссёр и продюсер с более чем
-                    6-летним опытом работы в индустрии. Основатель проекта PROКЛИП, который помогает молодым талантам
-                    реализовать свои творческие идеи. Специалист по созданию качественного визуального контента и
-                    организации мероприятий.
-                </p>
-                <p class="author-description">
-                    С 7 лет я увлёкся видеосъемкой, сначала это было как развлечение, а уже с 13 лет я начал
-                    зарабатывать на этом деньги. Сейчас мой стаж в работе видеографом составляет более 4х лет, и с
-                    каждым годом я стараюсь улучшать качество свои работ.
-                </p>
-                <p class="author-description">
-                    Помимо видеосъемки я занимаюсь режиссурой, продюссировснием проектов, организацией мероприятий.
-                    Работаю в сфере звука и света на концертных площадках.
-                </p>
-                <p class="author-description">
-                    Обучался в школе телевидения "ТЕЛЕШКО", Школе Креатианых Индустрий, Компьютерной академии "TOP",
-                    Кванториуме, сейчас являюсь студентом Курского Музыкального Колледжа на отделении "Музыкальное
-                    Звукооператорское Мастерство".
-                </p>
-                <p class="author-description">
-                    Я обожаю свою работа. Для меня работа - это отдых, это кайф. Я работаю не ради денег, а ради
-                    удовольствия. Я считаю, что работать в медиаиндустрии за деньги невозможно. Только при наличии
-                    желания и цели, ты можешь достичь реальных успехов и заработать реально приемлемые суммы.
-                </p>
-                <p class="author-description">
-                    На данный момент я тех. специалист Креативного Кластера "ПОТОК", оператор-постановщик, монтажер,
-                    клипмейкер.
-                </p>
-                <p class="author-description">
-                    Моя цель в жизни, это развиваться в той сфере, которая приносит мне удовольствие, а именно - медиа.
-                    Развиваться самому, развивать город, помогать окружающим познать эту индустрию.
-                </p>
+
+                <div class="about-section">
+                    <p class="author-description">Меня зовут Алексей Беседин, мне 16 лет. Я видеограф, монтажёр,
+                        режиссёр и продюсер с более чем 6-летним опытом. Основатель проекта <strong>PROКЛИП</strong>,
+                        который помогает молодым талантам реализовать свои идеи.</p>
+                </div>
+
+                <div class="about-section">
+                    <h3 class="about-subtitle">Как всё началось</h3>
+                    <p class="author-description">С 7 лет я увлёкся видеосъёмкой. Сначала это было увлечение, но уже с
+                        13 лет я начал зарабатывать. Сегодня мой стаж — более 4 лет, и я продолжаю развиваться каждый
+                        день.</p>
+                </div>
+
+                <div class="about-section">
+                    <h3 class="about-subtitle">Чем я занимаюсь</h3>
+                    <ul class="author-list">
+                        <li>Видеосъёмка и монтаж</li>
+                        <li>Режиссура и продюсирование проектов</li>
+                        <li>Организация мероприятий</li>
+                        <li>Работа со светом и звуком на концертных площадках</li>
+                    </ul>
+                </div>
+
+                <div class="about-section">
+                    <h3 class="about-subtitle">Образование</h3>
+                    <ul class="author-list">
+                        <li>Школа телевидения "ТЕЛЕШКО"</li>
+                        <li>Школа Креативных Индустрий</li>
+                        <li>Компьютерная академия "TOP"</li>
+                        <li>Кванториум</li>
+                        <li>Курский Музыкальный Колледж — Музыкальное Звукооператорское Мастерство</li>
+                    </ul>
+                </div>
+
+                <div class="about-section">
+                    <h3 class="about-subtitle">Мои ценности</h3>
+                    <p class="author-description">Я работаю ради удовольствия, а не ради денег. В медиаиндустрии это
+                        ключ к успеху. Важно иметь цель, желание и кайф от процесса.</p>
+                </div>
+
+                <div class="about-section">
+                    <h3 class="about-subtitle">Сейчас</h3>
+                    <ul class="author-list">
+                        <li>Технический специалист Креативного Кластера "ПОТОК"</li>
+                        <li>Оператор-постановщик, монтажёр, клипмейкер</li>
+                    </ul>
+                </div>
+
+                <div class="about-section">
+                    <h3 class="about-subtitle">Моя цель</h3>
+                    <p class="author-description">Я стремлюсь развивать медиаиндустрию, помогать молодёжи, вдохновлять и
+                        делать свой вклад в развитие города и творческого сообщества.</p>
+                </div>
 
                 <div class="skills">
                     <h2>Примеры работ</h2>
@@ -127,11 +222,90 @@
                 </div>
             </div>
             <section id="contacts">
+
+                <style>
+                    /* Новый дизайн для контактных карточек */
+                    .contact-card-new {
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                        margin-bottom: 30px;
+                        padding: 15px 20px;
+                        background-color: rgba(255, 255, 255, 0.05);
+                        border: 1px solid #3460fe;
+                        border-radius: 16px;
+                        transition: transform 0.3s, background-color 0.3s;
+                    }
+
+                    .contact-card-new:hover {
+                        transform: translateY(-5px);
+                        background-color: rgba(52, 96, 254, 0.1);
+                    }
+
+                    .contact-card-new .icon-box {
+                        background-color: #3460fe;
+                        border-radius: 12px;
+                        width: 50px;
+                        height: 50px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .contact-card-new .icon-box img {
+                        width: 28px;
+                        height: 28px;
+                        object-fit: contain;
+                        filter: brightness(0) invert(1);
+                    }
+
+                    .contact-card-new .contact-label {
+                        font-size: 16px;
+                        color: #ffffff;
+                        opacity: 0.7;
+                        margin: 0;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                    }
+
+                    .contact-card-new .contact-value {
+                        font-size: 20px;
+                        color: #ffffff;
+                        font-weight: 500;
+                        margin: 5px 0 0 0;
+                        word-break: break-all;
+                    }
+
+                    .contact-section-container {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        margin-top: 50px;
+                    }
+
+                    /* Адаптация для мобильных */
+                    @media (max-width: 768px) {
+
+                        .contact-section-container {
+                            gap: 0;
+                            margin-top: 0;
+                        }
+
+                        .contact-card-new {
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: 10px;
+                            padding: 15px;
+                        }
+
+                    }
+                </style>
+
                 <h2 class="section-title">Контакты</h2>
 
-                <div class="contact-list">
+                <div class="contact-section-container">
 
-                    <div class="contact-card">
+                    <div class="contact-card-new">
                         <div class="icon-box">
                             <img src="assets/mail-icon.svg" alt="email">
                         </div>
@@ -141,44 +315,30 @@
                         </div>
                     </div>
 
-                    <div class="contact-card">
+                    <div class="contact-card-new">
                         <div class="icon-box">
-                            <img src="assets/telegram-icon.svg" alt="telegram">
+                            <img src="assets/phone-icon.svg" alt="phone">
                         </div>
                         <div>
-                            <p class="contact-label">telegram канал</p>
-                            <p class="contact-value">
-                                <a href="https://t.me/alex_besedin" target="_blank" style="color: white;">@alex_besedin</a>
-                            </p>
+                            <p class="contact-label">телефон</p>
+                            <p class="contact-value">+7 919 274-78-07</p>
                         </div>
                     </div>
 
-                    <div class="contact-card">
-                        <div class="icon-box">
-                            <img src="assets/telegram-icon.svg" alt="telegram alt">
-                        </div>
-                        <div>
-                            <p class="contact-label">telegram лс</p>
-                            <p class="contact-value">
-                                <a href="https://t.me/dartik04" target="_blank" style="color: white;">@dartik04</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="contact-card">
+                    <div class="contact-card-new">
                         <div class="icon-box">
                             <img src="assets/vk-icon.svg" alt="vk">
                         </div>
                         <div>
                             <p class="contact-label">ВКонтакте</p>
-                            <p class="contact-value">
-                                <a href="https://vk.com/dartik04" target="_blank" style="color: white;" >vk.com/dartik04</a>
-                            </p>
+                            <p class="contact-value"><a href="https://vk.com/alexbesedin" target="_blank"
+                                    style="color: #ffffff; text-decoration: underline;">vk.com/alexbesedin</a></p>
                         </div>
                     </div>
 
                 </div>
             </section>
+
         </div>
     </main>
     <footer class="footer">

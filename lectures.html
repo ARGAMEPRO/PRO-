@@ -115,13 +115,20 @@
                 });
 
                 fetch('data/lectures.json')
-                    .then(response => response.json())
+                    .then(res => res.json())
                     .then(data => {
-                        lectures = data.lectures;
+                        lectures = data.lectures || [];
+                        if (lectures.length === 0) {
+                            container.innerHTML = '<p>Мероприятий пока нет.</p>';
+                            pageInfo.textContent = 'Страница 0 из 0';
+                            prevBtn.disabled = true;
+                            nextBtn.disabled = true;
+                            return;
+                        }
                         renderLectures(currentPage);
                     })
-                    .catch(error => {
-                        console.error('Ошибка загрузки лекций:', error);
+                    .catch(err => {
+                        console.error('Ошибка загрузки:', err);
                         container.innerHTML = '<p>Не удалось загрузить лекции.</p>';
                     });
             });
