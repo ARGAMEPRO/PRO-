@@ -168,8 +168,7 @@
             <style>
                 /* Основные стили */
                 .blog-posts {
-                    padding: 4rem 2rem;
-                    background: #f5f5f5;
+                    padding: 4rem 0.5rem;
                 }
 
                 .posts-container {
@@ -180,7 +179,6 @@
                 .posts-title {
                     text-align: center;
                     font-size: 2.5rem;
-                    color: #1a237e;
                     margin-bottom: 3rem;
                     position: relative;
                     font-weight: 600;
@@ -191,7 +189,7 @@
                     display: block;
                     width: 80px;
                     height: 4px;
-                    background: #3949ab;
+                    background: #2b43dd;
                     margin: 1rem auto 0;
                 }
 
@@ -208,7 +206,8 @@
 
                 /* Измененные стили карточки */
                 .post-card {
-                    background: white;
+                    border: 1px solid #3460fe;
+                    background: #1a1919;
                     border-radius: 8px;
                     overflow: hidden;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -229,9 +228,11 @@
                     position: relative;
                     width: 100%;
                     flex-grow: 1;
-                    /* Добавляем это свойство */
                     min-height: 200px;
-                    /* Минимальная высота для картинок */
+                    max-height: 400px;
+                    /* Ограничиваем максимальную высоту */
+                    overflow: hidden;
+                    /* Скрываем части фото, выходящие за границы */
                 }
 
                 .swiper {
@@ -243,14 +244,18 @@
                 .swiper-slide {
                     display: flex;
                     justify-content: center;
-                    align-items: center;
+                    align-items: flex-start;
                 }
 
                 .swiper-slide img {
-                    width: 100%;
-                    height: 100%;
-                    /* Возвращаем height: 100% */
-                    object-fit: cover;
+                    width: auto;
+                    /* Изменено с 100% на auto */
+                    height: auto;
+                    /* Изменено с 100% на auto */
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                    /* Изменено с cover на contain */
                 }
 
                 /* Остальные стили остаются прежними */
@@ -289,19 +294,19 @@
 
                 .post-date {
                     font-size: 0.9rem;
-                    color: #5c6bc0;
+                    color: #cfd3ff;
                     margin-bottom: 0.5rem;
                 }
 
                 .post-title {
                     font-size: 1.4rem;
-                    color: #1a237e;
+                    color: #cfd3ff;
                     margin-bottom: 1rem;
                     font-weight: 600;
                 }
 
                 .post-excerpt {
-                    color: #303f9f;
+                    color: #cfd3ff;
                     line-height: 1.6;
                     margin-bottom: 1.5rem;
                 }
@@ -351,6 +356,52 @@
 
                     .post-content {
                         padding: 1rem;
+                    }
+                }
+
+                /* Убираем все возможные отступы для Swiper на мобилах */
+                @media (max-width: 767px) {
+                    .post-images {
+                        padding: 0 !important;
+                        /* Жёстко убираем отступы */
+                        margin: 0 !important;
+                    }
+
+                    .swiper {
+                        --swiper-navigation-size: 20px;
+                        /* Уменьшаем стрелки на мобилах */
+                        padding: 0 !important;
+                        /* Важно: убираем внутренние отступы Swiper */
+                        margin: 0 !important;
+                    }
+
+                    .swiper-slide {
+                        padding: 0 !important;
+                        margin: 0 !important;
+                    }
+
+                    .swiper-slide img {
+                        width: 100% !important;
+                        height: 100% !important;
+                        object-fit: cover;
+                        display: block;
+                        /* Убираем возможные отступы снизу у img */
+                    }
+
+                    /* Убираем стандартные отступы Swiper */
+                    .swiper-wrapper {
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    /* Для вертикальных фото на мобилах */
+                    .swiper-slide.vertical-photo img {
+                        width: auto !important;
+                        max-width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        margin: 0 auto;
+                        /* Центрируем с нулевыми отступами */
                     }
                 }
             </style>
