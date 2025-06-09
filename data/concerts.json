@@ -1,10 +1,3 @@
 {
-  "concerts": [
-    {
-      "date": "2025-06-02T20:19:08.273Z",
-      "title": "тест для насти чушки",
-      "location": "настина квартирка",
-      "image": "/assets/uploads/big-tasty-sandwich-gray-background-vertical_85601-684.avif"
-    }
-  ]
+  "concerts": []
 }
