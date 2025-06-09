@@ -1,3 +1,10 @@
 {
-  "lectures": []
+  "lectures": [
+    {
+      "date": "2025-06-02T20:23:52.935Z",
+      "title": "тест для насти",
+      "description": "фиг тебе а не описание",
+      "image": "/assets/uploads/1002449962.jpg"
+    }
+  ]
 }
