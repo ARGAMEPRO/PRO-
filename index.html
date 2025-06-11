@@ -11,6 +11,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 
 <body class="home-page">
@@ -51,7 +52,10 @@
         </div>
         <section class="hero-section">
             <div class="hero-content">
-                <h1 class="hero-title">PROКЛИП</h1>
+                <h1 class="hero-title">
+                    <span id="element"></span>
+                </h1>
+
                 <p class="hero-tagline">Развитие медиаиндустрии в Курске</p>
                 <p class="hero-description hero-description-pc">
                     PROКЛИП - это возможности. Съëмки клипов, креативные образовательные лекции, молодёжные концертные
@@ -63,12 +67,109 @@
             <img src="assets/MAINphoto.jpg" alt="MainPhoto" class="hero-image">
         </section>
 
+        <style>
+            /* Общие стартовые стили (скрываем элементы) */
+            .hero-tagline,
+            .hero-description,
+            .hero-description-mobile {
+                opacity: 0;
+            }
+
+            /* Анимация для hero-tagline: появление снизу с подпрыгиванием */
+            @keyframes slideUpFade {
+                0% {
+                    transform: translateY(30px);
+                    opacity: 0;
+                }
+
+                60% {
+                    transform: translateY(-10px);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                    /* ← Явно фиксируем видимость */
+                }
+            }
+
+            /* Анимация для hero-description: появление с увеличением */
+            @keyframes fadeZoomIn {
+                0% {
+                    transform: scale(0.95);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            /* Применяем анимации с задержкой */
+            .hero-tagline.animate {
+                animation: slideUpFade 1s ease forwards;
+            }
+
+            .hero-description.animate {
+                animation: fadeZoomIn 1.2s ease forwards;
+                animation-delay: 0.5s;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Запуск анимации для всех элементов
+                document.querySelector('.hero-tagline').classList.add('animate');
+                document.querySelector('.hero-description').classList.add('animate');
+                document.querySelector('.hero-description-mobile').classList.add('animate');
+            });  
+        </script>
+
         <!-- Этот блок будет показываться только на телефонах -->
         <div class="hero-description-mobile">
             PROКЛИП - это возможности. Съëмки клипов, креативные образовательные лекции, молодёжные концертные
             программы, помощь в развитии ВАШИХ проектов. PROКЛИП - это не только клипы, это креативная медиасфера, а
             точнее, её развитие в Курске
         </div>
+
+        <style>
+            .hero-description-mobile {
+                opacity: 0;
+            }
+
+            /* Анимация для мобильной версии: вылет слева с плавностью */
+            @keyframes slideInLeftFade {
+                0% {
+                    transform: translateX(-50px);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            .hero-description-mobile.animate {
+                animation: slideInLeftFade 1s ease forwards;
+                animation-delay: 0.7s;
+                /* Чтобы началась чуть позже теглайна */
+            }
+        </style>
+
+        <style>
+            .opening-gallery img {
+                transform: scale(0);
+                opacity: 0;
+                transition: transform 0.6s ease, opacity 0.6s ease;
+            }
+
+            .opening-gallery img.visible {
+                transform: scale(1);
+                opacity: 1;
+            }
+        </style>
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
@@ -96,42 +197,42 @@
                     let galleryHTML = '';
                     if (hasGallery) {
                         galleryHTML = `
-          <div class="gallery-block">
-            <h3 class="opening-subtitle gallery-subtitle">Фотографии с открытия</h3>
-            <div class="opening-gallery">
-              ${data.gallery.map(img => `<img src="${img}" alt="">`).join('')}
-            </div>
-          </div>
-        `;
+                <div class="gallery-block">
+                    <h3 class="opening-subtitle gallery-subtitle">Фотографии с открытия</h3>
+                    <div class="opening-gallery">
+                        ${data.gallery.map(img => `<img src="${img}" alt="">`).join('')}
+                    </div>
+                </div>
+                `;
                     }
 
                     // Блок видео
                     let videoHTML = '';
                     if (hasVideo) {
                         videoHTML = `
-          <div class="video-block">
-            <h3 class="opening-subtitle video-subtitle">Видео с открытия</h3>
-            <div class="opening-video-card" style="background-image: url('${data.video.preview || ''}')">
-              <div class="opening-video-glass">
-                <div class="glass-content">
-                  <div class="video-info">
-                    <h3>${data.video.title || ''}</h3>
-                    <p>${data.video.artists || ''}</p>
-                    <p>${data.video.views || ''}</p>
-                  </div>
-                  <a href="${data.video.videoLink}" class="video-button">Смотреть</a>
+                <div class="video-block">
+                    <h3 class="opening-subtitle video-subtitle">Видео с открытия</h3>
+                    <div class="opening-video-card" style="background-image: url('${data.video.preview || ''}')">
+                        <div class="opening-video-glass">
+                            <div class="glass-content">
+                                <div class="video-info">
+                                    <h3>${data.video.title || ''}</h3>
+                                    <p>${data.video.artists || ''}</p>
+                                    <p>${data.video.views || ''}</p>
+                                </div>
+                                <a href="${data.video.videoLink}" class="video-button" target="_blank" rel="noopener noreferrer">Смотреть</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        `;
+                `;
                     }
 
                     section.innerHTML = `
-        <h2 class="opening-title">${data.title || 'Открытие PROКЛИП'}</h2>
-        ${galleryHTML}
-        ${videoHTML}
-      `;
+                <h2 class="opening-title">${data.title || 'Открытие PROКЛИП'}</h2>
+                ${galleryHTML}
+                ${videoHTML}
+            `;
 
                     const main = document.querySelector('main');
                     const featured = document.querySelector('.featured-events');
@@ -140,15 +241,17 @@
                     } else {
                         document.body.appendChild(section);
                     }
+
+                    initGalleryAnimation(); // Запускаем анимацию после вставки
                 }
 
                 function renderErrorState() {
                     const section = document.createElement('section');
                     section.className = 'proklip-opening error';
                     section.innerHTML = `
-        <h2 class="opening-title">Открытие PROКЛИП</h2>
-        <p>Не удалось загрузить данные.</p>
-      `;
+                <h2 class="opening-title">Открытие PROКЛИП</h2>
+                <p>Не удалось загрузить данные.</p>
+            `;
                     const main = document.querySelector('main');
                     const featured = document.querySelector('.featured-events');
                     if (main && featured) {
@@ -157,8 +260,31 @@
                         document.body.appendChild(section);
                     }
                 }
+
+                function initGalleryAnimation() {
+                    const galleryImages = document.querySelectorAll('.opening-gallery img');
+
+                    const observer = new IntersectionObserver((entries, observer) => {
+                        entries.forEach((entry, index) => {
+                            if (entry.isIntersecting) {
+                                // Добавляем задержку для плавного эффекта по очереди
+                                setTimeout(() => {
+                                    entry.target.classList.add('visible');
+                                }, index * 150);
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        threshold: 0.3
+                    });
+
+                    galleryImages.forEach(img => {
+                        observer.observe(img);
+                    });
+                }
             });
         </script>
+
 
         <section class="featured-events">
 
@@ -167,6 +293,56 @@
                 <span class="line">собственные клипы</span>
                 <span class="highlight line">не имея опыта!</span>
             </p>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const heroSubtitle = document.querySelector('.hero-subtitle');
+
+                    const observer = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && entry.intersectionRatio > 0.5) { // >50% блока в зоне
+                                entry.target.classList.add('slide-in');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        threshold: 0.5, // срабатывает, когда 50% элемента видны
+                        rootMargin: '0px 0px -100px 0px' // "отступ" снизу для более точного триггера
+                    });
+
+
+                    observer.observe(heroSubtitle);
+                });
+            </script>
+
+            <style>
+                .hero-subtitle span {
+                    display: inline-block;
+                    /* чтобы transform сработал корректно */
+                    opacity: 0;
+                    transform: translateX(-100px);
+                    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+                }
+
+                /* Активный класс для запуска анимации */
+                .hero-subtitle.slide-in span {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+
+                /* Задаём индивидуальные задержки через nth-child */
+                .hero-subtitle.slide-in span:nth-child(1) {
+                    transition-delay: 0.2s;
+                }
+
+                .hero-subtitle.slide-in span:nth-child(2) {
+                    transition-delay: 0.4s;
+                }
+
+                .hero-subtitle.slide-in span:nth-child(3) {
+                    transition-delay: 0.6s;
+                }
+            </style>
 
             <section class="blog-posts">
                 <div class="posts-container"></div>
@@ -704,6 +880,38 @@
             </div>
         </div>
     </footer>
+
+    <h1 class="hero-title">
+        <span id="element"></span>
+    </h1>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var typed = new Typed('#element', {
+                strings: ['PROШОУ', 'PROЛЕКЦИИ', 'PROКЛИП'],
+                typeSpeed: 70,
+                backSpeed: 40,
+                startDelay: 500,
+                smartBackspace: false,
+                backDelay: 700,
+                showCursor: true,
+                cursorChar: '|',
+                loop: false,
+                onStringTyped: function (arrayPos, self) {
+                    // Проверяем, была ли это последняя строка
+                    if (arrayPos === self.strings.length - 1) {
+                        setTimeout(function () {
+                            document.querySelector('.typed-cursor').style.opacity = '0';
+                        }, 1000);
+                    }
+                }
+            });
+        });
+    </script>
+
+
+
 </body>
 
 </html>
