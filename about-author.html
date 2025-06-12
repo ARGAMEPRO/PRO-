@@ -49,22 +49,53 @@
             <div class="text-content modern-about">
 
                 <style>
-                    /* Новый контейнер для секций */
+                    /* Увеличиваем расстояние между блоками */
                     .modern-about {
                         display: flex;
                         flex-direction: column;
-                        gap: 40px;
+                        gap: 20px;
+                        /* Было 40px, стало больше */
                     }
 
-                    /* Блок с отступом и обводкой */
+                    /* Универсальный базовый стиль */
                     .about-section {
                         background-color: rgba(75, 75, 75, 0.05);
                         padding: 20px 25px;
                         border-radius: 12px;
                         box-shadow: 0 0 10px rgba(52, 96, 254, 0.4);
+                        transition: transform 0.4s ease, opacity 0.4s ease;
                     }
 
-                    /* Заголовки секций */
+                    /* Hover-эффект только на ПК */
+                    @media (min-width: 769px) {
+                        .about-section:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 8px 20px rgba(52, 96, 254, 0.6);
+                        }
+                    }
+
+                    /* Отключаем hover-эффекты на тач-устройствах */
+                    @media (hover: none) {
+                        .about-section:hover {
+                            transform: none;
+                            box-shadow: 0 0 10px rgba(52, 96, 254, 0.4);
+                        }
+                    }
+
+                    /* Анимация появления при скролле — ТОЛЬКО на телефоне */
+                    @media (max-width: 768px) {
+                        .about-section {
+                            opacity: 0;
+                            transform: translateY(30px);
+                        }
+
+                        .about-section.visible {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    /* Остальные стили без изменений */
                     .about-subtitle {
                         font-size: 28px;
                         color: #3460fe;
@@ -73,7 +104,6 @@
                         text-transform: uppercase;
                     }
 
-                    /* Списки для улучшения восприятия */
                     .author-list {
                         list-style: none;
                         padding-left: 0;
@@ -97,16 +127,13 @@
                         top: 10px;
                     }
 
-                    /* Мягкая адаптация текста */
                     .author-description {
                         font-size: 22px;
                         line-height: 1.5;
                         color: #ffffff;
                     }
 
-                    /* Мобильная адаптация */
                     @media (max-width: 768px) {
-
                         .about-subtitle {
                             font-size: 22px;
                         }
@@ -125,59 +152,110 @@
                     <h1 class="proклип">Алекс Беседин</h1>
                 </div>
 
-                <div class="about-section">
-                    <p class="author-description">Меня зовут Алексей Беседин, мне 16 лет. Я видеограф, монтажёр,
-                        режиссёр и продюсер с более чем 6-летним опытом. Основатель проекта <strong>PROКЛИП</strong>,
-                        который помогает молодым талантам реализовать свои идеи.</p>
-                </div>
+                <div class="modern-about">
+                    <!-- Ваши блоки about-section остаются без изменений -->
+                    <div class="about-section">
+                        <p class="author-description">Меня зовут Алексей Беседин, мне 16 лет. Я видеограф, монтажёр,
+                            режиссёр и продюсер с более чем 6-летним опытом. Основатель проекта
+                            <strong>PROКЛИП</strong>,
+                            который помогает молодым талантам реализовать свои идеи.
+                        </p>
+                    </div>
 
-                <div class="about-section">
-                    <h3 class="about-subtitle">Как всё началось</h3>
-                    <p class="author-description">С 7 лет я увлёкся видеосъёмкой. Сначала это было увлечение, но уже с
-                        13 лет я начал зарабатывать. Сегодня мой стаж — более 4 лет, и я продолжаю развиваться каждый
-                        день.</p>
-                </div>
+                    <div class="about-section">
+                        <h3 class="about-subtitle">Как всё началось</h3>
+                        <p class="author-description">С 7 лет я увлёкся видеосъёмкой. Сначала это было увлечение, но уже
+                            с
+                            13 лет я начал зарабатывать. Сегодня мой стаж — более 4 лет, и я продолжаю развиваться
+                            каждый
+                            день.</p>
+                    </div>
 
-                <div class="about-section">
-                    <h3 class="about-subtitle">Чем я занимаюсь</h3>
-                    <ul class="author-list">
-                        <li>Видеосъёмка и монтаж</li>
-                        <li>Режиссура и продюсирование проектов</li>
-                        <li>Организация мероприятий</li>
-                        <li>Работа со светом и звуком на концертных площадках</li>
-                    </ul>
-                </div>
+                    <div class="about-section">
+                        <h3 class="about-subtitle">Чем я занимаюсь</h3>
+                        <ul class="author-list">
+                            <li>Видеосъёмка и монтаж</li>
+                            <li>Режиссура и продюсирование проектов</li>
+                            <li>Организация мероприятий</li>
+                            <li>Работа со светом и звуком на концертных площадках</li>
+                        </ul>
+                    </div>
 
-                <div class="about-section">
-                    <h3 class="about-subtitle">Образование</h3>
-                    <ul class="author-list">
-                        <li>Школа телевидения "ТЕЛЕШКО"</li>
-                        <li>Школа Креативных Индустрий</li>
-                        <li>Компьютерная академия "TOP"</li>
-                        <li>Кванториум</li>
-                        <li>Курский Музыкальный Колледж — Музыкальное Звукооператорское Мастерство</li>
-                    </ul>
-                </div>
+                    <div class="about-section">
+                        <h3 class="about-subtitle">Образование</h3>
+                        <ul class="author-list">
+                            <li>Школа телевидения "ТЕЛЕШКО"</li>
+                            <li>Школа Креативных Индустрий</li>
+                            <li>Компьютерная академия "TOP"</li>
+                            <li>Кванториум</li>
+                            <li>Курский Музыкальный Колледж — Музыкальное Звукооператорское Мастерство</li>
+                        </ul>
+                    </div>
 
-                <div class="about-section">
-                    <h3 class="about-subtitle">Мои ценности</h3>
-                    <p class="author-description">Я работаю ради удовольствия, а не ради денег. В медиаиндустрии это
-                        ключ к успеху. Важно иметь цель, желание и кайф от процесса.</p>
-                </div>
+                    <div class="about-section">
+                        <h3 class="about-subtitle">Мои ценности</h3>
+                        <p class="author-description">Я работаю ради удовольствия, а не ради денег. В медиаиндустрии это
+                            ключ к успеху. Важно иметь цель, желание и кайф от процесса.</p>
+                    </div>
 
-                <div class="about-section">
-                    <h3 class="about-subtitle">Сейчас</h3>
-                    <ul class="author-list">
-                        <li>Технический специалист Креативного Кластера "ПОТОК"</li>
-                        <li>Оператор-постановщик, монтажёр, клипмейкер</li>
-                    </ul>
-                </div>
+                    <div class="about-section">
+                        <h3 class="about-subtitle">Сейчас</h3>
+                        <ul class="author-list">
+                            <li>Технический специалист Креативного Кластера "ПОТОК"</li>
+                            <li>Оператор-постановщик, монтажёр, клипмейкер</li>
+                        </ul>
+                    </div>
 
-                <div class="about-section">
-                    <h3 class="about-subtitle">Моя цель</h3>
-                    <p class="author-description">Я стремлюсь развивать медиаиндустрию, помогать молодёжи, вдохновлять и
-                        делать свой вклад в развитие города и творческого сообщества.</p>
+                    <div class="about-section">
+                        <h3 class="about-subtitle">Моя цель</h3>
+                        <p class="author-description">Я стремлюсь развивать медиаиндустрию, помогать молодёжи,
+                            вдохновлять и
+                            делать свой вклад в развитие города и творческого сообщества.</p>
+                    </div>
                 </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        // Проверяем, на телефоне или на ПК
+                        const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+                        if (isMobile) {
+                            const sections = document.querySelectorAll('.about-section');
+
+                            // Показываем первый блок сразу
+                            if (sections.length > 0) {
+                                sections[0].classList.add('visible');
+                            }
+
+                            // Функция проверки видимости
+                            function checkVisibility() {
+                                const windowHeight = window.innerHeight;
+                                const triggerPoint = windowHeight * 0.85;
+
+                                sections.forEach((section, index) => {
+                                    const rect = section.getBoundingClientRect();
+                                    const sectionTop = rect.top;
+
+                                    if (sectionTop < triggerPoint && !section.classList.contains('visible')) {
+                                        setTimeout(() => {
+                                            section.classList.add('visible');
+                                        }, index * 150);
+                                    }
+                                });
+                            }
+
+                            // Проверяем при загрузке страницы
+                            checkVisibility();
+
+                            // Проверяем при скролле (с троттлингом)
+                            let isScrolling;
+                            window.addEventListener('scroll', function () {
+                                window.clearTimeout(isScrolling);
+                                isScrolling = setTimeout(checkVisibility, 50);
+                            }, { passive: true });
+                        }
+                    });
+                </script>
+
 
                 <div class="skills">
                     <h2>Примеры работ</h2>
@@ -303,8 +381,30 @@
 
                 <h2 class="section-title">Контакты</h2>
 
-                <div class="contact-section-container">
+                <style>
+                    /* Базовая стилизация карточек */
+                    .contact-card-new {
+                        opacity: 0;
+                        transform: translateY(50px) rotate(-5deg);
+                        transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+                    }
 
+                    /* Когда карточка становится видимой */
+                    .contact-card-new.visible {
+                        opacity: 1;
+                        transform: translateY(0) rotate(0deg);
+                    }
+
+                    /* Отключаем анимации на ПК */
+                    @media (min-width: 769px) {
+                        .contact-card-new {
+                            opacity: 1 !important;
+                            transform: none !important;
+                        }
+                    }
+                </style>
+
+                <div class="contact-section-container">
                     <div class="contact-card-new">
                         <div class="icon-box">
                             <img src="assets/mail-icon.svg" alt="email">
@@ -335,8 +435,38 @@
                                     style="color: #ffffff; text-decoration: underline;">dartik04</a></p>
                         </div>
                     </div>
-
                 </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const cards = document.querySelectorAll('.contact-card-new');
+
+                        // Функция для проверки видимости
+                        function checkVisibility() {
+                            const windowHeight = window.innerHeight;
+                            const triggerPoint = windowHeight * 0.9;
+
+                            cards.forEach((card, index) => {
+                                const rect = card.getBoundingClientRect();
+                                if (rect.top < triggerPoint) {
+                                    // Добавляем задержку для последовательного появления
+                                    setTimeout(() => {
+                                        card.classList.add('visible');
+                                    }, index * 200);
+                                }
+                            });
+                        }
+
+                        // Проверяем при загрузке страницы
+                        checkVisibility();
+
+                        // Проверяем при прокрутке
+                        window.addEventListener('scroll', function () {
+                            checkVisibility();
+                        }, { passive: true });
+                    });
+                </script>
+
             </section>
 
         </div>

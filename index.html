@@ -889,7 +889,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var typed = new Typed('#element', {
-                strings: ['PROШОУ', 'PROЛЕКЦИИ', 'PROКЛИП'],
+                strings: [
+                    'PROШОУ',
+                    '<span class="smaller-text">PROЛЕКЦИИ</span>',
+                    'PROКЛИП'
+                ],
                 typeSpeed: 70,
                 backSpeed: 40,
                 startDelay: 500,
@@ -899,7 +903,6 @@
                 cursorChar: '|',
                 loop: false,
                 onStringTyped: function (arrayPos, self) {
-                    // Проверяем, была ли это последняя строка
                     if (arrayPos === self.strings.length - 1) {
                         setTimeout(function () {
                             document.querySelector('.typed-cursor').style.opacity = '0';
@@ -910,7 +913,11 @@
         });
     </script>
 
-
+    <style>
+        .smaller-text {
+            font-size: 0.8em;
+        }
+    </style>
 
 </body>
 
