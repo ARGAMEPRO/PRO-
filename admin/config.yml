@@ -7,10 +7,10 @@ media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-  - label: "Концерты"
+  - label: "Шоу"
     name: "concerts"
     files:
-      - label: "Список концертов"
+      - label: "Список мероприятий"
         name: "concerts"
         file: "data/concerts.json"
         format: "json"
@@ -25,7 +25,7 @@ collections:
                   label: "Тип мероприятия", 
                   name: "type", 
                   widget: "select", 
-                  options: ["Концерт", "Тусовка", "Фестиваль", "Другое"],
+                  options: ["Концерт", "Тусовка",],
                   default: "Концерт"
                 }
               - { label: "Дата и время", name: "date", widget: "datetime" }
