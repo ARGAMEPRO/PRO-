@@ -1,27 +1,3 @@
 {
-  "concerts": [
-    {
-      "type": "Концерт",
-      "date": "2025-06-18T23:19:33.627Z",
-      "title": "тест",
-      "location": "лол кек",
-      "registrationLink": "кек.ру",
-      "image": "/assets/uploads/1002449962.jpg"
-    },
-    {
-      "type": "Концерт",
-      "date": "2025-06-18T23:20:56.468Z",
-      "title": "тест1",
-      "location": "поток",
-      "image": "/assets/uploads/d1ir8kiujdo.jpg"
-    },
-    {
-      "type": "Тусовка",
-      "date": "2025-06-18T23:21:19.469Z",
-      "title": "тест2",
-      "location": "поток2",
-      "image": "/assets/uploads/1002450883.jpg",
-      "price": 600
-    }
-  ]
+  "concerts": [ ]
 }
