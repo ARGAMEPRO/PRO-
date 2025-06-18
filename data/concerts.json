@@ -1,21 +1,3 @@
 {
-  "concerts": [
-    {
-      "type": "Концерт",
-      "date": "2025-06-18T23:37:07.561Z",
-      "title": "тест",
-      "location": "нет",
-      "image": "/assets/uploads/1002449962.jpg",
-      "registrationLink": "123"
-    },
-    {
-      "type": "Тусовка",
-      "date": "2025-06-18T23:37:27.933Z",
-      "title": "тест2",
-      "location": "нет",
-      "image": "/assets/uploads/g1.jpg",
-      "price": 600,
-      "registrationLink": "нет"
-    }
-  ]
+  "concerts": []
 }
