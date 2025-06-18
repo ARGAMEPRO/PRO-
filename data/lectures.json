@@ -1,18 +1,3 @@
 {
-  "lectures": [
-    {
-      "date": "2025-06-18T23:28:26.731Z",
-      "title": "тест",
-      "description": "бла бла бла бла бла бла бла бла бла бла бла бла бла бла бла ",
-      "image": "/assets/uploads/1002450886.jpg",
-      "registrationLink": "рук"
-    },
-    {
-      "date": "2025-06-18T23:29:04.548Z",
-      "title": "тест2",
-      "description": "бла бла бла бла бла бла бла бла бла бла бла бла ",
-      "image": "/assets/uploads/1002449962.jpg",
-      "price": 1500
-    }
-  ]
+  "lectures": []
 }
