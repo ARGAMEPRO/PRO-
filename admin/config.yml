@@ -21,18 +21,28 @@ collections:
             summary: "{{title}} — {{date}}"
             fields:
               - { label: "Название", name: "title", widget: "string" }
-              - { label: "Дата и время", name: "date", widget: "datetime" }
-              - {
-                  label: "Место проведения",
-                  name: "location",
-                  widget: "string",
+              - { 
+                  label: "Тип мероприятия", 
+                  name: "type", 
+                  widget: "select", 
+                  options: ["Концерт", "Тусовка", "Фестиваль", "Другое"],
+                  default: "Концерт"
                 }
+              - { label: "Дата и время", name: "date", widget: "datetime" }
+              - { label: "Место проведения", name: "location", widget: "string" }
               - { label: "Афиша", name: "image", widget: "image" }
-              - {
-                  label: "Ссылка на регистрацию",
-                  name: "registrationLink",
-                  widget: "string",
+              - { 
+                  label: "Цена (только для тусовок, ₽)", 
+                  name: "price", 
+                  widget: "number", 
                   required: false,
+                  hint: "Укажите цену, если это платное мероприятие" 
+                }
+              - { 
+                  label: "Ссылка на регистрацию", 
+                  name: "registrationLink", 
+                  widget: "string", 
+                  required: false 
                 }
 
   - label: "Лекции"
@@ -52,12 +62,8 @@ collections:
               - { label: "Описание", name: "description", widget: "text" }
               - { label: "Дата и время", name: "date", widget: "datetime" }
               - { label: "Обложка", name: "image", widget: "image" }
-              - {
-                  label: "Ссылка на регистрацию",
-                  name: "registrationLink",
-                  widget: "string",
-                  required: false,
-                }
+              - { label: "Цена (₽)", name: "price", widget: "number", required: false }
+              - { label: "Ссылка на регистрацию", name: "registrationLink", widget: "string", required: false }
 
   - label: "Клипы"
     name: "clips"

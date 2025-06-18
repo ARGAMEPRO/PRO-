@@ -72,30 +72,29 @@
                         card.className = 'lecture-card';
 
                         card.innerHTML = `
-    <div class="lecture-image" style="background-image: url('${lecture.image}')"></div>
-    <div class="lecture-glass">
-        <h3 class="lecture-title">${lecture.title}</h3>
-        <p class="lecture-description">${lecture.description}</p>
-        <p class="lecture-date">${new Date(lecture.date).toLocaleDateString('ru-RU', {
+                    <div class="lecture-image" style="background-image: url('${lecture.image}')">
+                        ${lecture.price ? `<div class="price-tag">${lecture.price} ₽</div>` : ''}
+                    </div>
+                    <div class="lecture-glass">
+                        <h3 class="lecture-title">${lecture.title}</h3>
+                        <p class="lecture-description">${lecture.description}</p>
+                        <p class="lecture-date">${new Date(lecture.date).toLocaleDateString('ru-RU', {
                             day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
                         })}</p>
-        ${lecture.registrationLink ? `
-            <a href="${lecture.registrationLink}" target="_blank" class="register-button-lec">Зарегистрироваться</a>
-        ` : `
-            <button class="register-button-lec disabled" disabled>Регистрация недоступна</button>
-        `}
-    </div>
-`;
-
+                        ${lecture.registrationLink ? `
+                            <a href="${lecture.registrationLink}" target="_blank" class="register-button-lec">Зарегистрироваться</a>
+                        ` : `
+                            <button class="register-button-lec disabled" disabled>Регистрация недоступна</button>
+                        `}
+                    </div>
+                `;
 
                         container.appendChild(card);
                     });
 
-                    // Обновляем кнопки
                     prevBtn.disabled = page === 1;
                     nextBtn.disabled = end >= lectures.length;
 
-                    // Обновляем инфо по страницам
                     const totalPages = Math.ceil(lectures.length / lecturesPerPage) || 1;
                     pageInfo.textContent = `Страница ${page} из ${totalPages}`;
                 }
@@ -133,6 +132,24 @@
                     });
             });
         </script>
+
+        <style>
+            .price-tag {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 10px;
+                padding: 8px 15px;
+                color: white;
+                font-weight: bold;
+                font-size: 1.1em;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+        </style>
 
 
 
