@@ -15,7 +15,7 @@ collections:
         file: "data/concerts.json"
         format: "json"
         fields:
-          - label: "Концерты"
+          - label: "Шоу"
             name: "concerts"
             widget: "list"
             summary: "{{title}} — {{date}}"
@@ -40,6 +40,7 @@ collections:
                 }
               - { 
                   label: "Ссылка на регистрацию", 
+                  hint: "Если ссылка не указана: регистрация не доступна",
                   name: "registrationLink", 
                   widget: "string", 
                   required: false 
@@ -63,7 +64,7 @@ collections:
               - { label: "Дата и время", name: "date", widget: "datetime" }
               - { label: "Обложка", name: "image", widget: "image" }
               - { label: "Цена (₽)", name: "price", widget: "number", required: false }
-              - { label: "Ссылка на регистрацию", name: "registrationLink", widget: "string", required: false }
+              - { label: "Ссылка на регистрацию", hint: "Если ссылка не указана: регистрация не доступна", name: "registrationLink", widget: "string", required: false }
 
   - label: "Клипы"
     name: "clips"
