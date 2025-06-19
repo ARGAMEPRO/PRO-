@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name=" Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1921 1081">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: .18em;
+      }
+
+      .cls-2 {
+        letter-spacing: .18em;
+      }
+
+      .cls-3 {
+        letter-spacing: .19em;
+      }
+
+      .cls-4 {
+        letter-spacing: .19em;
+      }
+
+      .cls-5, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        font-family: Montserrat-SemiBold, Montserrat;
+        font-size: 155px;
+        font-weight: 600;
+      }
+
+      .cls-7 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <rect class="cls-7" x=".5" y=".5" width="1920" height="1080"/>
+  <g>
+    <path class="cls-5" d="M327.9,540.5v43.6c0,6.6-5.3,11.9-11.9,11.9s-11.9-5.3-11.9-11.9v-43.6c0-6.5,5.3-11.9,11.9-11.9s11.9,5.3,11.9,11.9Z"/>
+    <path class="cls-5" d="M367.2,501.8v117.9c0,6.5-5.3,11.9-11.9,11.9s-11.9-5.3-11.9-11.9v-117.9c0-6.6,5.3-11.9,11.9-11.9s11.9,5.3,11.9,11.9h0Z"/>
+    <path class="cls-5" d="M406.4,450.4v220.7c0,6.5-5.3,11.9-11.9,11.9s-11.9-5.3-11.9-11.9v-220.7c0-6.5,5.3-11.9,11.9-11.9s11.9,5.3,11.9,11.9h0Z"/>
+    <path class="cls-5" d="M447.5,438.5v244.5c0,6.5-5.3,11.9-11.9,11.9s-11.9-5.3-11.9-11.9v-244.5c0-6.5,5.3-11.9,11.9-11.9s11.9,5.3,11.9,11.9Z"/>
+    <path class="cls-5" d="M487.1,516.8v91c0,6.6-5.3,11.9-11.9,11.9s-11.9-5.3-11.9-11.9v-91c0-6.6,5.3-11.9,11.9-11.9s11.9,5.3,11.9,11.9Z"/>
+    <path class="cls-5" d="M526.7,542.5v39.2c0,6.6-5.3,11.9-11.9,11.9s-11.9-5.3-11.9-11.9v-39.2c0-6.6,5.3-11.9,11.9-11.9s11.9,5.3,11.9,11.9Z"/>
+  </g>
+  <text class="cls-6" transform="translate(597.33 611.75)"><tspan class="cls-2" x="0" y="0">P</tspan><tspan class="cls-3" x="139.97" y="0">RO</tspan><tspan class="cls-1" x="441.75" y="0">К</tspan><tspan class="cls-4" x="581.56" y="0">ЛИП</tspan></text>
+</svg>
