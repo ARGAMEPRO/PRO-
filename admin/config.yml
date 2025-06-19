@@ -169,9 +169,3 @@ collections:
                 }
               - { label: "Краткое описание", name: "excerpt", widget: "text" }
               - { label: "Полный текст", name: "body", widget: "markdown" }
-              - {
-                  label: "Slug (URL-адрес)",
-                  name: "slug",
-                  widget: "string",
-                  hint: "Уникальная часть URL для этого поста (например: 'moj-post')"
-                }
