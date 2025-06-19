@@ -8,6 +8,26 @@
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(102786139, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/102786139" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
     <style>
         body {
             margin: 0;
@@ -98,14 +118,26 @@
         }
 
         @keyframes neonFlicker1 {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+
+            0%,
+            19%,
+            21%,
+            23%,
+            25%,
+            54%,
+            56%,
+            100% {
                 opacity: 0.8;
                 text-shadow:
                     0 0 4px #5b5a5a,
                     0 0 8px #5b5b97,
                     0 0 12px #35354f;
             }
-            20%, 22%, 24%, 55% {
+
+            20%,
+            22%,
+            24%,
+            55% {
                 opacity: 0.4;
                 text-shadow:
                     0 0 2px #474646,
@@ -114,14 +146,28 @@
         }
 
         @keyframes neonFlicker2 {
-            0%, 12%, 14%, 16%, 18%, 30%, 32%, 34%, 100% {
+
+            0%,
+            12%,
+            14%,
+            16%,
+            18%,
+            30%,
+            32%,
+            34%,
+            100% {
                 opacity: 0.9;
                 text-shadow:
                     0 0 4px #626161,
                     0 0 8px #dbdbff,
                     0 0 12px #adadfa;
             }
-            13%, 15%, 17%, 31%, 33% {
+
+            13%,
+            15%,
+            17%,
+            31%,
+            33% {
                 opacity: 0.3;
                 text-shadow:
                     0 0 2px #787777;
@@ -129,14 +175,28 @@
         }
 
         @keyframes neonFlicker3 {
-            0%, 15%, 17%, 19%, 21%, 38%, 40%, 42%, 100% {
+
+            0%,
+            15%,
+            17%,
+            19%,
+            21%,
+            38%,
+            40%,
+            42%,
+            100% {
                 opacity: 0.7;
                 text-shadow:
                     0 0 4px #545353,
                     0 0 8px #cdcdff,
                     0 0 12px #a6a6fe;
             }
-            16%, 18%, 20%, 39%, 41% {
+
+            16%,
+            18%,
+            20%,
+            39%,
+            41% {
                 opacity: 0.2;
                 text-shadow:
                     0 0 1px #fff;
@@ -144,14 +204,33 @@
         }
 
         @keyframes neonFlicker4 {
-            0%, 10%, 20%, 30%, 40%, 60%, 70%, 80%, 90%, 100% {
+
+            0%,
+            10%,
+            20%,
+            30%,
+            40%,
+            60%,
+            70%,
+            80%,
+            90%,
+            100% {
                 opacity: 0.6;
                 text-shadow:
                     0 0 4px #393838,
                     0 0 8px #c2c2fa,
                     0 0 12px #9d9dfa;
             }
-            5%, 15%, 25%, 35%, 45%, 65%, 75%, 85%, 95% {
+
+            5%,
+            15%,
+            25%,
+            35%,
+            45%,
+            65%,
+            75%,
+            85%,
+            95% {
                 opacity: 0.3;
                 text-shadow:
                     0 0 2px #fff,
@@ -163,6 +242,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -244,7 +324,7 @@
             transform: translateY(-3px);
             animation: none;
             box-shadow: 0 15px 40px rgba(52, 96, 254, 0.2),
-                        0 0 25px rgba(255, 255, 255, 0.1);
+                0 0 25px rgba(255, 255, 255, 0.1);
         }
 
         .btn:hover::before {
@@ -263,12 +343,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 30%, 
-                                      rgba(52, 96, 254, 0.1) 0%, 
-                                      transparent 50%),
-                        radial-gradient(circle at 80% 70%, 
-                                      rgba(94, 52, 254, 0.1) 0%, 
-                                      transparent 50%);
+            background: radial-gradient(circle at 20% 30%,
+                    rgba(52, 96, 254, 0.1) 0%,
+                    transparent 50%),
+                radial-gradient(circle at 80% 70%,
+                    rgba(94, 52, 254, 0.1) 0%,
+                    transparent 50%);
             animation: bgPulse 15s infinite alternate;
             z-index: -1;
         }
@@ -278,9 +358,11 @@
                 opacity: 0.3;
                 transform: scale(1);
             }
+
             50% {
                 opacity: 0.5;
             }
+
             100% {
                 opacity: 0.3;
                 transform: scale(1.05);
@@ -291,6 +373,7 @@
             .content {
                 overflow: hidden;
             }
+
             h1 {
                 font-size: 2.7rem;
             }
