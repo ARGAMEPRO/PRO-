@@ -1,13 +1,3 @@
 {
-  "concerts": [
-    {
-      "type": "Тусовка",
-      "date": "2025-06-19T05:31:58.658Z",
-      "title": "1 Июля",
-      "location": "поток",
-      "image": "/assets/uploads/g4.jpg",
-      "price": 500,
-      "registrationLink": "https://t.me/alex_besedin"
-    }
-  ]
+  "concerts": []
 }
