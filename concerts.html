@@ -101,7 +101,7 @@
                         card.innerHTML = `
                     <div class="concert-image" style="background-image: url('${concert.image}')">
                         ${concert.type ? `<div class="event-type-tag">${concert.type}</div>` : ''}
-                        ${concert.type === 'Тусовка' && concert.price ? `<div class="price-tag">${concert.price} ₽</div>` : ''}
+                        ${concert.type === 'event' && concert.price ? `<div class="price-tag">${concert.price} ₽</div>` : ''}
                     </div>
                     <div class="concert-glass">
                         <h3 class="concert-title">${concert.title}</h3>
