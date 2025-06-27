@@ -167,11 +167,13 @@ collections:
                   widget: "list",
                   field: { label: "Изображение", name: "image", widget: "image" }
                 }
-              - { label: "Краткое описание", name: "excerpt", widget: "text", hint: "то что видно сразу" }
+              - { label: "Краткое описание", name: "excerpt", widget: "markdown", hint: "то что видно сразу" }
               - { label: "Полный текст", name: "body", widget: "markdown", hint: "то что не видно сразу" }
               - {
                   label: "Slug (URL-адрес)",
                   name: "slug",
                   widget: "string",
-                  hint: "Можете написать сюда что угодно, это просто заглушка чтобы что то вообще работало"
+                  hint: "Это идентификатор поста(напишите что угодно, ТОЛЬКО НЕ ПОВТОРЯЙТЕ В РАЗНЫХ ПОСТАХ)"
                 }
+              - { label: "Подпись кнопки", name: "buttonLabel", widget: "string", required: false }
+              - { label: "Ссылка для кнопки", name: "buttonUrl", widget: "string", required: false }

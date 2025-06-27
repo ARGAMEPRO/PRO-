@@ -32,6 +32,8 @@
         <div><img src="https://mc.yandex.ru/watch/102786139" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body class="home-page">
@@ -631,12 +633,11 @@
                     const modal = document.getElementById('post-modal');
                     const modalBody = modal.querySelector('.modal-body');
                     const modalClose = modal.querySelector('.modal-close');
+                    let allPosts = [];
 
                     if (typeof Swiper === 'undefined') {
-                        console.error('Swiper не подключен! Добавьте скрипт Swiper');
+                        console.error('Swiper не подключен!');
                     }
-
-                    let allPosts = [];
 
                     fetch('data/posts.json')
                         .then(response => {
@@ -658,51 +659,45 @@
                         });
 
                     function renderPosts(posts) {
-                        let html = `
-                <h2 class="posts-title">Последние публикации</h2>
-                <div class="posts-grid">
-            `;
+                        let html = `<h2 class="posts-title">Последние публикации</h2><div class="posts-grid">`;
 
                         posts.forEach(post => {
                             const date = post.date ? new Date(post.date).toLocaleDateString('ru-RU', {
-                                day: 'numeric',
-                                month: 'long',
-                                year: 'numeric'
+                                day: 'numeric', month: 'long', year: 'numeric'
                             }) : '';
 
                             const imagesHTML = post.images?.length ? `
-                    <div class="post-images swiper">
-                        <div class="swiper-wrapper">
-                            ${post.images.map(img => `
-                                <div class="swiper-slide">
-                                    <img src="${img}" alt="${post.title}" loading="lazy">
-                                </div>
-                            `).join('')}
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                <div class="post-images swiper">
+                    <div class="swiper-wrapper">
+                        ${post.images.map(img => `
+                            <div class="swiper-slide">
+                                <img src="${img.image}" alt="${post.title}" loading="lazy">
+                            </div>
+                        `).join('')}
                     </div>
-                ` : '';
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            ` : '';
 
                             html += `
-                    <article class="post-card">
-                        ${imagesHTML}
-                        <div class="post-content">
-                            ${date ? `<p class="post-date">${date}</p>` : ''}
-                            <h3 class="post-title">${post.title}</h3>
-                            <div class="post-text-content">
-                                <p class="post-excerpt">${post.excerpt || ''}</p>
-                                <button class="read-more" data-slug="${post.slug}">Читать далее</button>
-                            </div>
+                <article class="post-card">
+                    ${imagesHTML}
+                    <div class="post-content">
+                        ${date ? `<p class="post-date">${date}</p>` : ''}
+                        <h3 class="post-title">${post.title}</h3>
+                        <div class="post-text-content">
+                            <div class="post-excerpt">${marked.parse(post.excerpt || '')}</div>
+                            <button class="read-more" data-slug="${post.slug}">Читать далее</button>
                         </div>
-                    </article>
-                `;
+                    </div>
+                </article>
+            `;
                         });
 
                         html += `</div>`;
                         postsContainer.innerHTML = html;
 
-                        // Назначаем обработчики на кнопки
                         document.querySelectorAll('.read-more').forEach(button => {
                             button.addEventListener('click', (e) => {
                                 const slug = e.currentTarget.getAttribute('data-slug');
@@ -713,7 +708,6 @@
 
                     function initSliders() {
                         if (typeof Swiper === 'undefined') return;
-
                         document.querySelectorAll('.post-images.swiper').forEach(el => {
                             new Swiper(el, {
                                 loop: true,
@@ -728,47 +722,49 @@
                     function openModal(slug) {
                         const post = allPosts.find(p => p.slug === slug);
                         if (!post) return;
+
                         const date = post.date ? new Date(post.date).toLocaleDateString('ru-RU', {
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric'
+                            day: 'numeric', month: 'long', year: 'numeric'
                         }) : '';
 
                         const imagesHTML = post.images?.length ? `
-        <div class="post-images swiper">
-            <div class="swiper-wrapper">
-                ${post.images.map(img => `
-                    <div class="swiper-slide">
-                        <img src="${img}" alt="${post.title}" loading="lazy">
-                    </div>
-                `).join('')}
+            <div class="post-images swiper">
+                <div class="swiper-wrapper">
+                    ${post.images.map(img => `
+                        <div class="swiper-slide">
+                            <img src="${img.image}" alt="${post.title}" loading="lazy">
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-    ` : '';
+        ` : '';
 
                         modalBody.innerHTML = `
-        ${imagesHTML}
-        <div class="modal-text-content">
-            <h2>${post.title}</h2>
-            ${date ? `<p class="post-date">${date}</p>` : ''}
-            ${post.excerpt ? `<p class="post-excerpt-modal">${post.excerpt}</p>` : ''}
-            <div class="post-full-content">
-                <p>${post.body || 'Полный текст не найден.'}</p>
+            ${imagesHTML}
+            <div class="modal-text-content">
+                <h2>${post.title}</h2>
+                ${date ? `<p class="post-date">${date}</p>` : ''}
+                ${post.excerpt ? `<div class="post-excerpt-modal">${marked.parse(post.excerpt)}</div>` : ''}
+                <div class="post-full-content">${marked.parse(post.body || 'Полный текст не найден.')}</div>
+                ${post.buttonUrl && post.buttonLabel ? `
+                    <a class="post-action-button" href="${post.buttonUrl}" target="_blank" rel="noopener noreferrer">
+                        ${post.buttonLabel}
+                    </a>
+                ` : ''}
             </div>
-        </div>
-    `;
+        `;
 
                         modal.classList.remove('hidden');
                         modal.scrollTo(0, 0);
+
                         if (window.innerWidth <= 768) {
                             setTimeout(() => {
                                 modal.scrollIntoView({ behavior: 'smooth', block: 'start' });
                             }, 50);
                         }
 
-                        // Инициализация Swiper
                         if (typeof Swiper !== 'undefined' && post.images?.length) {
                             new Swiper(modalBody.querySelector('.post-images.swiper'), {
                                 loop: true,
@@ -794,15 +790,33 @@
 
                     function showNoPostsMessage() {
                         postsContainer.innerHTML = `
-                <div class="no-posts-message">
-                    <h2 class="posts-title">Последние публикации</h2>
-                    <p>Скоро здесь появятся новые посты. Следите за обновлениями!</p>
-                </div>
-            `;
+            <div class="no-posts-message">
+                <h2 class="posts-title">Последние публикации</h2>
+                <p>Скоро здесь появятся новые посты. Следите за обновлениями!</p>
+            </div>
+        `;
                     }
                 });
             </script>
 
+            <style>
+                .post-action-button {
+                    display: inline-block;
+                    margin-top: 1.5rem;
+                    padding: 0.75rem 1.5rem;
+                    background-color: #1a73e8;
+                    color: white;
+                    text-decoration: none;
+                    font-weight: bold;
+                    border-radius: 8px;
+                    transition: background-color 0.3s ease;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                }
+
+                .post-action-button:hover {
+                    background-color: #1558b0;
+                }
+            </style>
 
             <div class="featured-container" id="featured-events">
                 <!-- Блок с главными мероприятиями будет загружаться через JS -->
