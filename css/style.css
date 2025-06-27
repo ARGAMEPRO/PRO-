@@ -471,7 +471,7 @@ body>main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     z-index: 1000;
     opacity: 0;
@@ -498,7 +498,8 @@ body>main {
     padding: 30px;
     width: 100%;
     max-width: 800px;
-    margin: auto; /* Автоматические отступы */
+    margin: auto;
+    /* Автоматические отступы */
     border-radius: 24px;
     position: relative;
     box-sizing: border-box;
@@ -508,17 +509,17 @@ body>main {
 }
 
 .modal-close {
-    position: sticky; 
+    position: sticky;
     top: 15px;
     right: 15px;
-    float: right; 
+    float: right;
     font-size: 28px;
     cursor: pointer;
     color: #333;
     font-weight: bold;
     transition: color 0.3s ease;
     z-index: 1001;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     width: 40px;
     height: 40px;
     display: flex;
@@ -526,15 +527,17 @@ body>main {
     justify-content: center;
     border-radius: 50%;
     border: 1px solid #eee;
-    margin-left: auto; /* Для выравнивания вправо */
-    margin-bottom: -40px; /* Компенсируем float */
+    margin-left: auto;
+    /* Для выравнивания вправо */
+    margin-bottom: -40px;
+    /* Компенсируем float */
 }
 
 /* Остальные стили остаются без изменений */
 
 .modal-close:hover {
     color: #e74c3c;
-    background: rgba(255,255,255,1);
+    background: rgba(255, 255, 255, 1);
 }
 
 /* Стили для контента модального окна */
@@ -545,8 +548,10 @@ body>main {
 }
 
 .modal-text-content {
-    max-width: 100%; /* Гарантирует, что текст не выйдет за границы */
-    overflow-wrap: break-word; /* Для надёжного переноса */
+    max-width: 100%;
+    /* Гарантирует, что текст не выйдет за границы */
+    overflow-wrap: break-word;
+    /* Для надёжного переноса */
 }
 
 .modal-text-content h2 {
@@ -573,23 +578,26 @@ body>main {
 /* Адаптив для мобильных */
 @media (max-width: 768px) {
     .modal {
-        align-items: flex-start; /* Выравнивание по верху */
+        align-items: flex-start;
+        /* Выравнивание по верху */
         padding-top: 20px;
     }
-    
+
     .modal-content {
         width: 100%;
         max-width: 100%;
-        border-radius: 16px; /* Было 0, оставляем скругления */
+        border-radius: 16px;
+        /* Было 0, оставляем скругления */
         margin: 0;
         padding: 20px;
         padding-top: 50px;
         max-height: calc(100vh - 40px);
         overflow-y: auto;
     }
-    
+
     .modal-close {
-        position: fixed; /* Фиксированная позиция */
+        position: fixed;
+        /* Фиксированная позиция */
         top: 15px;
         right: 15px;
         font-size: 24px;
@@ -1246,12 +1254,16 @@ body>main {
     background-position: center;
     z-index: 1;
 }
+
 .primer {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px; /* Отступ между карточками */
-    padding: 0 20px 20px 20px; /* Как ты хотел — без отступа сверху */
-    justify-content: center; /* Выравнивание по центру, можно заменить на space-between */
+    gap: 30px;
+    /* Отступ между карточками */
+    padding: 0 20px 20px 20px;
+    /* Как ты хотел — без отступа сверху */
+    justify-content: center;
+    /* Выравнивание по центру, можно заменить на space-between */
 }
 
 .clip-glass {
@@ -1916,19 +1928,23 @@ body>main {
 .partner::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-radius: 25px;
     padding: 2px;
     background: linear-gradient(270deg,
-        #3300ff,
-        #1100ff,
-        #2d42ff,
-        #1249ff,
-        #0080ff,
-        #3300ff
-    );
-    background-size: 500% 500%; /* чуть меньше, чтобы движение не было слишком резким */
-    animation: gradientMove 40s linear infinite; /* медленно и плавно */
+            #3300ff,
+            #1100ff,
+            #2d42ff,
+            #1249ff,
+            #0080ff,
+            #3300ff);
+    background-size: 500% 500%;
+    /* чуть меньше, чтобы движение не было слишком резким */
+    animation: gradientMove 40s linear infinite;
+    /* медленно и плавно */
     z-index: -1;
 
     -webkit-mask:
@@ -1943,6 +1959,7 @@ body>main {
     0% {
         background-position: 0% 50%;
     }
+
     100% {
         background-position: 100% 50%;
     }
@@ -1999,8 +2016,13 @@ body>main {
 }
 
 @keyframes textGlow {
-    from { text-shadow: 0 0 5px rgba(58, 134, 255, 0.5); }
-    to { text-shadow: 0 0 10px rgba(58, 134, 255, 0.8); }
+    from {
+        text-shadow: 0 0 5px rgba(58, 134, 255, 0.5);
+    }
+
+    to {
+        text-shadow: 0 0 10px rgba(58, 134, 255, 0.8);
+    }
 }
 
 /* Адаптация для мобильных устройств */
@@ -2010,17 +2032,17 @@ body>main {
         letter-spacing: 5px;
         margin-bottom: 30px;
     }
-    
+
     .partners-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 20px;
     }
-    
+
     .partner-logo {
         width: 120px;
         height: 120px;
     }
-    
+
     .partner-name {
         font-size: 16px;
     }
@@ -2066,8 +2088,10 @@ body>main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 700px; /* например, ограничим максимальную ширину */
-    margin: 0 auto; /* по центру */
+    max-width: 700px;
+    /* например, ограничим максимальную ширину */
+    margin: 0 auto;
+    /* по центру */
 }
 
 .img-wrapper-ab {
@@ -2500,7 +2524,8 @@ body>main {
 }
 
 .content-box #contacts {
-  align-self: stretch; /* "Вырезает" из центровки, растягивается на всю ширину */
+    align-self: stretch;
+    /* "Вырезает" из центровки, растягивается на всю ширину */
 }
 
 .social-icons a {
@@ -2566,12 +2591,18 @@ body>main {
 
 .floating-label input,
 .floating-label textarea {
-    width: 100%; /* чтобы заняли всю ширину контейнера */
-    max-width: 100%; /* чтобы не вылезали за пределы */
-    box-sizing: border-box; /* чтобы padding и border не ломали ширину */
-    padding: 12px 15px; /* можно чуть добавить отступы, чтобы не слипались с лейблом */
-    background: transparent; /* если надо, чтоб не конфликтовало с дизайном */
-    border: 1px solid #ccc; /* или свой стиль */
+    width: 100%;
+    /* чтобы заняли всю ширину контейнера */
+    max-width: 100%;
+    /* чтобы не вылезали за пределы */
+    box-sizing: border-box;
+    /* чтобы padding и border не ломали ширину */
+    padding: 12px 15px;
+    /* можно чуть добавить отступы, чтобы не слипались с лейблом */
+    background: transparent;
+    /* если надо, чтоб не конфликтовало с дизайном */
+    border: 1px solid #ccc;
+    /* или свой стиль */
     border-radius: 8px;
     font-size: 16px;
     color: #fff;
