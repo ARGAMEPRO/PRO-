@@ -161,19 +161,11 @@ collections:
             fields:
               - { label: "Заголовок", name: "title", widget: "string" }
               - { label: "Дата публикации", name: "date", widget: "datetime" }
-              - {
-                  label: "Изображения",
-                  name: "images",
-                  widget: "list",
-                  field: { label: "Изображение", name: "image", widget: "image" }
-                }
-              - { label: "Краткое описание", name: "excerpt", widget: "markdown", hint: "то что видно сразу" }
-              - { label: "Полный текст", name: "body", widget: "markdown", hint: "то что не видно сразу" }
-              - {
-                  label: "Slug (URL-адрес)",
-                  name: "slug",
-                  widget: "string",
-                  hint: "Это идентификатор поста(напишите что угодно, ТОЛЬКО НЕ ПОВТОРЯЙТЕ В РАЗНЫХ ПОСТАХ)"
-                }
-              - { label: "Подпись кнопки", name: "buttonLabel", widget: "string", required: false }
-              - { label: "Ссылка для кнопки", name: "buttonUrl", widget: "string", required: false }
+              - label: "Изображения"
+                name: "images"
+                widget: "list"
+                fields:
+                  - { label: "Изображение", name: "image", widget: "image" }
+              - { label: "Краткое описание", name: "excerpt", widget: "markdown" }
+              - { label: "Полный текст", name: "body", widget: "markdown" }
+              - { label: "Slug", name: "slug", widget: "string" }
