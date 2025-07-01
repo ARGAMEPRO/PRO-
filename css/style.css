@@ -967,6 +967,7 @@ body>main {
         letter-spacing: 20px;
         text-align: center;
         align-self: center;
+        margin-top: 5px;
     }
 
     .hero-tagline {
