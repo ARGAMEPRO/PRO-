@@ -138,7 +138,7 @@
                     .then(data => {
                         lectures = data.lectures || [];
                         if (lectures.length === 0) {
-                            container.innerHTML = '<p>Мероприятий пока нет.</p>';
+                            container.innerHTML = '<p>Денег нет - лекций нет</p>';
                             pageInfo.textContent = 'Страница 0 из 0';
                             prevBtn.disabled = true;
                             nextBtn.disabled = true;
