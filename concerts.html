@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROКЛИП - Концерты</title>
+    <title>PROКЛИП - Шоу</title>
     <link rel="icon" href="assets/logo(mini).svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
@@ -42,6 +42,7 @@
             <nav class="buttoms" id="menu">
                 <a href="clips.html">proклипы</a>
                 <a href="concerts.html">proшоу</a>
+                <a href="events.html">proevent</a>
                 <a href="lectures.html">proлекции</a>
                 <a href="about.html">proпроект</a>
                 <a href="about-author.html">proавтора</a>
@@ -53,6 +54,7 @@
             <ul class="menu-list">
                 <li><a href="clips.html" class="menu-item">proклипы</a></li>
                 <li><a href="concerts.html" class="menu-item">proшоу</a></li>
+                <li><a href="events.html" class="menu-item">proevent</a></li>
                 <li><a href="lectures.html" class="menu-item">proлекции</a></li>
                 <li><a href="about.html" class="menu-item">proпроект</a></li>
                 <li><a href="about-author.html" class="menu-item">proавтора</a></li>
@@ -87,7 +89,7 @@
                     const pagedConcerts = concerts.slice(start, end);
 
                     if (pagedConcerts.length === 0) {
-                        container.innerHTML = '<p>Мероприятий нет.</p>';
+                        container.innerHTML = '<p>Концертов нет.</p>';
                         pageInfo.textContent = 'Страница 0 из 0';
                         prevBtn.disabled = true;
                         nextBtn.disabled = true;
@@ -101,7 +103,6 @@
                         card.innerHTML = `
                     <div class="concert-image" style="background-image: url('${concert.image}')">
                         ${concert.type ? `<div class="event-type-tag">${concert.type}</div>` : ''}
-                        ${concert.type === 'event' && concert.price ? `<div class="price-tag">${concert.price} ₽</div>` : ''}
                     </div>
                     <div class="concert-glass">
                         <h3 class="concert-title">${concert.title}</h3>
@@ -146,8 +147,10 @@
                     .then(res => res.json())
                     .then(data => {
                         concerts = data.concerts || [];
+                        // Фильтруем только концерты (type === "Концерт")
+                        concerts = concerts.filter(concert => concert.type === "Концерт");
                         if (concerts.length === 0) {
-                            container.innerHTML = '<p>Денег нет - шоу нет.</p>';
+                            container.innerHTML = '<p>Концертов пока нет.</p>';
                             pageInfo.textContent = 'Страница 0 из 0';
                             prevBtn.disabled = true;
                             nextBtn.disabled = true;
@@ -157,54 +160,10 @@
                     })
                     .catch(err => {
                         console.error('Ошибка загрузки:', err);
-                        container.innerHTML = '<p>Не удалось загрузить мероприятия.</p>';
+                        container.innerHTML = '<p>Не удалось загрузить концерты.</p>';
                     });
             });
         </script>
-
-        <style>
-            .price-tag {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                background: rgba(255, 255, 255, 0.2);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border-radius: 10px;
-                padding: 8px 15px;
-                color: white;
-                font-weight: bold;
-                font-size: 0.9em;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-            }
-
-            .event-type-tag {
-                position: absolute;
-                top: 15px;
-                left: 15px;
-                background: rgba(255, 255, 255, 0.2);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border-radius: 10px;
-                padding: 8px 15px;
-                color: white;
-                font-weight: bold;
-                font-size: 0.9em;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-            }
-
-            @media (max-width: 768px) {
-                .event-type-tag {
-                    font-size: 0.4em;
-                }
-
-                .price-tag {
-                    font-size: 0.4em;
-                }
-            }
-        </style>
 
         <div class="pagination">
             <button id="prev-btn" disabled>← Назад</button>
@@ -218,6 +177,7 @@
             <div class="footer-left">
                 <a href="clips.html">клипы</a>
                 <a href="concerts.html">шоу</a>
+                <a href="events.html">ивенты</a>
                 <a href="lectures.html">лекции</a>
                 <a href="about.html">о проекте</a>
                 <a href="about-author.html">об авторе</a>

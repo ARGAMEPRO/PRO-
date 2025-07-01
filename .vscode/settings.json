@@ -1,5 +1,6 @@
 {
     "yaml.schemas": {
         "https://json.schemastore.org/netlify.json": "file:///d%3A/Documents/GitHub/PRO-/admin/config.yml"
-    }
+    },
+    "livePreview.defaultPreviewPath": "/events.html"
 }

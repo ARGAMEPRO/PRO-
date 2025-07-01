@@ -10,12 +10,12 @@ collections:
   - label: "Шоу"
     name: "concerts"
     files:
-      - label: "Список мероприятий"
+      - label: "Список концертов"
         name: "concerts"
         file: "data/concerts.json"
         format: "json"
         fields:
-          - label: "Шоу"
+          - label: "Концерты"
             name: "concerts"
             widget: "list"
             summary: "{{title}} — {{date}}"
@@ -25,14 +25,46 @@ collections:
                   label: "Тип мероприятия", 
                   name: "type", 
                   widget: "select", 
-                  options: ["Концерт", "event",],
+                  options: ["Концерт"],
                   default: "Концерт"
                 }
               - { label: "Дата и время", name: "date", widget: "datetime" }
               - { label: "Место проведения", name: "location", widget: "string" }
               - { label: "Афиша", name: "image", widget: "image" }
               - { 
-                  label: "Цена (только для тусовок, ₽)", 
+                  label: "Ссылка на регистрацию", 
+                  hint: "Если ссылка не указана: регистрация не доступна",
+                  name: "registrationLink", 
+                  widget: "string", 
+                  required: false 
+                }
+
+  - label: "Мероприятия"
+    name: "events"
+    files:
+      - label: "Список мероприятий"
+        name: "events"
+        file: "data/events.json"
+        format: "json"
+        fields:
+          - label: "Мероприятия"
+            name: "events"
+            widget: "list"
+            summary: "{{title}} — {{date}}"
+            fields:
+              - { label: "Название", name: "title", widget: "string" }
+              - { 
+                  label: "Тип мероприятия", 
+                  name: "type", 
+                  widget: "select", 
+                  options: ["event"],
+                  default: "event"
+                }
+              - { label: "Дата и время", name: "date", widget: "datetime" }
+              - { label: "Место проведения", name: "location", widget: "string" }
+              - { label: "Афиша", name: "image", widget: "image" }
+              - { 
+                  label: "Цена (₽)", 
                   name: "price", 
                   widget: "number", 
                   required: false,
