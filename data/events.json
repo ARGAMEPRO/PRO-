@@ -1,6 +1,15 @@
 {
   "events": [
     {
+      "title": "PROКЛИП: Акустический вечер",
+      "type": "event",
+      "date": "2025-08-30T19:30:00",
+      "location": "Кафе 'Джаз', Курск",
+      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "price": 1200000,
+      "registrationLink": "https://example.com/acoustic-evening"
+    },
+    {
       "title": "Музыкальный фестиваль PROКЛИП",
       "type": "event",
       "date": "2025-08-15T19:00:00",
@@ -26,24 +35,6 @@
       "image": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       "price": 500,
       "registrationLink": ""
-    },
-    {
-      "title": "PROКЛИП: Встреча с артистами",
-      "type": "event",
-      "date": "2025-10-05T18:00:00",
-      "location": "Книжный магазин 'Знание', Курск",
-      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      "price": 0,
-      "registrationLink": "https://example.com/meet-artists"
-    },
-    {
-      "title": "PROКЛИП: Акустический вечер",
-      "type": "event",
-      "date": "2025-08-30T19:30:00",
-      "location": "Кафе 'Джаз', Курск",
-      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      "price": 1200,
-      "registrationLink": "https://example.com/acoustic-evening"
     }
   ]
 }
