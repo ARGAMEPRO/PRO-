@@ -61,6 +61,21 @@
       "slug": "proshou-koncerty",
       "buttonLabel": "ПОСТ В ТГК",
       "buttonUrl": "https://t.me/prklip/63"
+    },
+    {
+      "date": "2025-07-01T13:18:02.054Z",
+      "title": "лол",
+      "images": [
+        {
+          "image": "/assets/uploads/1002457379.jpg"
+        },
+        {
+          "image": "/assets/uploads/1002461388.jpg"
+        }
+      ],
+      "excerpt": "Лол",
+      "body": "Нет",
+      "slug": "Нет"
     }
   ]
 }
