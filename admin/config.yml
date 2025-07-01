@@ -168,4 +168,6 @@ collections:
                   - { label: "Изображение", name: "image", widget: "image" }
               - { label: "Краткое описание", name: "excerpt", widget: "markdown" }
               - { label: "Полный текст", name: "body", widget: "markdown" }
-              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Slug (URL-адрес)", name: "slug", widget: "string" }
+              - { label: "Текст кнопки", name: "buttonLabel", widget: "string", required: false }
+              - { label: "Ссылка кнопки", name: "buttonUrl", widget: "string", required: false }
