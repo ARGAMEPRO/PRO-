@@ -5,23 +5,6 @@
   <title>АДМИНИСТРАТОР</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js" defer></script>
-  <script>
-    // Обработка подтверждения перед загрузкой CMS
-    document.addEventListener('DOMContentLoaded', function() {
-      const token = new URLSearchParams(window.location.search).get('confirmation_token');
-      if (token) {
-        window.netlifyIdentity.on('confirm', () => {
-          window.location.href = '/admin/';
-        });
-        window.netlifyIdentity.confirm(token);
-      } else {
-        // Загружаем CMS только если нет токена подтверждения
-        const cmsScript = document.createElement('script');
-        cmsScript.src = 'https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js';
-        document.head.appendChild(cmsScript);
-      }
-    });
-  </script>
 </head>
 <body>
   <div id="nc-root"></div>
