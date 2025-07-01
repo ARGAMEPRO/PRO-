@@ -29,6 +29,17 @@
     </noscript>
     <!-- /Yandex.Metrika counter -->
     <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(2px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -253,7 +264,6 @@
             padding: 0 20px;
             position: relative;
             z-index: 1;
-            backdrop-filter: blur(2px);
         }
 
         h1 {
@@ -395,6 +405,7 @@
 </head>
 
 <body>
+    <div class="overlay"></div>
     <img src="assets/logo(mini).svg" alt="PROКЛИП" class="logo-mini">
 
     <div class="tape">
